@@ -174,11 +174,11 @@
         return m;
     };
 
-    var botCreator = "Matthew aka. Yemasthui";
+    var botCreator = "effewre";
     var botCreatorIDs = [];
 
     var basicBot = {
-        version: "2.1.4",
+        version: "1.0",
         status: false,
         name: "LMR-bot",
         loggedInID: null,
