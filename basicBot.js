@@ -180,7 +180,7 @@
     var basicBot = {
         version: "2.1.4",
         status: false,
-        name: "basicBot",
+        name: "LMR-bot",
         loggedInID: null,
         scriptLink: "https://rawgit.com/effewre/peace/master/basicBot.js",
         cmdLink: "",
@@ -2553,7 +2553,7 @@
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!basicBot.commands.executable(this.rank, chat)) return void (0);
                     else {
-                        API.sendChat('/me Šo botu ir izveidojis ' + botCreator + '.');
+                        API.sendChat('/me So botu ir izveidojis ' + botCreator + '.');
                     }
                 }
             },
