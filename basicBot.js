@@ -1826,7 +1826,7 @@
                 }
             },
 
-            /*fbCommand: {
+            fbCommand: {
                 command: 'fb',
                 rank: 'user',
                 type: 'exact',
@@ -1838,7 +1838,7 @@
                             API.sendChat(subChat(basicBot.chat.facebook, {link: basicBot.settings.fbLink}));
                     }
                 }
-            }**/,
+            },
 
             filterCommand: {
                 command: 'filter',
