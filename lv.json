@@ -8,7 +8,7 @@
     "online": "%%BOTNAME%% v%%VERSION%% ir tiešsaistē!",
 	"welcome": "Čau! Prieks, ka ienāci šeit %%NAME%%",
     "welcomeback": "Esi sveicināts/-ta atpakaļ %%NAME%%",
-    "songknown": ":repeat: Sī dziesma ir spēlēta %%PLAYS%% reizes pēdējās %%TIMETOTAL%%, pēdējā reize bija %%LASTTIME%% atpakaļ. :repeat:",
+    "songknown": ":repeat: Šī dziesma ir spēlēta %%PLAYS%% reizes pēdējās %%TIMETOTAL%%, pēdējā reize bija %%LASTTIME%% atpakaļ. :repeat:",
     "timelimit": "@%%NAME%%, jūsu dziesma ir garāka par maksimāli pieļaujamajām %%MAXLENGTH%% minūtēm.",
     "permissionownsong": ":up: @%%NAME%% has permission to play their own production!",
     "isblacklisted": "This track is on the %%BLACKLIST%% blacklist! Skipping...",
