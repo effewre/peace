@@ -6,44 +6,30 @@
     "greyuser": "Tikai managers, cohost and host var palais botu.",
     "bouncer": "The bot can't move people when it's run as a bouncer.",
     "online": "%%BOTNAME%% v%%VERSION%% ir tiešsaistē!",
-
-
-    "welcome": "Čau! Prieks, ka ienāci šeit %%NAME%%",
+	"welcome": "Čau! Prieks, ka ienāci šeit %%NAME%%",
     "welcomeback": "Esi sveicināts/-ta atpakaļ %%NAME%%",
     "songknown": ":repeat: Sī dziesma ir spēlēta %%PLAYS%% reizes pēdējās %%TIMETOTAL%%, pēdējā reize bija %%LASTTIME%% atpakaļ. :repeat:",
     "timelimit": "@%%NAME%%, jūsu dziesma ir garāka par maksimāli pieļaujamajām %%MAXLENGTH%% minūtēm.",
     "permissionownsong": ":up: @%%NAME%% has permission to play their own production!",
     "isblacklisted": "This track is on the %%BLACKLIST%% blacklist! Skipping...",
-
-
-    "isopen": "Rulete ir sākusies. Raksti !join lai piedalītos!",
+	"isopen": "Rulete ir sākusies. Raksti !join lai piedalītos!",
     "winnerpicked": "Uzvarētājs ir izvēlēts! @%%NAME%% tiek pārvietos uz %%POSITION%% pozīciju.",
-
-
-    "alreadyadding": "User is already being added! Changed the desired position to %%POSITION%%.",
+	"alreadyadding": "User is already being added! Changed the desired position to %%POSITION%%.",
     "adding": "Pievienoja @%%NAME%% rindai. Esošā pozīcija: %%POSITION%%.",
-
-
-    "usernotfound": "Lietotājs nav atrasts.",
+	"usernotfound": "Lietotājs nav atrasts.",
     "notdisconnected": "@%%NAME%% neatslēdzās šajā laikā.",
     "noposition": "Nav atrasta iepriekšējā pozīcija. Waitlist ir jāatjaunojas vienu reizi, lai to izdarītu.",
     "toolongago": "@%%NAME%%'s iepriekšējā atslēgšanās bija pārāk ilgu laiku atpakaļ: %%TIME%%.",
     "valid": "@%%NAME%% atslēdzās %%TIME%% atpakaļ, jābūt pozīcijā %%POSITION%%.",
-
-
-    "warning1": "@%%NAME%%, jūs esat bijis/-usi afk %%TIME%%, atbildiet 2 minūšu laikā, vai tiksiet noņemts no waitlist",
+	"warning1": "@%%NAME%%, jūs esat bijis/-usi afk %%TIME%%, atbildiet 2 minūšu laikā, vai tiksiet noņemts no waitlist",
     "warning2": "@%%NAME%%, jūs drīz tiksiet noņemts no waitlista, ja neatbildēsiet.",
     "afkremove": "@%%NAME%%, jūs tikaāt noņemts no waitlista dēļ afk %%TIME%%. Jūs bijāt %%POSITION%% pozīcijā. Čato vismaz pēdējās %%MAXIMUMAFK%% minūtes, ja vēlies spēlēt dziesmu",
-
-
-    "caps": "@%%NAME%%, izrauj ārā caps.",
+	"caps": "@%%NAME%%, izrauj ārā caps.",
     "askskip": "@%%NAME%%, beidz prasīt skip",
     "spam": "@%%NAME%%, beidz spamot.",
     "roomadvertising": "@%%NAME%%, neievieto citu istabu linkus",
     "adfly": "@%%NAME%%, lūdzu nomaini savu autowoot programuu. Mēs iesakām OrigemWoot: http://lmr.etr.lv/autowoot",
-
-
-    "invalidtime": "[@%%NAME%%] Nepareizs laiks.",
+	"invalidtime": "[@%%NAME%%] Nepareizs laiks.",
     "nouserspecified": "[@%%NAME%%] Lietotājs nav atrasts.",
     "invaliduserspecified": "[@%%NAME%%] Lietotājs nav atrasts.",
     "nolistspecified": "[@%%NAME%%] Nav ievadīta rinda.",
