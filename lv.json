@@ -121,7 +121,7 @@
     "alus": "/me Pa velti te neviens neko nedod!",
     "reload": "/me Be right back.",
     "removenotinwl": "/me [@%%NAME%%] Specified user @%%USERNAME%% is not in the waitlist.",
-    "roomrules": "/me Please find the room rules here: %%LINK%%",
+    "roomrules": "/me Mūsu rooma noteikumi ir atrodami šeit: %%LINK%%",
     "sessionstats": "/me [@%%NAME%%] Total woots: %%WOOTS%%, total mehs: %%MEHS%%, total grabs: %%GRABS%%.",
     "skip": "/me [%%NAME%% used skip.]",
     "madeby": "/me This bot was made by %%NAME%%.",
