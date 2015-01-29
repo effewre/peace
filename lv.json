@@ -3,7 +3,7 @@
     "nodatafound": "Nav atrasti iepriekšējie dati.",
     "retrievingdata": "Tiek saņemti iepriekš saglabātie dati.",
     "datarestored": "Iepriekš saglabātie dati veiksmīgi saņemti.",
-    "greyuser": "Tikai managers, cohost and host var palais botu.",
+    "greyuser": "Tikai managers, cohost and host var palaist botu.",
     "bouncer": "The bot can't move people when it's run as a bouncer.",
     "online": "/me %%BOTNAME%% v%%VERSION%% ir tiešsaistē!",
 	
