@@ -13,7 +13,7 @@
     "permissionownsong": ":up: @%%NAME%% has permission to play their own production!",
     "isblacklisted": "This track is on the %%BLACKLIST%% blacklist! Skipping...",
 	"isopen": "Rulete ir sākusies. Raksti !join lai piedalītos!",
-    "winnerpicked": "Uzvarētājs ir izvēlēts! @%%NAME%% tiek pārvietos uz %%POSITION%% pozīciju.",
+    "winnerpicked": "/me Uzvarētājs ir izvēlēts! @%%NAME%% tiek pārvietos uz %%POSITION%% pozīciju.",
 	"alreadyadding": "User is already being added! Changed the desired position to %%POSITION%%.",
     "adding": "Pievienoja @%%NAME%% rindai. Esošā pozīcija: %%POSITION%%.",
 	"usernotfound": "Lietotājs nav atrasts.",
