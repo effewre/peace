@@ -83,7 +83,7 @@
     "autowoot": "/me Mēs iesakām OrigemWoot: http://lmr.etr.lv/autowoot",
     "brandambassador": "/me A Brand Ambassador is the voice of the plug.dj users. They promote events, engage the community and share the plug.dj message around the world. For more info: http://blog.plug.dj/brand-ambassadors/",
     "bouncerplusrank": "/me [@%%NAME%%] You have to be manager or up to enable Bouncer+.",
-    "chatcleared": "/me [@%%NAME%%] Cleared the chat.",
+    "chatcleared": "/me [@%%NAME%%] notīrija čatu",
     "deletechat": "/me [@%%NAME%%] Cleared the chat of %%USERNAME%%.",
     "commandslink": "/me %%BOTNAME%% komandas: %%LINK%%",
     "eatcookie": "/me gremo cepumu.",
