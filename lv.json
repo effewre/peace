@@ -5,7 +5,7 @@
     "datarestored": "Iepriekš saglabātie dati veiksmīgi saņemti.",
     "greyuser": "Tikai managers, cohost and host var palais botu.",
     "bouncer": "The bot can't move people when it's run as a bouncer.",
-    "online": "%%BOTNAME%% v%%VERSION%% ir tiešsaistē! /me",
+    "online": " %%BOTNAME%% v%%VERSION%% ir tiešsaistē!",
 	"welcome": "Čau! Prieks, ka ienāci šeit %%NAME%%",
     "welcomeback": "Esi sveicināts/-ta atpakaļ %%NAME%%",
     "songknown": ":repeat: Šī dziesma ir spēlēta %%PLAYS%% reizes pēdējās %%TIMETOTAL%%, pēdējā reize bija %%LASTTIME%% atpakaļ. :repeat:",
