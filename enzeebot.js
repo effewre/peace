@@ -194,7 +194,7 @@
             language: "latvian",
             chatLink: "https://rawgit.com/effewre/peace/master/lv.json",
             maximumAfk: 720,
-            afkRemoval: true,
+            afkRemoval: false,
             maximumDc: 60,
             bouncerPlus: false,
             blacklistEnabled: true,
@@ -206,7 +206,7 @@
             voteSkip: false,
             voteSkipLimit: 10,
             timeGuard: true,
-            maximumSongLength: 10,
+            maximumSongLength: 7,
             autodisable: true,
             commandCooldown: 30,
             usercommandsEnabled: true,
@@ -220,7 +220,7 @@
                 ["nsfw", "The song you contained was NSFW (image or sound). "],
                 ["unavailable", "The song you played was not available for some users. "]
             ],
-            afkpositionCheck: 15,
+            afkpositionCheck: null,
             afkRankCheck: "ambassador",
             motdEnabled: false,
             motdInterval: 5,
@@ -1586,7 +1586,7 @@
                 rank: 'user',
                 type: 'startsWith',
                 cookies: ['Še rij, tik neaizrijies',
-                    'Jūsu kontā tika ieskaitīts cepums. Lūdzu blenžat savā USB portā, lai saņemtu balvu.'
+                    'jūsu kontā ieskaitīja cepumu. Lūdzu blenžat savā USB portā, lai saņemtu balvu.'
                 ],
                 getCookie: function () {
                     var c = Math.floor(Math.random() * this.cookies.length);

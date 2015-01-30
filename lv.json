@@ -86,7 +86,7 @@
     "chatcleared": "/me [@%%NAME%%] notīrija čatu",
     "deletechat": "/me [@%%NAME%%] Cleared the chat of %%USERNAME%%.",
     "commandslink": "/me %%BOTNAME%% komandas: %%LINK%%",
-    "eatcookie": "/me [@%%NAME%%] gremo cepumu",
+    "eatcookie": "/me gremo cepumu",
     "nousercookie": "/me neredzu %%NAME%% istabā, ēd cepumu pats.",
     "selfcookie": "/me @%%NAME%%, kārumniek, dalies ar citiem.",
     "cookie": "/me @%%NAMETO%%, @%%NAMEFROM%% %%COOKIE%%",
