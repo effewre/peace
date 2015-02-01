@@ -1586,7 +1586,8 @@
                 rank: 'user',
                 type: 'startsWith',
                 cookies: ['Še rij, tik neaizrijies',
-                    'jūsu kontā ieskaitīja cepumu. Lūdzu blenžat savā USB portā, lai saņemtu balvu.'
+                    'jūsu kontā ieskaitīja cepumu. Lūdzu blenžat savā USB portā, lai saņemtu balvu.',
+					'Tagad esi man parādā!'
                 ],
                 getCookie: function () {
                     var c = Math.floor(Math.random() * this.cookies.length);
