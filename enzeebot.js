@@ -1641,7 +1641,7 @@
                 type: 'startsWith',
                 pears: ['Gribi :pear: ? Nedabūsi! :D',
                     ':pear: ir spēks!',
-					'Tagad esi man parādā!'
+					'Tagad esi man parādā :pear:!'
                 ],
                 getpear: function () {
                     var c = Math.floor(Math.random() * this.pears.length);
