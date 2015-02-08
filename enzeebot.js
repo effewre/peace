@@ -1993,7 +1993,7 @@
             },
 
             killCommand: {
-                command: 'kill',
+                command: 'kaboom',
                 rank: 'manager',
                 type: 'exact',
                 functionality: function (chat, cmd) {
