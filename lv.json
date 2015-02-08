@@ -90,15 +90,15 @@
     "deletechat": "/me [@%%NAME%%] Cleared the chat of %%USERNAME%%.",
     "commandslink": "/me %%BOTNAME%% komandas: %%LINK%%",
 	
-    "eatcookie": "/me gremo cepumu",
+    "eatcookie": "/me @%%NAME%% ēd cepumu",
     "nousercookie": "/me neredzu %%NAME%% istabā, ēd cepumu pats.",
-    "selfcookie": "/me @%%NAME%%, kārumniek, dalies ar citiem.",
+    "selfcookie": "/me Kārumniek, %%NAME%% , dalies ar citiem.",
     "cookie": "/me @%%NAMETO%%, @%%NAMEFROM%% %%COOKIE%%",
 	
-	"eatpear": "/me bum-bum-bum biēeeris :pear: :pear: :pear:",
+	"eatpear": "/me @%%NAME%% bum-bum-bum biēeeris :pear: :pear: :pear:",
     "nouserpear": "/me neredzu %%NAME%% istabā, ēd bumbieri pats.",
-    "selfpear": "/me @%%NAME%%, Pats ēdīšu.. Ņam, nam :pear:",
-    "pear": "/me @%%NAMETO%%, @%%NAMEFROM%% %%COOKIE%%",
+    "selfpear": "/me @%%NAME%%: Pats ēdīšu.. Ņam, nam :pear:",
+    "pear": "/me @%%NAMETO%%, @%%NAMEFROM%% %%PEAR%%",
 	
     "cycleguardtime": "/me [@%%NAME%%] The cycleguard is set to %%TIME%% minute(s).",
     "dclookuprank": "/me [@%%NAME%%] Tikai managers var izmantot dc citiem",

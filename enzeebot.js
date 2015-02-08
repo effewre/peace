@@ -1614,7 +1614,7 @@
 
                         var space = msg.indexOf(' ');
                         if (space === -1) {
-                            API.sendChat(basicBot.chat.eatcookie);
+                             API.sendChat(subChat(basicBot.chat.eatcookie, {name: name}));;
                             return false;
                         }
                         else {
@@ -1654,7 +1654,7 @@
 
                         var space = msg.indexOf(' ');
                         if (space === -1) {
-                            API.sendChat(basicBot.chat.eatpear);
+                            API.sendChat(subChat(basicBot.chat.eatpear, {name: name}));
                             return false;
                         }
                         else {
