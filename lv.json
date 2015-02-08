@@ -38,7 +38,10 @@
 	
 	"caps": "/me @%%NAME%%, izrauj ārā caps.",
     "askskip": "/me @%%NAME%%, beidz prasīt skip",
+	
     "spam": "/me @%%NAME%%, beidz spamot.",
+	"randomtext": "/me @%%NAME%%, https://www.youtube.com/watch?v=1pc6BDkk4CA",
+	
     "roomadvertising": "/me @%%NAME%%, neievieto citu istabu linkus",
     "adfly": "/me @%%NAME%%, lūdzu nomaini savu autowoot programuu. Mēs iesakām OrigemWoot: http://lmr.etr.lv/autowoot",
 	
@@ -86,10 +89,17 @@
     "chatcleared": "/me [@%%NAME%%] notīrija čatu",
     "deletechat": "/me [@%%NAME%%] Cleared the chat of %%USERNAME%%.",
     "commandslink": "/me %%BOTNAME%% komandas: %%LINK%%",
+	
     "eatcookie": "/me gremo cepumu",
     "nousercookie": "/me neredzu %%NAME%% istabā, ēd cepumu pats.",
     "selfcookie": "/me @%%NAME%%, kārumniek, dalies ar citiem.",
     "cookie": "/me @%%NAMETO%%, @%%NAMEFROM%% %%COOKIE%%",
+	
+	"eatpear": "/me bum-bum-bum biēeeris :pear: :pear: :pear:",
+    "nouserpear": "/me neredzu %%NAME%% istabā, ēd bumbieri pats.",
+    "selfpear": "/me @%%NAME%%, Pats ēdīšu.. Ņam, nam :pear:",
+    "pear": "/me @%%NAMETO%%, @%%NAMEFROM%% %%COOKIE%%",
+	
     "cycleguardtime": "/me [@%%NAME%%] The cycleguard is set to %%TIME%% minute(s).",
     "dclookuprank": "/me [@%%NAME%%] Tikai managers var izmantot dc citiem",
     "emojilist": "/me Emoji list: %%LINK%%",

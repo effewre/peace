@@ -178,9 +178,9 @@
     var botCreatorIDs = [];
 
     var basicBot = {
-        version: "1.0",
+        version: "1.1",
         status: false,
-        name: "LMR-bot",
+        name: "LMR-BOT",
         loggedInID: null,
         scriptLink: "https://rawgit.com/effewre/peace/master/basicBot.js",
         cmdLink: "http://lmr.etr.lv/",
@@ -860,7 +860,7 @@
                     var plays = basicBot.room.historyList[i].length - 1;
                     var lastPlayed = basicBot.room.historyList[i][plays];
                     API.sendChat(subChat(basicBot.chat.songknown, {plays: plays, timetotal: basicBot.roomUtilities.msToStr(Date.now() - firstPlayed), lasttime: basicBot.roomUtilities.msToStr(Date.now() - lastPlayed)}));
-					if ((Date.now() - lastPlayed) < 40*60*1000)
+					if ((Date.now() - lastPlayed) < 60*60*1000)
 					{
 					API.moderateForceSkip();
 					}
@@ -944,7 +944,7 @@
                 ch = msg.charAt(i);
                 if (ch >= 'A' && ch <= 'Z') capitals++;
             }
-            if (capitals >= 40) {
+            if (capitals >= 10) {
                 API.sendChat(subChat(basicBot.chat.caps, {name: chat.un}));
                 return true;
             }
@@ -956,6 +956,12 @@
             for (var j = 0; j < basicBot.chatUtilities.spam.length; j++) {
                 if (msg === basicBot.chatUtilities.spam[j]) {
                     API.sendChat(subChat(basicBot.chat.spam, {name: chat.un}));
+                    return true;
+                }
+            }
+			 for (var j = 0; j < basicBot.chatUtilities.randomtext.length; j++) {
+                if (msg === basicBot.chatUtilities.randomtext[j]) {
+                    API.sendChat(subChat(basicBot.chat.randomtext, {name: chat.un}));
                     return true;
                 }
             }
@@ -984,7 +990,7 @@
                     API.moderateDeleteChat(chat.cid);
                     return true;
                 }
-                /**
+               
                  var plugRoomLinkPatt = /(\bhttps?:\/\/(www.)?plug\.dj[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
                  if (plugRoomLinkPatt.exec(msg)) {
                     if (perm === 0) {
@@ -993,7 +999,7 @@
                         return true;
                     }
                 }
-                 **/
+             
                 if (msg.indexOf('http://adf.ly/') > -1) {
                     API.moderateDeleteChat(chat.cid);
                     API.sendChat(subChat(basicBot.chat.adfly, {name: chat.un}));
@@ -1098,6 +1104,7 @@
                 'hitler', 'ashua', 'ahsu', 'ashau', 'lulz', 'huehue', 'hue', 'huehuehue', 'merda', 'pqp', 'puta', 'mulher', 'pula', 'retarda', 'caralho', 'filha', 'ppk',
                 'gringo', 'fuder', 'foder', 'hua', 'ahue', 'modafuka', 'modafoka', 'mudafuka', 'mudafoka', 'ooooooooooooooo', 'foda'
             ],
+			randomtext: ['aj aj'],
             curses: [
                 'nigger', 'faggot', 'nigga', 'niqqa', 'motherfucker', 'modafocka'
             ]
@@ -1592,7 +1599,8 @@
                 type: 'startsWith',
                 cookies: ['Še rij, tik neaizrijies',
                     'jūsu kontā ieskaitīja cepumu. Lūdzu blenžat savā USB portā, lai saņemtu balvu.',
-					'Tagad esi man parādā!'
+					'Tagad esi man parādā!',
+					'Tikai neaizraujies'
                 ],
                 getCookie: function () {
                     var c = Math.floor(Math.random() * this.cookies.length);
@@ -1620,6 +1628,46 @@
                             }
                             else {
                                 return API.sendChat(subChat(basicBot.chat.cookie, {nameto: user.username, namefrom: chat.un, cookie: this.getCookie()}));
+                            }
+                        }
+                    }
+                }
+            },
+			            
+			bumbierisCommand: {
+                command: 'bumbieris',
+                rank: 'user',
+                type: 'startsWith',
+                pears: ['Gribi :pear: ? Nedabūsi! :D',
+                    ':pear: ir spēks!',
+					'Tagad esi man parādā!'
+                ],
+                getpear: function () {
+                    var c = Math.floor(Math.random() * this.pears.length);
+                    return this.pears[c];
+                },
+                functionality: function (chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+                    else {
+                        var msg = chat.message;
+
+                        var space = msg.indexOf(' ');
+                        if (space === -1) {
+                            API.sendChat(basicBot.chat.eatpear);
+                            return false;
+                        }
+                        else {
+                            var name = msg.substring(space + 2);
+                            var user = basicBot.userUtilities.lookupUserName(name);
+                            if (user === false || !user.inRoom) {
+                                return API.sendChat(subChat(basicBot.chat.nouserpear, {name: name}));
+                            }
+                            else if (user.username === chat.un) {
+                                return API.sendChat(subChat(basicBot.chat.selfpear, {name: name}));
+                            }
+                            else {
+                                return API.sendChat(subChat(basicBot.chat.pear, {nameto: user.username, namefrom: chat.un, pear: this.getpear()}));
                             }
                         }
                     }
