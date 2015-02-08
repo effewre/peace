@@ -862,6 +862,9 @@
                     API.sendChat(subChat(basicBot.chat.songknown, {plays: plays, timetotal: basicBot.roomUtilities.msToStr(Date.now() - firstPlayed), lasttime: basicBot.roomUtilities.msToStr(Date.now() - lastPlayed)}));
                     basicBot.room.historyList[i].push(+new Date());
                     alreadyPlayed = true;
+				if (Date.now() - firstPlayed < 40)
+				{return API.moderateForceSkip();
+				}
                 }
             }
             if (!alreadyPlayed) {
