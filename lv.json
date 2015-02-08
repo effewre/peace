@@ -90,12 +90,12 @@
     "deletechat": "/me [@%%NAME%%] Cleared the chat of %%USERNAME%%.",
     "commandslink": "/me %%BOTNAME%% komandas: %%LINK%%",
 	
-    "eatcookie": "/me @%%NAME%% ēd cepumu",
+    "eatcookie": "/me @%%NAMEFROM%% ēd cepumu",
     "nousercookie": "/me neredzu %%NAME%% istabā, ēd cepumu pats.",
     "selfcookie": "/me Kārumniek, %%NAME%% , dalies ar citiem.",
     "cookie": "/me @%%NAMETO%%, @%%NAMEFROM%% %%COOKIE%%",
 	
-	"eatpear": "/me @%%NAME%% bum-bum-bum biēeeris :pear: :pear: :pear:",
+	"eatpear": "/me @%%NAMEFROM%% bum-bum-bum biēeeris :pear: :pear: :pear:",
     "nouserpear": "/me neredzu %%NAME%% istabā, ēd bumbieri pats.",
     "selfpear": "/me @%%NAME%%: Pats ēdīšu.. Ņam, nam :pear:",
     "pear": "/me @%%NAMETO%%, @%%NAMEFROM%% %%PEAR%%",
