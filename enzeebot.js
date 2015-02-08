@@ -863,7 +863,8 @@
                     basicBot.room.historyList[i].push(+new Date());
                     alreadyPlayed = true;
 				if ((Date.now() - lastPlayed) < 2400)
-				{return API.moderateForceSkip();
+				{
+					API.moderateForceSkip();
 				}
                 }
             }
