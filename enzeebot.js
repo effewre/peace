@@ -959,8 +959,8 @@
                     return true;
                 }
             }
-			 for (var j = 0; j < basicBot.chatUtilities.randomtext.length; j++) {
-                if (msg === basicBot.chatUtilities.randomtext[j]) {
+			 for (var k = 0; k < basicBot.chatUtilities.randomtext.length; k++) {
+                if (msg === basicBot.chatUtilities.randomtext[k]) {
                     API.sendChat(subChat(basicBot.chat.randomtext, {name: chat.un}));
                     return true;
                 }
@@ -1104,7 +1104,9 @@
                 'hitler', 'ashua', 'ahsu', 'ashau', 'lulz', 'huehue', 'hue', 'huehuehue', 'merda', 'pqp', 'puta', 'mulher', 'pula', 'retarda', 'caralho', 'filha', 'ppk',
                 'gringo', 'fuder', 'foder', 'hua', 'ahue', 'modafuka', 'modafoka', 'mudafuka', 'mudafoka', 'ooooooooooooooo', 'foda'
             ],
-			randomtext: ['aj aj'],
+			randomtext: [
+					'aj aj'
+			],
             curses: [
                 'nigger', 'faggot', 'nigga', 'niqqa', 'motherfucker', 'modafocka'
             ]
