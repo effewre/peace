@@ -944,7 +944,7 @@
                 ch = msg.charAt(i);
                 if (ch >= 'A' && ch <= 'Z') capitals++;
             }
-            if (capitals >= 5) {
+            if (capitals >= 10) {
                 API.sendChat(subChat(basicBot.chat.caps, {name: chat.un}));
                 return true;
             }
