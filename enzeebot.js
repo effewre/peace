@@ -247,7 +247,7 @@
             users: [],
             afkList: [],
             mutedUsers: [],
-            bannedUsers: ['GrizZZ^'],
+            bannedUsers: ["GrizZZ^"],
             skippable: true,
             usercommand: true,
             allcommand: true,
