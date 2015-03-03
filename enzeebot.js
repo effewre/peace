@@ -471,7 +471,7 @@
                         afksRemoved++;
                     }
                 }
-                var newPosition = user.lastDC.position - songsPassed - afksRemoved;
+                var newPosition = user.lastDC.position - afksRemoved;
                 if (newPosition <= 0) newPosition = 1;
                 var msg = subChat(basicBot.chat.valid, {name: basicBot.userUtilities.getUser(user).username, time: time, position: newPosition});
                 basicBot.userUtilities.moveUser(user.id, newPosition, true);
