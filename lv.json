@@ -8,7 +8,7 @@
     "online": "/me %%BOTNAME%% v%%VERSION%% ir tiešsaistē!",
 	
 	
-	"welcome": "/me Čau! Prieks, ka ienāci šeit @%%NAME%%",
+	"welcome": "/me Yo! Prieks, ka ienāci šeit @%%NAME%% Relax and have fun!",
     "welcomeback": "/me Esi sveicināts/-ta atpakaļ @%%NAME%%",
     "songknown": "/me :repeat: Šī dziesma ir spēlēta %%PLAYS%% reizes pēdējās %%TIMETOTAL%%, pēdējā reize bija %%LASTTIME%% atpakaļ. :repeat:",
     "timelimit": "/me @%%NAME%%, jūsu dziesma ir garāka par maksimāli pieļaujamajām %%MAXLENGTH%% minūtēm.",
@@ -43,7 +43,7 @@
 	"randomtext": "/me @%%NAME%%, https://www.youtube.com/watch?v=1pc6BDkk4CA",
 	
     "roomadvertising": "/me @%%NAME%%, neievieto citu istabu linkus",
-    "adfly": "/me @%%NAME%%, lūdzu nomaini savu autowoot programuu. Mēs iesakām OrigemWoot: http://lmr.etr.lv/autowoot",
+    "adfly": "/me @%%NAME%%, lūdzu nomaini savu autowoot programmu. Mēs iesakām OrigemWoot:(CHROME): http://origem-woot.com/Instalation/ (FIREFOX): https://addons.mozilla.org/en-US/firefox/addon/plugcubed/?src=search",
 	
 	
 	"invalidtime": "/me [@%%NAME%%] Nepareizs laiks.",
@@ -62,7 +62,7 @@
     "afklimit": "AFK limit",
     "autoskip": "autoskip",
     "newblacklisted": "/me [@%%NAME%%] This track belongs on the %%BLACKLIST%% blacklist! [ %%AUTHOR%% - %%TITLE%% - %%MID%% ]",
-    "blinfo": "/me Blacklist info skaties šeit http://lmr.etr.lv/",
+    "blinfo": "/me Blacklist info skaties šeit http://pastebin.com/UqP6wKbv",
     "blacklist": "blacklist",
     "cycleguard": "cycleguard",
     "timeguard": "timeguard",
@@ -83,7 +83,7 @@
     "maximumafktimeset": "/me [@%%NAME%%] Maximum afk duration set to %%TIME%% minutes.",
     "afkstatusreset": "/me [@%%NAME%%] Reset the afk status of @%%USERNAME%%.",
     "inactivefor": "/me [@%%NAME%%] @%%USERNAME%% nav bijis aktīvs %%TIME%%.",
-    "autowoot": "/me Mēs iesakām OrigemWoot: http://lmr.etr.lv/autowoot",
+    "autowoot": "/me Mēs iesakām OrigemWoot: (CHROME): http://origem-woot.com/Instalation/ (FIREFOX): https://addons.mozilla.org/en-US/firefox/addon/plugcubed/?src=search",
     "brandambassador": "/me A Brand Ambassador is the voice of the plug.dj users. They promote events, engage the community and share the plug.dj message around the world. For more info: http://blog.plug.dj/brand-ambassadors/",
     "bouncerplusrank": "/me [@%%NAME%%] You have to be manager or up to enable Bouncer+.",
     "chatcleared": "/me [@%%NAME%%] notīrija čatu",

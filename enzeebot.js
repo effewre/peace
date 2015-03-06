@@ -178,22 +178,22 @@
     var botCreatorIDs = [];
 
     var basicBot = {
-        version: "1.1",
+        version: "1.0",
         status: false,
-        name: "LMR-BOT",
+        name: "PartyBot",
         loggedInID: null,
         scriptLink: "https://rawgit.com/effewre/peace/master/basicBot.js",
-        cmdLink: "http://lmr.etr.lv/",
+        cmdLink: null,
         chatLink: "https://rawgit.com/effewre/peace/master/lv.json",
         chat: null,
         loadChat: loadChat,
         retrieveSettings: retrieveSettings,
         retrieveFromStorage: retrieveFromStorage,
         settings: {
-            botName: "LMR-bot",
+            botName: "PartyBot",
             language: "latvian",
             chatLink: "https://rawgit.com/effewre/peace/master/lv.json",
-            maximumAfk: 720,
+            maximumAfk: 60,
             afkRemoval: false,
             maximumDc: 60,
             bouncerPlus: false,
@@ -228,18 +228,18 @@
             filterChat: true,
             etaRestriction: false,
             welcome: true,
-            opLink: "http://lmr.etr.lv/",
-            rulesLink: "http://lmr.etr.lv/",
+            opLink: null,
+            rulesLink: "http://pastebin.com/1a9fhrLG",
             themeLink: null,
             fbLink: null,
             youtubeLink: null,
-            website: "http://lmr.etr.lv/",
+            website: null,
             intervalMessages: [],
             messageInterval: 5,
             songstats: false,
             commandLiteral: "!",
             blacklists: {
-                NSFW: "",
+                NSFW: "https://rawgit.com/effewre/peace/master/blacklist.json",
                 OP: ""
             }
         },
@@ -247,7 +247,7 @@
             users: [],
             afkList: [],
             mutedUsers: [],
-            bannedUsers: ['GrizZZ^','Avz91'],
+            bannedUsers: [],
             skippable: true,
             usercommand: true,
             allcommand: true,
@@ -860,7 +860,7 @@
                     var plays = basicBot.room.historyList[i].length - 1;
                     var lastPlayed = basicBot.room.historyList[i][plays];
                     API.sendChat(subChat(basicBot.chat.songknown, {plays: plays, timetotal: basicBot.roomUtilities.msToStr(Date.now() - firstPlayed), lasttime: basicBot.roomUtilities.msToStr(Date.now() - lastPlayed)}));
-					if ((Date.now() - lastPlayed) < 45*60*1000)
+					if ((Date.now() - lastPlayed) < 60*60*1000)
 					{
 					API.moderateForceSkip();
 					}
