@@ -178,12 +178,12 @@
     var botCreatorIDs = [];
 
     var basicBot = {
-        version: "1.1",
+        version: "1.2",
         status: false,
         name: "PartyBot",
         loggedInID: null,
         scriptLink: "https://rawgit.com/effewre/peace/master/basicBot.js",
-        cmdLink: null,
+        cmdLink: "http://pastebin.com/i6wfGiFx",
         chatLink: "https://rawgit.com/effewre/peace/master/lv.json",
         chat: null,
         loadChat: loadChat,
@@ -929,7 +929,7 @@
         },
         chatcleaner: function (chat) {
             if (!basicBot.settings.filterChat) return false;
-            if (basicBot.userUtilities.getPermission(chat.uid) > 1) return false;
+            if (basicBot.userUtilities.getPermission(chat.uid) > 3) return false;
             var msg = chat.message;
             var containsLetters = false;
             for (var i = 0; i < msg.length; i++) {
@@ -1102,13 +1102,13 @@
                 basicBot.room.roomstats.chatmessages++;
             },
             spam: [
-                'ble', 'bļe', 'lohs', 'lox', 'bļed', 'bled', 'nahuj', 'suka', 'zuera', 'zueira',
+                'ble', 'bļe', 'loh', 'lox', 'bļed', 'bled', 'nahuj', 'suka', 'zuera', 'zueira',
                 'zueria', 'aehoo', 'aheu', 'alguem', 'algum', 'brazil', 'zoeira', 'fuckadmins', 'affff', 'vaisefoder', 'huenaarea',
                 'hitler', 'ashua', 'ahsu', 'ashau', 'lulz', 'huehue', 'hue', 'huehuehue', 'merda', 'pqp', 'puta', 'mulher', 'pula', 'retarda', 'caralho', 'filha', 'ppk',
                 'gringo', 'fuder', 'foder', 'hua', 'ahue', 'modafuka', 'modafoka', 'mudafuka', 'mudafoka', 'ooooooooooooooo', 'foda'
             ],
 			randomtext: [
-					'aj','aj aj aj'
+					'mauka','pimpis','lohs','pizģets','bļeģ','šmara','kuce','idiots','pidars','dirst','pisies','daunis','huiņa','fuck'
 			],
             curses: [
                 'nigger', 'faggot', 'nigga', 'niqqa', 'motherfucker', 'modafocka'
