@@ -239,7 +239,7 @@
             songstats: false,
             commandLiteral: "!",
             blacklists: {
-                NSFW: "",
+                NSFW: "https://rawgit.com/effewre/peace/master/blacklist.json",
                 OP: ""
             }
         },
@@ -968,7 +968,8 @@
                     return true;
                 }
             }
-			if (msg.match(/plug.dj/g)==="plug.dj") {
+			var res = msg.match(/plug.dj/g);
+			if (res ==='plug.dj') {
                     API.sendChat(subChat(basicBot.chat.webspam, {name: chat.un}));
                     return true;
                 
