@@ -968,11 +968,8 @@
                     return true;
                 }
 			 }
-			 getwebspam = new RegExp(
-          "(^|[ \t\r\n])((ftp|http|https|gopher|mailto|news|nntp|telnet|wais|file|prospero|aim|webcal):(([A-Za-z0-9$_.+!*(),;/?:@&~=-])|%[A-Fa-f0-9]{2}){2,}(#([a-zA-Z0-9][a-zA-Z0-9$_.+!*(),;/?:@&~=%-]*))?([A-Za-z0-9$_+!*();/?:~-]))"
-         ,"g"
-								);
-			if (msg.match(getwebspam).length > 0) {
+			 
+			if (msg.match( /https://plug.dj/ ).length > 0) {
                     API.sendChat(subChat(basicBot.chat.webspam, {name: chat.un}));
                     return true;
             }
@@ -1118,7 +1115,6 @@
 			randomtext: [
 					'mauka','pimpis','lohs','pizģets','bļeģ','šmara','kuce','idiots','pidars','dirst','pisies','daunis','huiņa','fuck'+'off','fuck'
 			],
-			webspam[0]=https://plug.dj/;
             curses: [
                 'nigger', 'faggot', 'nigga', 'niqqa', 'motherfucker', 'modafocka'
             ]
