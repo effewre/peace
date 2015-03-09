@@ -968,8 +968,8 @@
                     return true;
                 }
             }
-			var str = "plug.dj/";
-                if (msg.match(str)) {
+			var str = 'plug.dj';
+                if (msg.match(/plug.dj/g) === str) {
                     API.sendChat(subChat(basicBot.chat.webspam, {name: chat.un}));
                     return true;
                 
