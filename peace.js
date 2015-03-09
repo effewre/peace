@@ -929,7 +929,7 @@
         },
         chatcleaner: function (chat) {
             if (!basicBot.settings.filterChat) return false;
-            if (basicBot.userUtilities.getPermission(chat.uid) > 5) return false;
+            if (basicBot.userUtilities.getPermission(chat.uid) > 10) return false;
             var msg = chat.message;
             var containsLetters = false;
             for (var i = 0; i < msg.length; i++) {
