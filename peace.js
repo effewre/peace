@@ -969,7 +969,7 @@
                 }
             }
 			var str = "https://plug.dj/";
-                if (msg === str.match(/plug.dj//g) {
+                if (msg === str.match( plug.dj ) {
                     API.sendChat(subChat(basicBot.chat.webspam, {name: chat.un}));
                     return true;
                 
