@@ -968,11 +968,7 @@
                     return true;
                 }
 			 }
-			 
-			if (msg.match( /https://plug.dj/ ).length > 0) {
-                    API.sendChat(subChat(basicBot.chat.webspam, {name: chat.un}));
-                    return true;
-            }
+			
             return false;
         },
         chatUtilities: {
