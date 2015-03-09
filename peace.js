@@ -929,7 +929,7 @@
         },
         chatcleaner: function (chat) {
             if (!basicBot.settings.filterChat) return false;
-            if (basicBot.userUtilities.getPermission(chat.uid) > 3) return false;
+            if (basicBot.userUtilities.getPermission(chat.uid) > 5) return false;
             var msg = chat.message;
             var containsLetters = false;
             for (var i = 0; i < msg.length; i++) {
@@ -968,7 +968,7 @@
                     return true;
                 }
             }
-			var str = 'plug.dj';
+			var str = "plug.dj";
                 if (msg.match(/plug.dj/g) === str) {
                     API.sendChat(subChat(basicBot.chat.webspam, {name: chat.un}));
                     return true;
