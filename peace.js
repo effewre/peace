@@ -1108,7 +1108,7 @@
                 'gringo', 'fuder', 'foder', 'hua', 'ahue', 'modafuka', 'modafoka', 'mudafuka', 'mudafoka', 'ooooooooooooooo', 'foda'
             ],
 			randomtext: [
-					'mauka','pimpis','lohs','pizģets','bļeģ','šmara','kuce','idiots','pidars','dirst','pisies','daunis','huiņa','fuck'
+					'mauka','pimpis','lohs','pizģets','bļeģ','šmara','kuce','idiots','pidars','dirst','pisies','daunis','huiņa','fuck'+'off','fuck'
 			],
             curses: [
                 'nigger', 'faggot', 'nigga', 'niqqa', 'motherfucker', 'modafocka'
