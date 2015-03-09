@@ -968,6 +968,12 @@
                     return true;
                 }
             }
+			var str = "https://plug.dj/";
+                if (msg === str.match(/plug.dj//g) {
+                    API.sendChat(subChat(basicBot.chat.webspam, {name: chat.un}));
+                    return true;
+                
+            }
             return false;
         },
         chatUtilities: {

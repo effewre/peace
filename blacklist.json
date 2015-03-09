@@ -3,11 +3,18 @@
         "mid": "1:_5f5iczVmx8"
     },
     "2":{
-        "title": "This is a NSFW song",
-        "author": "The NSFW band",
-        "mid": "1:NSFWsongID2"
+        "mid": "1:mm0KQwqJpH8"
     },
     "3":{
+        "mid": "1:g4f9eY4ZDhQ"
+    }
+	"4":{
+        "mid": "1:BM9DXdlaJQA"
+    }
+	"5":{
+        "mid": "1:NSFWsongID3"
+    }
+	"6":{
         "mid": "1:NSFWsongID3"
     }
 }
