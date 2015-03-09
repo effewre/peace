@@ -178,7 +178,7 @@
     var botCreatorIDs = [];
 
     var basicBot = {
-        version: "1.0",
+        version: "1.1",
         status: false,
         name: "PartyBot",
         loggedInID: null,
@@ -303,7 +303,7 @@
                 },
                 endRoulette: function () {
                     basicBot.room.roulette.rouletteStatus = false;
-					var ind =0
+					var ind = 0;
                     ind = Math.floor(Math.random() * basicBot.room.roulette.participants.length);
 					var winner = 0;
                     winner = basicBot.room.roulette.participants[ind];
@@ -1108,7 +1108,7 @@
                 'gringo', 'fuder', 'foder', 'hua', 'ahue', 'modafuka', 'modafoka', 'mudafuka', 'mudafoka', 'ooooooooooooooo', 'foda'
             ],
 			randomtext: [
-					'aj aj','aj aj aj'
+					'aj','aj aj aj'
 			],
             curses: [
                 'nigger', 'faggot', 'nigga', 'niqqa', 'motherfucker', 'modafocka'
