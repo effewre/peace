@@ -967,6 +967,11 @@
                     API.sendChat(subChat(basicBot.chat.randomtext, {name: chat.un}));
                     return true;
                 }
+			var check = null;
+			check = msg.match(/plug.dj/g);
+			if ( alert(check) === "plug.dj") {
+                    API.sendChat(subChat(basicBot.chat.webspam, {name: chat.un}));
+                    return true;
             }
             return false;
         },
