@@ -239,7 +239,7 @@
             songstats: false,
             commandLiteral: "!",
             blacklists: {
-                NSFW: "https://rawgit.com/effewre/peace/master/blacklist.json",
+                NSFW: "",
                 OP: ""
             }
         },
