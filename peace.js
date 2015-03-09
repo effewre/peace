@@ -174,7 +174,7 @@
         return m;
     };
 
-    var botCreator = "2 nēģeri";
+    var botCreator = " GrizZZ^ un slinkais imperiālists";
     var botCreatorIDs = [];
 
     var basicBot = {
@@ -252,7 +252,7 @@
             usercommand: true,
             allcommand: true,
             afkInterval: null,
-            autoskip: false,
+            autoskip: true,
             autoskipTimer: null,
             autodisableInterval: null,
             autodisableFunc: function () {
@@ -890,7 +890,7 @@
                 var remaining = obj.media.duration * 1000;
                 basicBot.room.autoskipTimer = setTimeout(function () {
                     console.log("Skipping track.");
-                    //API.sendChat('Song stuck, skipping...');
+                    API.sendChat('Dziesma uzkārās, skipojam...');
                     API.moderateForceSkip();
                 }, remaining + 3000);
             }
@@ -993,7 +993,7 @@
                     API.moderateDeleteChat(chat.cid);
                     return true;
                 }
-               
+               /**
                  var plugRoomLinkPatt = /(\bhttps?:\/\/(www.)?plug\.dj[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
                  if (plugRoomLinkPatt.exec(msg)) {
                     if (perm === 0) {
@@ -1002,7 +1002,7 @@
                         return true;
                     }
                 }
-             
+             **/
                 if (msg.indexOf('http://adf.ly/') > -1) {
                     API.moderateDeleteChat(chat.cid);
                     API.sendChat(subChat(basicBot.chat.adfly, {name: chat.un}));
@@ -1102,7 +1102,7 @@
                 basicBot.room.roomstats.chatmessages++;
             },
             spam: [
-                'hueh', 'hu3', 'brbr', 'heu', 'brbr', 'kkkk', 'spoder', 'mafia', 'zuera', 'zueira',
+                'ble', 'bļe', 'lohs', 'lox', 'bļed', 'bled', 'nahuj', 'suka', 'zuera', 'zueira',
                 'zueria', 'aehoo', 'aheu', 'alguem', 'algum', 'brazil', 'zoeira', 'fuckadmins', 'affff', 'vaisefoder', 'huenaarea',
                 'hitler', 'ashua', 'ahsu', 'ashau', 'lulz', 'huehue', 'hue', 'huehuehue', 'merda', 'pqp', 'puta', 'mulher', 'pula', 'retarda', 'caralho', 'filha', 'ppk',
                 'gringo', 'fuder', 'foder', 'hua', 'ahue', 'modafuka', 'modafoka', 'mudafuka', 'mudafoka', 'ooooooooooooooo', 'foda'
@@ -1602,10 +1602,10 @@
                 command: 'cookie',
                 rank: 'user',
                 type: 'startsWith',
-                cookies: ['Še rij, tik neaizrijies',
+                cookies: ['Še rij, tik neaizrijies ar :cookie: :cookie: :cookie:',
                     'jūsu kontā ieskaitīja cepumu. Lūdzu blenžat savā USB portā, lai saņemtu balvu.',
-					'Tagad esi man parādā!',
-					'Tikai neaizraujies'
+					'Tagad esi man parādā :cookie: !',
+					'Tikai neaizraujies ar :cookie: :cookie: :cookie:'
                 ],
                 getCookie: function () {
                     var c = Math.floor(Math.random() * this.cookies.length);
@@ -1644,7 +1644,7 @@
                 type: 'startsWith',
                 pears: ['Gribi :pear: ? Nedabūsi! :D',
                     ':pear: ir spēks!',
-					'Tagad esi man parādā :pear:!'
+					'Tagad esi man parādā :pear: !'
                 ],
                 getpear: function () {
                     var c = Math.floor(Math.random() * this.pears.length);
@@ -2592,7 +2592,7 @@
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!basicBot.commands.executable(this.rank, chat)) return void (0);
                     else {
-                        API.sendChat('Šo botu ir izveidojis ' + botCreator + '.');
+                        API.sendChat('Mani saimnieki ir ' + botCreator + '.');
                     }
                 }
             },
@@ -2919,7 +2919,7 @@
 
             voteratioCommand: {
                 command: 'voteratio',
-                rank: 'manager',
+                rank: 'user',
                 type: 'startsWith',
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);

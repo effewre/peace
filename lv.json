@@ -13,7 +13,7 @@
     "songknown": "/me :repeat: Šī dziesma ir spēlēta %%PLAYS%% reizes pēdējās %%TIMETOTAL%%, pēdējā reize bija %%LASTTIME%% atpakaļ. :repeat:",
     "timelimit": "/me @%%NAME%%, jūsu dziesma ir garāka par maksimāli pieļaujamajām %%MAXLENGTH%% minūtēm.",
     "permissionownsong": "/me :up: @%%NAME%% has permission to play their own production!",
-    "isblacklisted": "/me This track is on the %%BLACKLIST%% blacklist! Skipping...",
+    "isblacklisted": "/me Šī dziesma ir %%BLACKLIST%% blacklistā! Skipojam...",
 	
 	
 	"isopen": "/me Rulete ir sākusies. Raksti !join lai piedalītos!",
@@ -39,7 +39,7 @@
 	"caps": "/me @%%NAME%%, izrauj ārā caps.",
     "askskip": "/me @%%NAME%%, beidz prasīt skip",
 	
-    "spam": "/me @%%NAME%%, beidz spamot.",
+    "spam": "/me @%%NAME%%, beidz lamāties.",
 	"randomtext": "/me @%%NAME%%, https://www.youtube.com/watch?v=1pc6BDkk4CA",
 	
     "roomadvertising": "/me @%%NAME%%, neievieto citu istabu linkus",
