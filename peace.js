@@ -863,7 +863,7 @@
                     var plays = basicBot.room.historyList[i].length - 1;
                     var lastPlayed = basicBot.room.historyList[i][plays];
                     API.sendChat(subChat(basicBot.chat.songknown, {plays: plays, timetotal: basicBot.roomUtilities.msToStr(Date.now() - firstPlayed), lasttime: basicBot.roomUtilities.msToStr(Date.now() - lastPlayed)}));
-					if ((Date.now() - lastPlayed) < 60*60*1000)
+					if ((Date.now() - lastPlayed) < 1000)
 					{
 					API.moderateForceSkip();
 					}
@@ -1221,7 +1221,7 @@
             }, 60 * 60 * 1000);
             basicBot.loggedInID = API.getUser().id;
             basicBot.status = true;
-            API.sendChat('/cap 0');
+            API.sendChat('/cap 1');
             API.setVolume(0);
             var emojibutton = $(".icon-emoji-on");
             if (emojibutton.length > 0) {
