@@ -863,7 +863,7 @@
                     var plays = basicBot.room.historyList[i].length - 1;
                     var lastPlayed = basicBot.room.historyList[i][plays];
                     API.sendChat(subChat(basicBot.chat.songknown, {plays: plays, timetotal: basicBot.roomUtilities.msToStr(Date.now() - firstPlayed), lasttime: basicBot.roomUtilities.msToStr(Date.now() - lastPlayed)}));
-					if ((Date.now() - lastPlayed) < 1000)
+					if ((Date.now() - lastPlayed) < 60*60*1000)
 					{
 					API.moderateForceSkip();
 					}
@@ -968,11 +968,6 @@
                     return true;
                 }
 			 }
-			 if (msg.match(/plug.dj/g ==='plug.dj') {
-                    API.sendChat(subChat(basicBot.chat.webspam, {name: chat.un}));
-                    return true;
-			 }
-			
             return false;
         },
         chatUtilities: {
