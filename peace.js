@@ -968,7 +968,7 @@
                     return true;
                 }
 			 }
-			 if (msg.match(/https://plug.dj/g ==='plug.dj') {
+			 if (msg.match(/plug.dj/g ==='plug.dj') {
                     API.sendChat(subChat(basicBot.chat.webspam, {name: chat.un}));
                     return true;
 			 }
