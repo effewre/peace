@@ -303,15 +303,16 @@
                 },
                 endRoulette: function () {
                     basicBot.room.roulette.rouletteStatus = false;
-					var ind = 0;
-                    ind = Math.floor(Math.random() * basicBot.room.roulette.participants.length);
-					var winner = 0;
+					var ind = null;
+                    ind = Math.floor((Math.random() * basicBot.room.roulette.participants.length)+ 0 ));
+					var winner = null;
                     winner = basicBot.room.roulette.participants[ind];
                     basicBot.room.roulette.participants = [];
                     var pos = 1;
 					var user = null;
                     user = basicBot.userUtilities.lookupUser(winner);
-                    var name = user.username;
+					var name = null;
+                    name = user.username;
                     API.sendChat(subChat(basicBot.chat.winnerpicked, {name: name, position: pos}));
                     setTimeout(function (winner, pos) {
                         basicBot.userUtilities.moveUser(winner, pos, false);
