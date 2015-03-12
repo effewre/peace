@@ -304,7 +304,7 @@
                 endRoulette: function () {
                     basicBot.room.roulette.rouletteStatus = false;
 					var ind = null;
-                    ind = Math.floor((Math.random() * basicBot.room.roulette.participants.length)+ 0 ));
+                    ind = Math.floor((Math.random() * basicBot.room.roulette.participants.length)+ 0);
 					var winner = null;
                     winner = basicBot.room.roulette.participants[ind];
                     basicBot.room.roulette.participants = [];
