@@ -895,7 +895,7 @@
                     console.log("Skipping track.");
                     API.sendChat('Dziesma uzkārās, skipojam...');
                     API.moderateForceSkip();
-                }, remaining + 3000);
+                }, remaining + 7000);
             }
             storeToStorage();
 
