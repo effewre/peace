@@ -178,7 +178,7 @@
     var botCreatorIDs = [];
 
     var basicBot = {
-        version: "1.2.1",
+        version: "1.2.2",
         status: false,
         name: "PartyBot",
         loggedInID: null,
