@@ -29,6 +29,7 @@
     "noposition": "/me Nav atrasta iepriekšējā pozīcija. Waitlist ir jāatjaunojas vienu reizi, lai to izdarītu.",
     "toolongago": "/me @%%NAME%%'s iepriekšējā atslēgšanās bija pārāk ilgu laiku atpakaļ: %%TIME%%.",
     "valid": "/me @%%NAME%% atslēdzās %%TIME%% atpakaļ, jābūt pozīcijā %%POSITION%%.",
+	"valid2": "/me @%%NAME%% atslēdzās %%TIME%% atpakaļ, tā kā biji dj pozīcijā, tad nevari atgūt savu pozīciju.",
 	
 	
 	"warning1": "/me @%%NAME%%, jūs esat bijis/-usi afk %%TIME%%, atbildiet 2 minūšu laikā, vai tiksiet noņemts no waitlist",
