@@ -996,7 +996,7 @@
                     API.moderateDeleteChat(chat.cid);
                     return true;
                 }
-               /**
+             
                  var plugRoomLinkPatt = /(\bhttps?:\/\/(www.)?plug\.dj[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
                  if (plugRoomLinkPatt.exec(msg)) {
                     if (perm === 0) {
@@ -1005,7 +1005,6 @@
                         return true;
                     }
                 }
-             **/
                 if (msg.indexOf('http://adf.ly/') > -1) {
                     API.moderateDeleteChat(chat.cid);
                     API.sendChat(subChat(basicBot.chat.adfly, {name: chat.un}));
@@ -1924,10 +1923,15 @@
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!basicBot.commands.executable(this.rank, chat)) return void (0);
                     else {
-                        if (basicBot.room.roulette.rouletteStatus && basicBot.room.roulette.participants.indexOf(chat.uid) < 0) {
+						var dj = API.getDJ().id;
+                        if (basicBot.room.roulette.rouletteStatus && basicBot.room.roulette.participants.indexOf(chat.uid) < 0 && dj !== chat.uid ) {
                             basicBot.room.roulette.participants.push(chat.uid);
                             API.sendChat(subChat(basicBot.chat.roulettejoin, {name: chat.un}));
                         }
+					if (dj === chat.uid)
+					{
+					API.sendChat(subChat(basicBot.chat.roulettejoin1, {name: chat.un}));	
+					}
                     }
                 }
             },
