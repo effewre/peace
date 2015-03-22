@@ -174,7 +174,7 @@
         return m;
     };
 
-    var botCreator = " GrizZZ^ un slinkais imperiālists";
+    var botCreator = " GrizZZ^ (skype: edzhiits11) un imperiālists :beer: (skype: durant16)";
     var botCreatorIDs = [];
 
     var basicBot = {
