@@ -475,12 +475,13 @@
                         afksRemoved++;
                     }
                 }
+				var msg = null;
                 var newPosition = user.lastDC.position - afksRemoved;
                 if (newPosition <= 0){ 
-				var msg = subChat(basicBot.chat.valid2, {name: basicBot.userUtilities.getUser(user).username, time: time});}
+				msg = subChat(basicBot.chat.valid2, {name: basicBot.userUtilities.getUser(user).username, time: time});}
                 else {
-				var msg = subChat(basicBot.chat.valid, {name: basicBot.userUtilities.getUser(user).username, time: time, position: newPosition});}
-                basicBot.userUtilities.moveUser(user.id, newPosition, true);
+				msg = subChat(basicBot.chat.valid, {name: basicBot.userUtilities.getUser(user).username, time: time, position: newPosition});
+				basicBot.userUtilities.moveUser(user.id, newPosition, true);}
                 return msg;
             }
         },
