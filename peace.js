@@ -178,7 +178,7 @@
     var botCreatorIDs = [];
 
     var basicBot = {
-        version: "1.2.2",
+        version: "1.2.3",
         status: false,
         name: "PartyBot",
         loggedInID: null,
@@ -303,15 +303,15 @@
                 },
                 endRoulette: function () {
                     basicBot.room.roulette.rouletteStatus = false;
-					var ind = null;
+					var ind = undefined;
                     ind = Math.floor((Math.random() * basicBot.room.roulette.participants.length)+ 0);
-					var winner = null;
+					var winner = undefined;
                     winner = basicBot.room.roulette.participants[ind];
                     basicBot.room.roulette.participants = [];
                     var pos = 1;
-					var user = null;
+					var user = undefined;
                     user = basicBot.userUtilities.lookupUser(winner);
-					var name = null;
+					var name = undefined;
                     name = user.username;
                     API.sendChat(subChat(basicBot.chat.winnerpicked, {name: name, position: pos}));
                     setTimeout(function (winner, pos) {
@@ -475,12 +475,11 @@
                         afksRemoved++;
                     }
                 }
-				var msg = null;
                 var newPosition = user.lastDC.position - afksRemoved;
                 if (newPosition <= 0){ 
-				msg = subChat(basicBot.chat.valid2, {name: basicBot.userUtilities.getUser(user).username, time: time});}
+				var msg = subChat(basicBot.chat.valid2, {name: basicBot.userUtilities.getUser(user).username, time: time});}
                 else {
-				msg = subChat(basicBot.chat.valid, {name: basicBot.userUtilities.getUser(user).username, time: time, position: newPosition});
+				var msg = subChat(basicBot.chat.valid, {name: basicBot.userUtilities.getUser(user).username, time: time, position: newPosition});
 				basicBot.userUtilities.moveUser(user.id, newPosition, true);}
                 return msg;
             }
