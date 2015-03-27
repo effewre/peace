@@ -34,7 +34,7 @@
             stored: true,
             version: partybot.version
         };
-        localStorage.setItem("bpartybotStorageInfo", JSON.stringify(partybotStorageInfo));
+        localStorage.setItem("partybotStorageInfo", JSON.stringify(partybotStorageInfo));
 
     };
 
