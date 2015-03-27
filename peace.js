@@ -476,12 +476,15 @@
                     }
                 }
                 var newPosition = user.lastDC.position - afksRemoved;
-                if (newPosition <= 0)
-				return (subChat(basicBot.chat.valid2, {name: basicBot.userUtilities.getUser(user).username, time: time}));
-                else {
+                if (newPosition >= 1)
+				{
 				var msg = subChat(basicBot.chat.valid, {name: basicBot.userUtilities.getUser(user).username, time: time, position: newPosition});
 				basicBot.userUtilities.moveUser(user.id, newPosition, true);
-				return msg;}
+				return msg;
+				}
+                else {
+					return (subChat(basicBot.chat.validno, {name: basicBot.userUtilities.getUser(user).username, time: time}));
+				}
             }
         },
 
