@@ -478,8 +478,8 @@
                 }
                 var newPosition = user.lastDC.position - afksRemoved;
 				if (newPosition <= 0) newPosition = 1;
-                var msg = subChat(partybot.chat.valid, {name: basicBot.userUtilities.getUser(user).username, time: time, position: newPosition});
-                basicBot.userUtilities.moveUser(user.id, newPosition, true);
+                var msg = subChat(partybot.chat.valid, {name: partybot.userUtilities.getUser(user).username, time: time, position: newPosition});
+                partybot.userUtilities.moveUser(user.id, newPosition, true);
                 return msg;
 			}
 		},
