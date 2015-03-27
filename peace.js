@@ -458,7 +458,7 @@
                 var dc = user.lastDC.time;
                 var pos = user.lastDC.position;
                 if (pos === null) return partybot.chat.noposition;
-				if (pos <= 0) return partybot.chat.validno;
+				if (pos <= 0) return(subChat(partybot.chat.validno, {name: partybot.userUtilities.getUser(user).username, time: time}));
                 var timeDc = Date.now() - dc;
                 var validDC = false;
                 if (partybot.settings.maximumDc * 60 * 1000 > timeDc) {
