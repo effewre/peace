@@ -223,7 +223,7 @@
             afkpositionCheck: null,
             afkRankCheck: "ambassador",
             motdEnabled: true,
-            motdInterval: 90,
+            motdInterval: 60,
             motd: "Pievienojies mūsu steam grupai http://steamcommunity.com/groups/latvianpartyroom",
             filterChat: true,
             etaRestriction: false,
@@ -476,12 +476,12 @@
                     }
                 }
                 var newPosition = user.lastDC.position - afksRemoved;
-                if (newPosition <= 0){ 
-				var msg = subChat(basicBot.chat.valid2, {name: basicBot.userUtilities.getUser(user).username, time: time});}
+                if (newPosition <= 0)
+				return (subChat(basicBot.chat.valid2, {name: basicBot.userUtilities.getUser(user).username, time: time}));
                 else {
 				var msg = subChat(basicBot.chat.valid, {name: basicBot.userUtilities.getUser(user).username, time: time, position: newPosition});
-				basicBot.userUtilities.moveUser(user.id, newPosition, true);}
-                return msg;
+				basicBot.userUtilities.moveUser(user.id, newPosition, true);
+				return msg;}
             }
         },
 
