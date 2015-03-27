@@ -465,7 +465,7 @@
                 }
                 var time = partybot.roomUtilities.msToStr(timeDc);
                 if (!validDC) return (subChat(partybot.chat.toolongago, {name: partybot.userUtilities.getUser(user).username, time: time}));
-				if (pos <= 0) return(subChat(partybot.chat.validno, {name: partybot.userUtilities.getUser(user).username, time: time}));
+				if (pos <= 0) return (subChat(partybot.chat.validno, {name: partybot.userUtilities.getUser(user).username, time: time}));
                 var songsPassed = partybot.room.roomstats.songCount - user.lastDC.songCount;
                 var afksRemoved = 0;
                 var afkList = partybot.room.afkList;
