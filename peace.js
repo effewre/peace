@@ -483,7 +483,8 @@
 				basicBot.userUtilities.moveUser(user.id, newPosition, true);
 				return msg;
 				}
-			},
+			}
+		},
 
         roomUtilities: {
             rankToNumber: function (rankString) {
