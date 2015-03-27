@@ -458,6 +458,7 @@
                 var dc = user.lastDC.time;
                 var pos = user.lastDC.position;
                 if (pos === null) return basicBot.chat.noposition;
+				if (pos <= 0) return basicBot.chat.validno;
                 var timeDc = Date.now() - dc;
                 var validDC = false;
                 if (basicBot.settings.maximumDc * 60 * 1000 > timeDc) {
@@ -482,10 +483,6 @@
 				basicBot.userUtilities.moveUser(user.id, newPosition, true);
 				return msg;
 				}
-                else {
-					return (subChat(basicBot.chat.validno, {name: basicBot.userUtilities.getUser(user).username, time: time}));
-				}
-            }
         },
 
         roomUtilities: {
