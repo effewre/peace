@@ -27,14 +27,14 @@
     };
 
     var storeToStorage = function () {
-        localStorage.setItem("basicBotsettings", JSON.stringify(partybot.settings));
-        localStorage.setItem("basicBotRoom", JSON.stringify(partybot.room));
-        var basicBotStorageInfo = {
+        localStorage.setItem("partybotsettings", JSON.stringify(partybot.settings));
+        localStorage.setItem("partybotRoom", JSON.stringify(partybot.room));
+        var partybotStorageInfo = {
             time: Date.now(),
             stored: true,
             version: partybot.version
         };
-        localStorage.setItem("basicBotStorageInfo", JSON.stringify(basicBotStorageInfo));
+        localStorage.setItem("bpartybotStorageInfo", JSON.stringify(partybotStorageInfo));
 
     };
 
@@ -88,7 +88,7 @@
     };
 
     var retrieveSettings = function () {
-        var settings = JSON.parse(localStorage.getItem("basicBotsettings"));
+        var settings = JSON.parse(localStorage.getItem("partybotsettings"));
         if (settings !== null) {
             for (var prop in settings) {
                 partybot.settings[prop] = settings[prop];
@@ -97,11 +97,11 @@
     };
 
     var retrieveFromStorage = function () {
-        var info = localStorage.getItem("basicBotStorageInfo");
+        var info = localStorage.getItem("partybotStorageInfo");
         if (info === null) API.chatLog(partybot.chat.nodatafound);
         else {
-            var settings = JSON.parse(localStorage.getItem("basicBotsettings"));
-            var room = JSON.parse(localStorage.getItem("basicBotRoom"));
+            var settings = JSON.parse(localStorage.getItem("partybotsettings"));
+            var room = JSON.parse(localStorage.getItem("partybotRoom"));
             var elapsed = Date.now() - JSON.parse(info).time;
             if ((elapsed < 1 * 60 * 60 * 1000)) {
                 API.chatLog(partybot.chat.retrievingdata);
