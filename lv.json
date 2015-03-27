@@ -26,7 +26,7 @@
 	
 	"usernotfound": "/me Lietotājs nav atrasts.",
     "notdisconnected": "/me @%%NAME%% neatslēdzās šajā laikā.",
-    "noposition": "/me Nav atrasta iepriekšējā pozīcija. Waitlist ir jāatjaunojas vienu reizi, lai to izdarītu.",
+    "noposition": "/me Nav atrasta iepriekšējā pozīcija, jo neatradies waitlist pirms atslēgšanās.",
     "toolongago": "/me @%%NAME%%'s iepriekšējā atslēgšanās bija pārāk ilgu laiku atpakaļ: %%TIME%%.",
     "valid": "/me @%%NAME%% atslēdzās %%TIME%% atpakaļ, jābūt pozīcijā %%POSITION%%.",
 	"validno": "/me @%%NAME%% atslēdzās %%TIME%% atpakaļ, tā kā biji dj pozīcijā, tad nevari atgūt savu pozīciju.",
