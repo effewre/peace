@@ -49,6 +49,10 @@
 	
 	"ball": "/me %%NAME%% jautājums bija: \"%%QUESTION%%\" | Mana atbilde ir: \"%%RESPONSE%%\"",
 	
+	"maxbingolength": "/me @%%NAME%% Maksimālais iespējamais bingo skaitlis ir %%ROLLLENGTH%%",
+	"invalidbingo": "/me @%%NAME%% Nepareizs skaitlis.",
+	"roll": "/me @%%NAME%% izlozētais skaitlis ir %%ROLLNUMBER%%",
+	
 	"invalidtime": "/me [@%%NAME%%] Nepareizs laiks.",
     "nouserspecified": "/me [@%%NAME%%] Lietotājs nav atrasts.",
     "invaliduserspecified": "/me [@%%NAME%%] Lietotājs nav atrasts.",
