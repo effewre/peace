@@ -207,6 +207,7 @@
             voteSkipLimit: 10,
             timeGuard: true,
             maximumSongLength: 7,
+			bingolength: 100,
             autodisable: false,
             commandCooldown: 30,
             usercommandsEnabled: true,
@@ -245,7 +246,7 @@
             "Es nevaru iedomāties savu dzīvi bez tā.",
             "Gan jau, ka Tu pats zini atbildi.",
             "Haha, ļoti asprātīgi! Pat mans kaķis smejas.",
-            "GrizZZ^ to pa piecīti izdarīs...",
+            "GrizZZ^ pa piecīti to atbildēs...",
             "Tiešām, bet es zinu, ka tu zodz saldumus.",
             "Beidziet man uzdot tos jautājumus, ļaujiet vienreiz atvilkt elpu!",
             "Mamma Tev nav mācījusi manieres?",
@@ -3010,7 +3011,7 @@
             },
 			   ballCommand: {
                 command: ['ask', 'jautā'],
-                rank: 'user',
+                rank: 'residentdj',
                 type: 'startsWith',
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
@@ -3024,6 +3025,38 @@
                             var randomSentence = Math.floor(Math.random() * 1);
                             API.sendChat(subChat(partybot.chat.ball, {name: chat.un, question: argument, response: partybot.settings.ball[randomBall]}));
                      }
+                }
+            },
+			
+			rollCommand: {
+                command: ['roll', 'skaitlis'],
+                rank: 'user',
+                type: 'startsWith',
+                functionality: function (chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (!partybot.commands.executable(this.rank, chat)) return void (0);
+                    else {
+                            var randomRoll = Math.floor(Math.random() * partybot.settings.bingolength);
+                            API.sendChat(subChat(partybot.chat.roll, {name: chat.un, rollnumber: randomRoll}));
+                     }
+                }
+            },
+			 bingolengthCommand: {
+                command: 'bingolength',
+                rank: 'cohost',
+                type: 'startsWith',
+                functionality: function (chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (!partybot.commands.executable(this.rank, chat)) return void (0);
+                    else {
+                        var msg = chat.message;
+                        var maxTime = msg.substring(cmd.length + 1);
+                        if (!isNaN(maxTime)) {
+                            partybot.settings.bingolength = maxTime;
+                            return API.sendChat(subChat(partybot.chat.maxbingolength, {name: chat.un, rolllength: partybot.settings.bingolength}));
+                        }
+                        else return API.sendChat(subChat(partybot.chat.invalidbingo, {name: chat.un}));
+                    }
                 }
             },
 
