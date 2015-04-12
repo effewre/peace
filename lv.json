@@ -47,6 +47,7 @@
     "roomadvertising": "/me @%%NAME%%, neievieto citu istabu linkus",
     "adfly": "/me @%%NAME%%, lūdzu nomaini savu autowoot programmu. Mēs iesakām OrigemWoot:(CHROME): http://origem-woot.com/Instalation/ (FIREFOX): https://addons.mozilla.org/en-US/firefox/addon/plugcubed/?src=search",
 	
+	"ball": "/me %%NAME%% jautājums bija: \"%%QUESTION%%\" | Mana atbilde ir: \"%%RESPONSE%%\"",
 	
 	"invalidtime": "/me [@%%NAME%%] Nepareizs laiks.",
     "nouserspecified": "/me [@%%NAME%%] Lietotājs nav atrasts.",
