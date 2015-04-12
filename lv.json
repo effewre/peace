@@ -58,6 +58,8 @@
     "validgifrandom": "/me [@%%NAME%%] http://media.giphy.com/media/%%ID%%/giphy.gif [Random GIF]",
     "invalidgifrandom": "/me [@%%NAME%%] Kļūda, mēģini vēlreiz!.",
 	
+	"ratesong": "/me @%%NAME%% Skanošo dziesmu es novērtēju šādi: \"%%RESPONSE%%\"",
+	
 	"invalidtime": "/me [@%%NAME%%] Nepareizs laiks.",
     "nouserspecified": "/me [@%%NAME%%] Lietotājs nav atrasts.",
     "invaliduserspecified": "/me [@%%NAME%%] Lietotājs nav atrasts.",

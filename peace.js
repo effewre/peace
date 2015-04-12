@@ -242,7 +242,7 @@
             "Okeāna Dzīlei šī ir nepatīkama tēma",
             "Tikai nejautā šo Sashllex, tas viņu aizvainos",
             "imperiālists cenšas to noskaidrot",
-            "Tikai zem gŗādiem.",
+            "Tikai zem grādiem.",
             "Es nevaru iedomāties savu dzīvi bez tā.",
             "Gan jau, ka Tu pats zini atbildi.",
             "Haha, ļoti asprātīgi! Pat mans kaķis smejas.",
@@ -251,11 +251,34 @@
             "Beidziet man uzdot tos jautājumus, ļaujiet vienreiz atvilkt elpu!",
             "Mamma Tev nav mācījusi manieres?",
             "Tu pats saprati, ko uzrakstīji?",
-            "Andris Bērziņš uz šo atbildētu : Sen neesi sists ja?"
+            "Andris Bērziņš uz šo atbildētu : Sen neesi sists ja?",
+			"Tu neuzvelc mani, ja?"
             ],
+			ratesong:[
+			":fatality:",
+			":smoke:",
+			":cage:",
+			":sax:",
+			":gandalf:",
+			":hiding:",
+			":weed:",
+			":haha:",
+			":god:",
+			":watislove:",
+			":bestcry:",
+			":vibe:",
+			":molester:",
+			":kim:",
+			":hitler:",
+			":dilmapalm:",
+			":freestep:",
+			":okne:",
+			":okay:",
+			":gay:"
+			],
             afkpositionCheck: null,
             afkRankCheck: "ambassador",
-            motdEnabled: true,
+            motdEnabled: false,
             motdInterval: 60,
             motd: "Pievienojies mūsu steam grupai http://steamcommunity.com/groups/latvianpartyroom",
             filterChat: true,
@@ -267,8 +290,8 @@
             fbLink: null,
             youtubeLink: null,
             website: null,
-            intervalMessages: [],
-            messageInterval: 5,
+            intervalMessages: ["Pievienojies mūsu steam grupai http://steamcommunity.com/groups/latvianpartyroom"],
+            messageInterval: 1,
             songstats: false,
             commandLiteral: "!",
             blacklists: {
@@ -3043,7 +3066,7 @@
             },
 			 bingolengthCommand: {
                 command: 'bingolength',
-                rank: 'cohost',
+                rank: 'manager',
                 type: 'startsWith',
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
@@ -3125,6 +3148,19 @@
                             });
                         }
                     }
+                }
+            },
+			songrateCommand: {
+                command: ['ratesong'],
+                rank: 'residentdj',
+                type: 'startsWith',
+                functionality: function (chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (!partybot.commands.executable(this.rank, chat)) return void (0);
+                    else {
+                            var randomgif = Math.floor(Math.random() * partybot.settings.ratesong.length);
+                            API.sendChat(subChat(partybot.chat.ratesong, {name: chat.un, response: partybot.settings.ratesong[randomgif]}));
+                     }
                 }
             },
 
