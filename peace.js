@@ -901,7 +901,7 @@
             partybot.room.roomstats.totalMehs += lastplay.score.negative;
             partybot.room.roomstats.totalCurates += lastplay.score.grabs;
             partybot.room.roomstats.songCount++;
-            partybot.roomUtilities.intervalMessage;
+            partybot.roomUtilities.intervalMessage();
             partybot.room.currentDJID = obj.dj.id;
 
             var mid = obj.media.format + ':' + obj.media.cid;
