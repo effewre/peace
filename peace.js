@@ -721,7 +721,7 @@
                         var messageNumber = partybot.room.roomstats.songCount % partybot.settings.intervalMessages.length;
                         msg = partybot.settings.intervalMessages[messageNumber];
                     }
-                    return msg;
+                    API.sendChat('/me ' + msg);
                 }
             },
             updateBlacklists: function () {
