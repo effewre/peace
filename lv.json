@@ -53,6 +53,11 @@
 	"invalidbingo": "/me @%%NAME%% Nepareizs skaitlis.",
 	"roll": "/me @%%NAME%% izlozētais skaitlis ir %%ROLLNUMBER%%",
 	
+	"validgiftags": "/me [@%%NAME%%] http://media.giphy.com/media/%%ID%%/giphy.gif [Tags: %%TAGS%%]",
+    "invalidgiftags": "/me [@%%NAME%%] Nepareizs tags, mēģini citu. [Tags: %%TAGS%%]",
+    "validgifrandom": "/me [@%%NAME%%] http://media.giphy.com/media/%%ID%%/giphy.gif [Random GIF]",
+    "invalidgifrandom": "/me [@%%NAME%%] Kļūda, mēģini vēlreiz!.",
+	
 	"invalidtime": "/me [@%%NAME%%] Nepareizs laiks.",
     "nouserspecified": "/me [@%%NAME%%] Lietotājs nav atrasts.",
     "invaliduserspecified": "/me [@%%NAME%%] Lietotājs nav atrasts.",
