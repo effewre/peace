@@ -306,7 +306,10 @@
             fbLink: null,
             youtubeLink: null,
             website: null,
-            intervalMessages: ["Pievienojies mūsu steam grupai http://steamcommunity.com/groups/latvianpartyroom"],
+            intervalMessages: [
+			"Pievienojies mūsu steam grupai http://steamcommunity.com/groups/latvianpartyroom",
+			"yo"
+			],
             messageInterval: 1,
             songstats: false,
             commandLiteral: "!",
