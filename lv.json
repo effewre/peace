@@ -60,6 +60,8 @@
 	
 	"ratesong": "/me @%%NAME%% Skanošo dziesmu es novērtēju šādi: %%RESPONSE%%",
 	
+	"whois": "/me [@%%NAME1%%] Vārds: %%NAME2%%, ID: %%ID%%, Ranks: %%RANK%%, Pievienojies: %%JOINED%%, Līmenis: %%LEVEL%%, Valoda: %%LANGUAGE%%, Avatar: %%AVATAR%%, Statuss: %%STATUS%% %%PROFILE%%",
+	
 	"invalidtime": "/me [@%%NAME%%] Nepareizs laiks.",
     "nouserspecified": "/me [@%%NAME%%] Lietotājs nav atrasts.",
     "invaliduserspecified": "/me [@%%NAME%%] Lietotājs nav atrasts.",
