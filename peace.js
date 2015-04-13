@@ -308,9 +308,9 @@
             website: null,
             intervalMessages: [
 			"Pievienojies mūsu steam grupai http://steamcommunity.com/groups/latvianpartyroom",
-			"yo"
+			"Pievienojies mūsu steam grupai http://steamcommunity.com/groups/latvianpartyroom"
 			],
-            messageInterval: 1,
+            messageInterval: 20,
             songstats: false,
             commandLiteral: "!",
             blacklists: {
