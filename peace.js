@@ -268,7 +268,8 @@
 			"Jā, tā nu tas tiešām ir",
 			"Kauns nemaz nav ko tādu uzdot?",
 			"Es nedomāju, ka to vajadzēja teikt skaļi",
-			"Jā, kopā ar Fanātu"
+			"Jā, kopā ar Fanātu",
+			"Par to mēs aprunāsimies bez lieciniekiem."
             ],
 			ratesong:[
 			":fatality:",
