@@ -221,7 +221,7 @@
                 ["nsfw", "The song you contained was NSFW (image or sound). "],
                 ["unavailable", "The song you played was not available for some users. "]
             ],
-			  ball: [
+			  baller: [
             "Ko tu pīpē?",
             "Jā, nav šaubu.",
             "Nevaru pateikt taisnību, jo tas varētu sabojāt manu reputāciju.",
@@ -3064,9 +3064,9 @@
                             var msg = chat.message;
                             var argument = msg.substring(cmd.length + 1);
                             var randomUser = Math.floor(Math.random() * crowd.length);
-                            var randomBall = Math.floor(Math.random() * partybot.settings.ball.length);
+                            var randomBall = Math.floor(Math.random() * partybot.settings.baller.length);
                             var randomSentence = Math.floor(Math.random() * 1);
-                            API.sendChat(subChat(partybot.chat.ball, {name: chat.un, question: argument, response: partybot.settings.ball[randomBall]}));
+                            API.sendChat(subChat(partybot.chat.baller, {name: chat.un, question: argument, response: partybot.settings.baller[randomBall]}));
                      }
                 }
             },
