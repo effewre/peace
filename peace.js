@@ -308,10 +308,10 @@
             youtubeLink: null,
             website: null,
             intervalMessages: [
-			"Pievienojies mūsu steam grupai http://steamcommunity.com/groups/latvianpartyroom",
-			"Pievienojies mūsu steam grupai http://steamcommunity.com/groups/latvianpartyroom"
+			"Steam key izloze jau SVĒTDIEN, piesakies laicīgi - http://steamcommunity.com/groups/latvianpartyroom#announcements/detail/808745953680352033",
+			"Steam key izloze jau SVĒTDIEN, piesakies laicīgi - http://steamcommunity.com/groups/latvianpartyroom#announcements/detail/808745953680352033"
 			],
-            messageInterval: 20,
+            messageInterval: 15,
             songstats: false,
             commandLiteral: "!",
             blacklists: {
