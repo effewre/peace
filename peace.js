@@ -307,7 +307,7 @@
             fbLink: null,
             youtubeLink: null,
             website: null,
-            intervalMessages: [
+            intervalMessages1: [
 			"Steam key izloze jau SVĒTDIEN, piesakies laicīgi - http://steamcommunity.com/groups/latvianpartyroom#announcements/detail/808745953680352033",
 			"Steam key izloze jau SVĒTDIEN, piesakies laicīgi - http://steamcommunity.com/groups/latvianpartyroom#announcements/detail/808745953680352033"
 			],
@@ -737,9 +737,9 @@
                         msg = partybot.settings.motd;
                     }
                     else {
-                        if (partybot.settings.intervalMessages.length === 0) return void (0);
-                        var messageNumber = partybot.room.roomstats.songCount % partybot.settings.intervalMessages.length;
-                        msg = partybot.settings.intervalMessages[messageNumber];
+                        if (partybot.settings.intervalMessages1.length === 0) return void (0);
+                        var messageNumber = partybot.room.roomstats.songCount % partybot.settings.intervalMessages1.length;
+                        msg = partybot.settings.intervalMessages1[messageNumber];
                     }
                     API.sendChat('/me ' + msg);
                 }
