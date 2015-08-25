@@ -307,9 +307,9 @@
             fbLink: null,
             youtubeLink: null,
             website: null,
-            intervalMessages2: [
-			"Steam key izloze SVĒTDIEN 23.08 plkst. 21:00, piesakies šeit -> http://steamcommunity.com/groups/latvianpartyroom#announcements/detail/806495900416503162",
-			"Steam key izloze SVĒTDIEN 23.08 plkst. 21:00, piesakies šeit -> http://steamcommunity.com/groups/latvianpartyroom#announcements/detail/806495900416503162"
+            intervalMessages: [
+			"Pievienojies mūsu steam grupai -> http://steamcommunity.com/groups/latvianpartyroom",
+			"Pievienojies mūsu steam grupai -> http://steamcommunity.com/groups/latvianpartyroom"
 			],
             messageInterval: 15,
             songstats: false,
@@ -737,9 +737,9 @@
                         msg = partybot.settings.motd;
                     }
                     else {
-                        if (partybot.settings.intervalMessages2.length === 0) return void (0);
-                        var messageNumber = partybot.room.roomstats.songCount % partybot.settings.intervalMessages2.length;
-                        msg = partybot.settings.intervalMessages2[messageNumber];
+                        if (partybot.settings.intervalMessages.length === 0) return void (0);
+                        var messageNumber = partybot.room.roomstats.songCount % partybot.settings.intervalMessages.length;
+                        msg = partybot.settings.intervalMessages[messageNumber];
                     }
                     API.sendChat('/me ' + msg);
                 }
