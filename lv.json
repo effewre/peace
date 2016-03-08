@@ -99,7 +99,7 @@
     "maximumafktimeset": "/me [@%%NAME%%] Maximum afk duration set to %%TIME%% minutes.",
     "afkstatusreset": "/me [@%%NAME%%] Reset the afk status of @%%USERNAME%%.",
     "inactivefor": "/me [@%%NAME%%] @%%USERNAME%% nav bijis aktīvs %%TIME%%.",
-    "autowoot": "/me Mēs iesakām OrigemWoot: (CHROME): http://origem-woot.com/Instalation/ (FIREFOX): https://addons.mozilla.org/en-US/firefox/addon/plugcubed/?src=search",
+    "autowoot": "/me Mēs iesakām šo AutoWoot: https://rcs.radiant.dj/",
     "brandambassador": "/me A Brand Ambassador is the voice of the plug.dj users. They promote events, engage the community and share the plug.dj message around the world. For more info: http://blog.plug.dj/brand-ambassadors/",
     "bouncerplusrank": "/me [@%%NAME%%] You have to be manager or up to enable Bouncer+.",
     "chatcleared": "/me [@%%NAME%%] notīrija čatu",
