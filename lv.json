@@ -47,7 +47,7 @@
     "roomadvertising": "/me @%%NAME%%, neievieto citu istabu linkus",
     "adfly": "/me @%%NAME%%, lūdzu nomaini savu autowoot programmu. Mēs iesakām OrigemWoot:(CHROME): http://origem-woot.com/Instalation/ (FIREFOX): https://addons.mozilla.org/en-US/firefox/addon/plugcubed/?src=search",
 	
-	"baller": "/me %%NAME%% jautājums bija: \"%%QUESTION%%\" | Mana atbilde ir: \"%%RESPONSE%%\"",
+	"ball": "/me %%NAME%% jautājums bija: \"%%QUESTION%%\" | Mana atbilde ir: \"%%RESPONSE%%\"",
 	
 	"maxbingolength": "/me @%%NAME%% Maksimālais iespējamais bingo skaitlis ir %%ROLLLENGTH%%",
 	"invalidbingo": "/me @%%NAME%% Nepareizs skaitlis.",
