@@ -1011,7 +1011,7 @@
                 partybot.userUtilities.updatePosition(user, API.getWaitListPosition(users[i].id) + 1);
             }
         },
-        ālner: function (chat) {
+        chatcleaner: function (chat) {
             if (!partybot.settings.filterChat) return false;
             if (partybot.userUtilities.getPermission(chat.uid) > 2) return false;
             var msg = chat.message;
