@@ -548,7 +548,6 @@
                 }
                 var time = partybot.roomUtilities.msToStr(timeDc);
                 if (!validDC) return (subChat(partybot.chat.toolongago, {name: partybot.userUtilities.getUser(user).username, time: time}));
-				if (pos <= 1) return (subChat(partybot.chat.validno, {name: partybot.userUtilities.getUser(user).username, time: time}));
                 var songsPassed = partybot.room.roomstats.songCount - user.lastDC.songCount;
                 var afksRemoved = 0;
                 var afkList = partybot.room.afkList;
@@ -559,8 +558,8 @@
                         afksRemoved++;
                     }
                 }
-                var newPosition = user.lastDC.position - afksRemoved;
-				/* if (newPosition <= 0) newPosition = 1;*/
+                var newPosition = user.lastDC.position;
+				if (newPosition <= 0) return subChat(partybot.chat.validno, {name: partybot.userUtilities.getUser(user).username, time: time});
                 var msg = subChat(partybot.chat.valid, {name: partybot.userUtilities.getUser(user).username, time: time, position: newPosition});
                 partybot.userUtilities.moveUser(user.id, newPosition, true);
                 return msg;
@@ -1012,7 +1011,7 @@
                 partybot.userUtilities.updatePosition(user, API.getWaitListPosition(users[i].id) + 1);
             }
         },
-        chatcleaner: function (chat) {
+        ālner: function (chat) {
             if (!partybot.settings.filterChat) return false;
             if (partybot.userUtilities.getPermission(chat.uid) > 2) return false;
             var msg = chat.message;
