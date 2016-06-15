@@ -221,12 +221,11 @@
                 ["nsfw", "The song you contained was NSFW (image or sound). "],
                 ["unavailable", "The song you played was not available for some users. "]
             ],
-			  ballz: [
+			  ballze: [
 			"Tu labi zini, ka gribi dzirdēt atbildi?",
-			"Ja tu runā par to, tad labāk paklusē, jo Klaids ir stukačs.",
 			"Nedusmini mani!",
 			"Nezinu, tikai nekod!",
-            "Tas ir mans un Nikkijas mazais noslēpums.",
+            "Tas ir mans un Katas mazais noslēpums.",
             "Eu breksi, tu man to jautā?",
             "Neko nezinu un negribu zināt. (nedzirdu/neredzu)",
             "Mājās par to parunāsim.",
@@ -235,7 +234,7 @@
             "Jā, nav šaubu.",
             "Nevaru pateikt taisnību, jo tas varētu sabojāt manu reputāciju.",
             "Tikai vājuma brīžos.",
-            "Jautā Blondajai Anetei, viņa zina labāk!",
+            "Jautā Anetei, viņa zina labāk!",
             "Citi saka, ka jā.",
             "Tikai ne šeit.",
             "To es tev pateikšu, ja tu man uzsauksi kādu labu dzērienu (40%+).",
@@ -253,7 +252,7 @@
             "Es nevaru iedomāties savu dzīvi bez tā.",
             "Gan jau, ka Tu pats zini atbildi.",
             "Haha, ļoti asprātīgi! Pat mans kaķis smejas.",
-            "GrizZZ^ pa piecīti to atbildēs...",
+            "GrizZZ^ pa sotaku to atbildēs...",
             "Tiešām, bet es zinu, ka tu zodz saldumus.",
             "Beidziet man uzdot tos jautājumus, ļaujiet vienreiz atvilkt elpu!",
             "Mamma Tev nav mācījusi manieres?",
@@ -270,7 +269,7 @@
 			"Cilvēks tekstā virs manis par to ir informēts",
 			"Par atbildi gaidu aukstu aliņu no Tevis",
 			"Tu par sevi runā?",
-			"Jā, un Blondā Anete arī tajā ir iesaistīta",
+			"Jā, un Anete arī tajā ir iesaistīta",
 			"Nē, es tam neticu",
 			"Jā, tā nu tas tiešām ir",
 			"Kauns nemaz nav ko tādu uzdot?",
@@ -937,7 +936,7 @@
                     var plays = partybot.room.historyList[i].length - 1;
                     var lastPlayed = partybot.room.historyList[i][plays];
                     API.sendChat(subChat(partybot.chat.songknown, {plays: plays, timetotal: partybot.roomUtilities.msToStr(Date.now() - firstPlayed), lasttime: partybot.roomUtilities.msToStr(Date.now() - lastPlayed)}));
-					if ((Date.now() - lastPlayed) < 60*60*1000)
+					if ((Date.now() - lastPlayed) < 180*60*1000)
 					{
 					API.moderateForceSkip();
 					}
@@ -3060,9 +3059,9 @@
                             var msg = chat.message;
                             var argument = msg.substring(cmd.length + 1);
                             var randomUser = Math.floor(Math.random() * crowd.length);
-                            var randomBall = Math.floor(Math.random() * partybot.settings.ballz.length);
+                            var randomBall = Math.floor(Math.random() * partybot.settings.ballze.length);
                             var randomSentence = Math.floor(Math.random() * 1);
-                            API.sendChat(subChat(partybot.chat.ballz, {name: chat.un, question: argument, response: partybot.settings.ballz[randomBall]}));
+                            API.sendChat(subChat(partybot.chat.ballze, {name: chat.un, question: argument, response: partybot.settings.ballze[randomBall]}));
                      }
                 }
             },
