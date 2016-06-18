@@ -547,7 +547,7 @@
                 }
                 var time = partybot.roomUtilities.msToStr(timeDc);
                 if (!validDC) return (subChat(partybot.chat.toolongago, {name: partybot.userUtilities.getUser(user).username, time: time}));
-				if (pos <= 0) return (subChat(partybot.chat.validno, {name: partybot.userUtilities.getUser(user).username, time: time}));
+				if (pos <= 1) return (subChat(partybot.chat.validno, {name: partybot.userUtilities.getUser(user).username, time: time}));
                 var newPosition = user.lastDC.position;
                 var msg = subChat(partybot.chat.valid, {name: partybot.userUtilities.getUser(user).username, time: time, position: newPosition});
                 partybot.userUtilities.moveUser(user.id, newPosition, true);
