@@ -2658,8 +2658,10 @@
 							API.sendChat(partybot.chat.check)
 						   }
                     }
+					}
                 }
             },
+			}
 
             songstatsCommand: {
                 command: 'songstats',
