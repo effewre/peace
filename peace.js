@@ -2656,8 +2656,6 @@
                 }
             },
 
-                }
-            },
             songstatsCommand: {
                 command: 'songstats',
                 rank: 'manager',
