@@ -2646,11 +2646,6 @@
 					if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
 					else {
-					for (var i = 0; i < partybot.room.historyList.length; i++) {
-                if (partybot.room.historyList[i][0] === obj.media.cid) {
-                    var firstPlayed = partybot.room.historyList[i][1];
-                    var plays = partybot.room.historyList[i].length - 1;
-                    var lastPlayed = partybot.room.historyList[i][plays];
 					if (alreadyPlayed = true){
 						return API.sendChat(subChat(partybot.chat.songcheck, {plays: plays, timetotal: partybot.roomUtilities.msToStr(Date.now() - firstPlayed), lasttime: partybot.roomUtilities.msToStr(Date.now() - lastPlayed)}));
 					       }
