@@ -2638,6 +2638,7 @@
                     }
                 }
             },
+<<<<<<< HEAD
 			songcheckCommand: {
 				command: 'songcheck',
                 rank: 'host',
@@ -2657,9 +2658,9 @@
                 }
             }
 			},
+=======
+>>>>>>> parent of 6d0f75b... yy
 
-                }
-            },
             songstatsCommand: {
                 command: 'songstats',
                 rank: 'manager',
