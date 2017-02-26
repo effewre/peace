@@ -314,10 +314,10 @@
             youtubeLink: null,
             website: null,
             intervalMessages: [
-			"Pievienojies mūsu steam grupai -> http://steamcommunity.com/groups/latvianpartyroom",
-			"Pievienojies mūsu steam grupai -> http://steamcommunity.com/groups/latvianpartyroom"
+			"Piesakies 8BALL pool turnīram šeit > https://goo.gl/BlfSc3"
+			"Piesakies 8BALL pool turnīram šeit > https://goo.gl/BlfSc3"
 			],
-            messageInterval: 15,
+            messageInterval: 25,
             songstats: false,
             commandLiteral: "!",
             blacklists: {
