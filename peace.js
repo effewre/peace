@@ -314,7 +314,7 @@
             youtubeLink: null,
             website: null,
             intervalMessages: [
-			"Piesakies 8BALL pool turnīram šeit > https://goo.gl/BlfSc3"
+			"Piesakies 8BALL pool turnīram šeit > https://goo.gl/BlfSc3",
 			"Piesakies 8BALL pool turnīram šeit > https://goo.gl/BlfSc3"
 			],
             messageInterval: 25,
