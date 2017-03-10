@@ -314,7 +314,6 @@
             youtubeLink: null,
             website: null,
             intervalMessages: [
-			"Pievienojies mums > https://lvpr.co/forum/"
 			"Pievienojies mums > https://lvpr.co/forum/"],
             messageInterval: 25,
             songstats: false,
