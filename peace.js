@@ -314,8 +314,8 @@
             youtubeLink: null,
             website: null,
             intervalMessages: [
-			"Piesakies 8BALL pool turnīram šeit > https://goo.gl/BlfSc3",
-			'Piesakies 8BALL pool turnīram šeit > https://goo.gl/BlfSc3'
+			"Pievienojies mums > https://lvpr.co/forum/"
+			'Pievienojies mums > https://lvpr.co/forum/'
 			],
             messageInterval: 25,
             songstats: false,
@@ -1172,16 +1172,16 @@
                 partybot.room.roomstats.chatmessages++;
             },
             spam: [
-                'ble', 'bļe', 'loh', 'lox', 'bļed', 'bled', 'nahuj', 'suka', 'zuera', 'zueira',
-                'zueria', 'aehoo', 'aheu', 'alguem', 'algum', 'brazil', 'zoeira', 'fuckadmins', 'affff', 'vaisefoder', 'huenaarea',
-                'hitler', 'ashua', 'ahsu', 'ashau', 'lulz', 'huehue', 'hue', 'huehuehue', 'merda', 'pqp', 'puta', 'mulher', 'pula', 'retarda', 'caralho', 'filha', 'ppk',
-                'gringo', 'fuder', 'foder', 'hua', 'ahue', 'modafuka', 'modafoka', 'mudafuka', 'mudafoka', 'ooooooooooooooo', 'foda'
+                'ble', 'bļe', 'loh', 'lox', 'bļed', 'bled', 'nahuj', 'suka', 
+                'hitler',  'huehue', 'hue', 'huehuehue',
             ],
 			randomtext: [
-					'mauka','pimpis','lohs','pizģets','bļeģ','šmara','kuce','idiots','pidars','dirst','pisies','daunis','huiņa','fuck'+'off','fuck'
+					'mauka','pimpis','lohs','pizģets','bļeģ','šmara','kuce',
+					'idiots','pidars','pisies','daunis','huiņa','fuck'+'off',
+					'fuck'
 			],
             curses: [
-                'nigger', 'faggot', 'nigga', 'niqqa', 'motherfucker', 'modafocka'
+                'nigger', 'faggot', 'nigga', 'niqqa', 'motherfucker'
             ]
         },
         connectAPI: function () {
