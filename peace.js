@@ -313,9 +313,8 @@
             fbLink: null,
             youtubeLink: null,
             website: null,
-            intervalMessages: [
-			"Pievienojies mums > https://lvpr.co/forum/"],
-            messageInterval: 25,
+            intervalMessages: null,
+			messageInterval: 25,
             songstats: false,
             commandLiteral: "!",
             blacklists: {
