@@ -932,9 +932,9 @@
                     var firstPlayed = partybot.room.historyList[i][1];
                     var plays = partybot.room.historyList[i].length - 1;
                     var lastPlayed = partybot.room.historyList[i][plays];
-					if ((Date.now() - lastPlayed) < 180*60*1000)
-					{
-					API.moderateForceSkip();
+					if ((Date.now() - lastPlayed) < 180*60*1000){
+						API.sendchat (subChat (partybot.chat.isinhistory));
+					return API.moderateForceSkip();
 					}
                     partybot.room.historyList[i].push(+new Date());
                     alreadyPlayed = true;

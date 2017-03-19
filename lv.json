@@ -13,6 +13,7 @@
     "timelimit": "/me @%%NAME%%, jūsu dziesma ir garāka par maksimāli pieļaujamajām %%MAXLENGTH%% minūtēm.",
     "permissionownsong": "/me :up: @%%NAME%% has permission to play their own production!",
     "isblacklisted": "/me Šī dziesma ir %%BLACKLIST%% blacklistā! Skipojam...",
+	"isinhistory": "/me Dziesma ir skanējusi pēdējo 3 stundu laikā, ievēro noteikumus! Skipojam...",
 	
 	
 	"isopen": "/me Rulete ir sākusies. Raksti !join lai piedalītos!",
