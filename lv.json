@@ -78,7 +78,7 @@
     "afklimit": "AFK limit",
     "autoskip": "autoskip",
     "newblacklisted": "/me [@%%NAME%%] This track belongs on the %%BLACKLIST%% blacklist! [ %%AUTHOR%% - %%TITLE%% - %%MID%% ]",
-    "blinfo": "/me Blacklist info skaties šeit http://pastebin.com/UqP6wKbv",
+    "blinfo": "/me Blacklist info skaties šeit https://lvpr.co/forum/topic/14-blacklist-info/",
     "blacklist": "blacklist",
     "cycleguard": "cycleguard",
     "timeguard": "timeguard",

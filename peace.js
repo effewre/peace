@@ -183,7 +183,7 @@
         name: "PartyBot",
         loggedInID: null,
         scriptLink: "https://rawgit.com/effewre/peace/master/partybot.js",
-        cmdLink: "http://pastebin.com/i6wfGiFx",
+        cmdLink: "https://lvpr.co/forum/topic/16-partybot-komandas/",
         chatLink: "https://rawgit.com/effewre/peace/master/lv.json",
         chat: null,
         loadChat: loadChat,
