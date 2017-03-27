@@ -10,6 +10,7 @@
 	
 	"welcome": "/me Yo! Prieks, ka ienāci šeit @%%NAME%% Relax and have fun!",
     "welcomeback": "/me Esi sveicināts/-ta atpakaļ @%%NAME%% Ja atslēdzies pēdējās stundas laikā, raksti !dc.",
+	"songknown": "/me Šī dziesma ir skanējusi pēdējo 3 stundu laikā, ievēro noteikumus!",
     "timelimit": "/me @%%NAME%%, jūsu dziesma ir garāka par maksimāli pieļaujamajām %%MAXLENGTH%% minūtēm.",
     "permissionownsong": "/me :up: @%%NAME%% has permission to play their own production!",
     "isblacklisted": "/me Šī dziesma ir %%BLACKLIST%% blacklistā! Skipojam...",

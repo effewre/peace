@@ -308,7 +308,7 @@
             etaRestriction: false,
             welcome: true,
             opLink: null,
-            rulesLink: "http://pastebin.com/1a9fhrLG",
+            rulesLink: "https://lvpr.co/forum/topic/16-partybot-komandas/",
             themeLink: null,
             fbLink: null,
             youtubeLink: null,
@@ -932,8 +932,9 @@
                     var firstPlayed = partybot.room.historyList[i][1];
                     var plays = partybot.room.historyList[i].length - 1;
                     var lastPlayed = partybot.room.historyList[i][plays];
+					API.sendChat(subChat(partybot.chat.songknown));
 					if ((Date.now() - lastPlayed) < 180*60*1000){
-						API.sendchat (subChat (partybot.chat.isinhistory));
+						{
 					return API.moderateForceSkip();
 					}
                     partybot.room.historyList[i].push(+new Date());
