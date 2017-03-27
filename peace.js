@@ -965,7 +965,7 @@
             }
             storeToStorage();
 
-        },
+        }
         eventWaitlistupdate: function (users) {
             if (users.length < 50) {
                 if (partybot.room.queue.id.length > 0 && partybot.room.queueable) {
