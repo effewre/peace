@@ -932,7 +932,7 @@
                     var firstPlayed = partybot.room.historyList[i][1];
                     var plays = partybot.room.historyList[i].length - 1;
                     var lastPlayed = partybot.room.historyList[i][plays];
-					API.sendChat(subChat(partybot.chat.songknown));
+					API.sendChat(subChat(partybot.chat.songknown, {plays: plays, timetotal: partybot.roomUtilities.msToStr(Date.now() - firstPlayed), lasttime: partybot.roomUtilities.msToStr(Date.now() - lastPlayed)}));
 					if ((Date.now() - lastPlayed) < 180*60*1000){
 						{
 					return API.moderateForceSkip();
