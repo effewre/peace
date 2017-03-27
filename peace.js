@@ -932,13 +932,14 @@
                     var firstPlayed = partybot.room.historyList[i][1];
                     var plays = partybot.room.historyList[i].length - 1;
                     var lastPlayed = partybot.room.historyList[i][plays];
-					
-					if ((Date.now() - lastPlayed) < 180*60*1000){
+					if ((Date.now() - lastPlayed) < 180*60*1000)
 						{
-					return API.moderateForceSkip();
+					{
+					API.moderateForceSkip();
 					}
                     partybot.room.historyList[i].push(+new Date());
                     alreadyPlayed = true;
+			
                 }
             }
             if (!alreadyPlayed) {
@@ -965,7 +966,7 @@
             }
             storeToStorage();
 
-        }
+        },
         eventWaitlistupdate: function (users) {
             if (users.length < 50) {
                 if (partybot.room.queue.id.length > 0 && partybot.room.queueable) {
@@ -3276,8 +3277,6 @@
             }
         }
     };
-	
-	
 
     loadChat(partybot.startup);
 }).call(this);
