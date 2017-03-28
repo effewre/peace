@@ -205,6 +205,7 @@
             maximumCycletime: 10,
             voteSkip: true,
             voteSkipLimit: 10,
+			historySkip: false,
             timeGuard: true,
             maximumSongLength: 7,
 			bingolength: 100,
@@ -898,7 +899,7 @@
                     };
                 }
             }
-
+		},
             var lastplay = obj.lastPlay;
             if (typeof lastplay === 'undefined') return;
             if (partybot.settings.songstats) {
@@ -926,21 +927,38 @@
                 }
             }
 
-            var alreadyPlayed = false;
-            for (var i = 0; i < partybot.room.historyList.length; i++) {
-				 var firstPlayed = partybot.room.historyList[i][1];
-				 var plays = partybot.room.historyList[i].length - 1;
-                 var lastPlayed = partybot.room.historyList[i][plays];
-				if ((Date.now() - lastPlayed) < 180*60*1000){
-					partybot.room.autoskipTimer = setTimeout(function () {
+            /*var alreadyPlayed = false;
+					for (var i = 0; i < partybot.room.historyList.length; i++) {
+					if (partybot.room.historyList[i][0] === obj.media.cid) {
+                    var firstPlayed = partybot.room.historyList[i][1];
+                    var plays = partybot.room.historyList[i].length - 1;
+                    var lastPlayed = partybot.room.historyList[i][plays];
+					API.sendChat('Jūsu dziesma ir skanējusi pēdējo 3 stundu laikā, ievēro noteikumus!');
+                    partybot.room.historyList[i].push(+new Date());
+                    alreadyPlayed = true;
+                }
+            }
                     console.log("Skipping track.");
 					API.sendChat('Jūsu dziesma ir skanējusi pēdējo 3 stundu laikā, ievēro noteikumus!');
 					API.moderateForceSkip();
 					}
 					partybot.room.historyList[i].push(+new Date());
                     alreadyPlayed = true;
-				}
+				}*/
+            
+			 if (partybot.settings.historySkip) {
+                var alreadyPlayed = false;
+                var apihistory = API.getHistory();
+                var name = obj.dj.username;
+                for (var i = 0; i < apihistory.length; i++) {
+                    if (apihistory[i].media.cid === obj.media.cid) {
+                        API.sendChat(subChat(partybot.chat.songknown, {name: name}));
+                        API.moderateForceSkip();
+                        partybot.room.historyList[i].push(+new Date());
+                        alreadyPlayed = true;
+                    }
                 }
+		
 		
             if (!alreadyPlayed) {
                 partybot.room.historyList.push([obj.media.cid, +new Date()]);
@@ -1981,7 +1999,25 @@
                     }
                 }
             },
-
+			historyskipCommand: {
+                command: 'historyskip',
+                rank: 'manager',
+                type: 'exact',
+                functionality: function (chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (!partybot.commands.executable(this.rank, chat)) return void (0);
+                    else {
+                        if (partybot.settings.historySkip) {
+                            partybot.settings.historySkip = !partybot.settings.historySkip;
+                            API.sendChat(subChat(partybot.chat.toggleoff, {name: chat.un, 'function': partybot.chat.historyskip}));
+                        }
+                        else {
+                            partybot.settings.historySkip = !partybot.settings.historySkip;
+                            API.sendChat(subChat(partybot.chat.toggleon, {name: chat.un, 'function': partybot.chat.historyskip}));
+                        }
+                    }
+                }
+            },
             joinCommand: {
                 command: 'join',
                 rank: 'user',
@@ -2718,8 +2754,13 @@
                         if (partybot.settings.filterChat) msg += 'ON';
                         else msg += 'OFF';
                         msg += '. ';
-
-                        msg += partybot.chat.voteskip + ': ';
+						
+						msg += basicBot.chat.historyskip + ': ';
+                        if (basicBot.settings.historySkip) msg += 'ON';
+                        else msg += 'OFF';
+                        msg += '. ';
+                        
+						msg += partybot.chat.voteskip + ': ';
                         if (partybot.settings.voteskip) msg += 'ON';
                         else msg += 'OFF';
                         msg += '. ';
