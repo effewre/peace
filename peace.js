@@ -937,11 +937,11 @@
 					API.sendChat('Jūsu dziesma ir skanējusi pēdējo 3 stundu laikā, ievēro noteikumus!');
 					API.moderateForceSkip();
 					}
-				
-                    partybot.room.historyList[i].push(+new Date());
+					partybot.room.historyList[i].push(+new Date());
                     alreadyPlayed = true;
-			
+				}
                 }
+		
             if (!alreadyPlayed) {
                 partybot.room.historyList.push([obj.media.cid, +new Date()]);
             }
