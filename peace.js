@@ -929,6 +929,8 @@
             var alreadyPlayed = false;
             for (var i = 0; i < partybot.room.historyList.length; i++) {
 				 var lastPlayed = partybot.room.historyList[i][plays];
+				  var plays = partybot.room.historyList[i].length - 1;
+                  var lastPlayed = partybot.room.historyList[i][plays];
 				if ((Date.now() - lastPlayed) < 180*60*1000){
 					API.sendChat('Jūsu dziesma ir skanējusi pēdējo 3 stundu laikā, ievēro noteikumus!');
 					API.moderateForceSkip();
