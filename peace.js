@@ -900,59 +900,108 @@
                 }
             }
 		}, 
-            var lastplay = obj.lastPlay;
+            
+			var lastplay = obj.lastPlay;
             if (typeof lastplay === 'undefined') return;
-            if (partybot.settings.songstats) {
-                if (typeof partybot.chat.songstatistics === "undefined") {
-                    API.sendChat(+ lastplay.media.author + " - " + lastplay.media.title + ": " + lastplay.score.positive + "W/" + lastplay.score.grabs + "G/" + lastplay.score.negative + "M.")
+            if (basicBot.settings.songstats) {
+                if (typeof basicBot.chat.songstatistics === "undefined") {
+                    API.sendChat("/me " + lastplay.media.author + " - " + lastplay.media.title + ": " + lastplay.score.positive + "W/" + lastplay.score.grabs + "G/" + lastplay.score.negative + "M.")
                 }
                 else {
-                    API.sendChat(subChat(partybot.chat.songstatistics, {artist: lastplay.media.author, title: lastplay.media.title, woots: lastplay.score.positive, grabs: lastplay.score.grabs, mehs: lastplay.score.negative}))
-                } 
-            } 
-            partybot.room.roomstats.totalWoots += lastplay.score.positive;
-            partybot.room.roomstats.totalMehs += lastplay.score.negative;
-            partybot.room.roomstats.totalCurates += lastplay.score.grabs;
-            partybot.room.roomstats.songCount++;
-            partybot.roomUtilities.intervalMessage();
-            partybot.room.currentDJID = obj.dj.id;
+                    API.sendChat(subChat(basicBot.chat.songstatistics, {artist: lastplay.media.author, title: lastplay.media.title, woots: lastplay.score.positive, grabs: lastplay.score.grabs, mehs: lastplay.score.negative}))
+                }
+            }
+            basicBot.room.roomstats.totalWoots += lastplay.score.positive;
+            basicBot.room.roomstats.totalMehs += lastplay.score.negative;
+            basicBot.room.roomstats.totalCurates += lastplay.score.grabs;
+            basicBot.room.roomstats.songCount++;
+            basicBot.roomUtilities.intervalMessage();
+            basicBot.room.currentDJID = obj.dj.id;
 
-            var mid = obj.media.format + ':' + obj.media.cid;
-            for (var bl in partybot.room.blacklists) {
-                if (partybot.settings.blacklistEnabled) {
-                    if (partybot.room.blacklists[bl].indexOf(mid) > -1) {
-                        API.sendChat(subChat(partybot.chat.isblacklisted, {blacklist: bl}));
+            var blacklistSkip = setTimeout(function () {
+                var mid = obj.media.format + ':' + obj.media.cid;
+                for (var bl in basicBot.room.blacklists) {
+                    if (basicBot.settings.blacklistEnabled) {
+                        if (basicBot.room.blacklists[bl].indexOf(mid) > -1) {
+                            API.sendChat(subChat(basicBot.chat.isblacklisted, {blacklist: bl}));
+                            if (basicBot.settings.smartSkip){
+                                return basicBot.roomUtilities.smartSkip();
+                            }
+                            else {
+                                return API.moderateForceSkip();
+                            }
+                        }
+                    }
+                }
+            }, 2000);
+            var newMedia = obj.media;
+            var timeLimitSkip = setTimeout(function () {
+                if (basicBot.settings.timeGuard && newMedia.duration > basicBot.settings.maximumSongLength * 60 && !basicBot.room.roomevent) {
+                    var name = obj.dj.username;
+                    API.sendChat(subChat(basicBot.chat.timelimit, {name: name, maxlength: basicBot.settings.maximumSongLength}));
+                    if (basicBot.settings.smartSkip){
+                        return basicBot.roomUtilities.smartSkip();
+                    }
+                    else {
                         return API.moderateForceSkip();
                     }
                 }
-            }
-			clearTimeout(historySkip);
-			if (partybot.settings.historySkip) {
+            }, 2000);
+            var format = obj.media.format;
+            var cid = obj.media.cid;
+            var naSkip = setTimeout(function () {
+                if (format == 1){
+                    $.getJSON('https://www.googleapis.com/youtube/v3/videos?id=' + cid + '&key=AIzaSyDcfWu9cGaDnTjPKhg_dy9mUh6H7i4ePZ0&part=snippet&callback=?', function (track){
+                        if (typeof(track.items[0]) === 'undefined'){
+                            var name = obj.dj.username;
+                            API.sendChat(subChat(basicBot.chat.notavailable, {name: name}));
+                            if (basicBot.settings.smartSkip){
+                                return basicBot.roomUtilities.smartSkip();
+                            }
+                            else {
+                                return API.moderateForceSkip();
+                            }
+                        }
+                    });
+                }
+            else {
+                    var checkSong = SC.get('/tracks/' + cid, function (track){
+                        if (typeof track.title === 'undefined'){
+                            var name = obj.dj.username;
+                            API.sendChat(subChat(basicBot.chat.notavailable, {name: name}));
+                            if (basicBot.settings.smartSkip){
+                                return basicBot.roomUtilities.smartSkip();
+                            }
+                            else {
+                                return API.moderateForceSkip();
+                            }
+                        }
+                    });
+                }
+            }, 2000);
+            clearTimeout(historySkip);
+            if (basicBot.settings.historySkip) {
                 var alreadyPlayed = false;
                 var apihistory = API.getHistory();
                 var name = obj.dj.username;
-                for (var i = 0; i < apihistory.length; i++) {
-                    if (apihistory[i].media.cid === obj.media.cid) {
-                        API.sendChat(subChat(partybot.chat.songknown, {name: name}));
-                        API.moderateForceSkip();
-                        partybot.room.historyList[i].push(+new Date());
-                        alreadyPlayed = true;
+                var historySkip = setTimeout(function () {
+                    for (var i = 0; i < apihistory.length; i++) {
+                        if (apihistory[i].media.cid === obj.media.cid) {
+                            basicBot.room.historyList[i].push(+new Date());
+                            alreadyPlayed = true;
+                            API.sendChat(subChat(basicBot.chat.songknown, {name: name}));
+                            if (basicBot.settings.smartSkip){
+                                return basicBot.roomUtilities.smartSkip();
+                            }
+                            else {
+                                return API.moderateForceSkip();
+                            }
+                        }
                     }
-                }
-		
-		
-            if (!alreadyPlayed) {
-                partybot.room.historyList.push([obj.media.cid, +new Date()]);
-            }
-            var newMedia = obj.media;
-            if (partybot.settings.timeGuard && newMedia.duration > partybot.settings.maximumSongLength * 60 && !partybot.room.roomevent) {
-                var name = obj.dj.username;
-                API.sendChat(subChat(partybot.chat.timelimit, {name: name, maxlength: partybot.settings.maximumSongLength}));
-                API.moderateForceSkip();
-            }
-            if (user.ownSong) {
-                API.sendChat(subChat(partybot.chat.permissionownsong, {name: user.username}));
-                user.ownSong = false;
+                    if (!alreadyPlayed) {
+                        basicBot.room.historyList.push([obj.media.cid, +new Date()]);
+                    }
+                }, 2000);
             }
             clearTimeout(partybot.room.autoskipTimer);
             if (partybot.room.autoskip) {
