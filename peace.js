@@ -313,7 +313,7 @@
             themeLink: null,
             fbLink: null,
             youtubeLink: null,
-            website: null,
+            website: "https://lvpr.co/forum/",
             intervalMessages: null,
 			messageInterval: 25,
             songstats: false,
@@ -899,7 +899,7 @@
                     };
                 }
             }
-		},
+		}, 
             var lastplay = obj.lastPlay;
             if (typeof lastplay === 'undefined') return;
             if (partybot.settings.songstats) {
@@ -908,8 +908,8 @@
                 }
                 else {
                     API.sendChat(subChat(partybot.chat.songstatistics, {artist: lastplay.media.author, title: lastplay.media.title, woots: lastplay.score.positive, grabs: lastplay.score.grabs, mehs: lastplay.score.negative}))
-                }
-            }
+                } 
+            } 
             partybot.room.roomstats.totalWoots += lastplay.score.positive;
             partybot.room.roomstats.totalMehs += lastplay.score.negative;
             partybot.room.roomstats.totalCurates += lastplay.score.grabs;
@@ -926,27 +926,8 @@
                     }
                 }
             }
-
-            /*var alreadyPlayed = false;
-					for (var i = 0; i < partybot.room.historyList.length; i++) {
-					if (partybot.room.historyList[i][0] === obj.media.cid) {
-                    var firstPlayed = partybot.room.historyList[i][1];
-                    var plays = partybot.room.historyList[i].length - 1;
-                    var lastPlayed = partybot.room.historyList[i][plays];
-					API.sendChat('Jūsu dziesma ir skanējusi pēdējo 3 stundu laikā, ievēro noteikumus!');
-                    partybot.room.historyList[i].push(+new Date());
-                    alreadyPlayed = true;
-                }
-            }
-                    console.log("Skipping track.");
-					API.sendChat('Jūsu dziesma ir skanējusi pēdējo 3 stundu laikā, ievēro noteikumus!');
-					API.moderateForceSkip();
-					}
-					partybot.room.historyList[i].push(+new Date());
-                    alreadyPlayed = true;
-				}*/
-            
-			 if (partybot.settings.historySkip) {
+			clearTimeout(historySkip);
+			if (partybot.settings.historySkip) {
                 var alreadyPlayed = false;
                 var apihistory = API.getHistory();
                 var name = obj.dj.username;
@@ -3205,7 +3186,7 @@
             },
 			songrateCommand: {
                 command: ['ratesong'],
-                rank: 'residentdj',
+                rank: 'manager',
                 type: 'startsWith',
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
