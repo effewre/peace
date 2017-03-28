@@ -932,9 +932,12 @@
 				 var plays = partybot.room.historyList[i].length - 1;
                  var lastPlayed = partybot.room.historyList[i][plays];
 				if ((Date.now() - lastPlayed) < 180*60*1000){
+					partybot.room.autoskipTimer = setTimeout(function () {
+                    console.log("Skipping track.");
 					API.sendChat('Jūsu dziesma ir skanējusi pēdējo 3 stundu laikā, ievēro noteikumus!');
 					API.moderateForceSkip();
 					}
+				}
                     partybot.room.historyList[i].push(+new Date());
                     alreadyPlayed = true;
 			
