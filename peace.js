@@ -928,10 +928,9 @@
 
             var alreadyPlayed = false;
             for (var i = 0; i < partybot.room.historyList.length; i++) {
+				 var lastPlayed = partybot.room.historyList[i][plays];
 				if ((Date.now() - lastPlayed) < 180*60*1000){
-					API.sendChat(subChat(partybot.chat.songknown, {plays: plays, timetotal: 
-				   partybot.roomUtilities.msToStr(Date.now() - firstPlayed), lasttime: 
-				   partybot.roomUtilities.msToStr(Date.now() - lastPlayed)}));
+					API.sendChat('Jūsu dziesma ir skanējusi pēdējo 3 stundu laikā, ievēro noteikumus!');
 					API.moderateForceSkip();
 					}
                     partybot.room.historyList[i].push(+new Date());
@@ -961,7 +960,7 @@
                 }, remaining + 7000);
             }
             storeToStorage();
-
+		
         },
         eventWaitlistupdate: function (users) {
             if (users.length < 50) {
