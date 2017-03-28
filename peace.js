@@ -62,7 +62,7 @@
                 if (partybot.settings.chatLink !== partybot.chatLink) {
                     link = partybot.settings.chatLink;
                 }
-                else {
+                partybot {
                     if (typeof link === "undefined") {
                         link = partybot.chatLink;
                     }
@@ -75,7 +75,7 @@
                     }
                 });
             }
-            else {
+            partybot {
                 $.get(partybot.chatLink, function (json) {
                     if (json !== null && typeof json !== "undefined") {
                         if (typeof json === "string") json = JSON.parse(json);
@@ -99,7 +99,7 @@
     var retrieveFromStorage = function () {
         var info = localStorage.getItem("partybotStorageInfo");
         if (info === null) API.chatLog(partybot.chat.nodatafound);
-        else {
+        partybot {
             var settings = JSON.parse(localStorage.getItem("partybotsettings"));
             var room = JSON.parse(localStorage.getItem("partybotRoom"));
             var elapsed = Date.now() - JSON.parse(info).time;
@@ -129,7 +129,7 @@
             var link = info.substring(ind_ref + ref_bot.length, info.length);
             var ind_space = null;
             if (link.indexOf(" ") < link.indexOf("\n")) ind_space = link.indexOf(" ");
-            else ind_space = link.indexOf("\n");
+            partybot ind_space = link.indexOf("\n");
             link = link.substring(0, ind_space);
             $.get(link, function (json) {
                 if (json !== null && typeof json !== "undefined") {
@@ -156,7 +156,7 @@
                     arr.push(self[i][j]);
                 }
             }
-            else arr.push(self[i]);
+            partybot arr.push(self[i]);
         }
         return arr;
     };
@@ -472,17 +472,17 @@
                 var user = partybot.userUtilities.lookupUser(id);
                 var votes = user.votes;
                 if (votes.meh === 0) votes.ratio = 1;
-                else votes.ratio = (votes.woot / votes.meh).toFixed(2);
+                partybot votes.ratio = (votes.woot / votes.meh).toFixed(2);
                 return votes;
 
             },
             getPermission: function (obj) { //1 requests
                 var u;
                 if (typeof obj === "object") u = obj;
-                else u = API.getUser(obj);
+                partybot u = API.getUser(obj);
                 if (botCreatorIDs.indexOf(u.id) > -1) return 10;
                 if (u.gRole < 2) return u.role;
-                else {
+                partybot {
                     switch (u.gRole) {
                         case 2:
                             return 7;
@@ -506,7 +506,7 @@
                             API.moderateMoveDJ(id, pos);
                         }, 1250, id, pos);
                     }
-                    else {
+                    partybot {
                         var alreadyQueued = -1;
                         for (var i = 0; i < partybot.room.queue.id.length; i++) {
                             if (partybot.room.queue.id[i] === id) alreadyQueued = i;
@@ -520,7 +520,7 @@
                             partybot.room.queue.id.unshift(id);
                             partybot.room.queue.position.unshift(pos);
                         }
-                        else {
+                        partybot {
                             partybot.room.queue.id.push(id);
                             partybot.room.queue.position.push(pos);
                         }
@@ -528,7 +528,7 @@
                         return API.sendChat(subChat(partybot.chat.adding, {name: name, position: partybot.room.queue.position.length}));
                     }
                 }
-                else API.moderateMoveDJ(id, pos);
+                partybot API.moderateMoveDJ(id, pos);
             },
             dclookup: function (id) {
                 var user = partybot.userUtilities.lookupUser(id);
@@ -628,7 +628,7 @@
                 }
                 if (msg !== '') {
                     return msg;
-                } else {
+                } partybot {
                     return false;
                 }
             },
@@ -676,14 +676,14 @@
                                             userToChange.afkWarningCount = 1;
                                         }, 90 * 1000, user);
                                     }
-                                    else if (warncount === 1) {
+                                    partybot if (warncount === 1) {
                                         API.sendChat(subChat(partybot.chat.warning2, {name: name}));
                                         user.afkWarningCount = 3;
                                         user.afkCountdown = setTimeout(function (userToChange) {
                                             userToChange.afkWarningCount = 2;
                                         }, 30 * 1000, user);
                                     }
-                                    else if (warncount === 2) {
+                                    partybot if (warncount === 2) {
                                         var pos = API.getWaitListPosition(id);
                                         if (pos !== -1) {
                                             pos++;
@@ -715,7 +715,7 @@
                         }, partybot.settings.cycleMaxTime * 60 * 1000);
                     }
                 }
-                else {
+                partybot {
                     toggle.click();
                     clearTimeout(partybot.room.cycleTimer);
                 }
@@ -723,13 +723,13 @@
             intervalMessage: function () {
                 var interval;
                 if (partybot.settings.motdEnabled) interval = partybot.settings.motdInterval;
-                else interval = partybot.settings.messageInterval;
+                partybot interval = partybot.settings.messageInterval;
                 if ((partybot.room.roomstats.songCount % interval) === 0 && partybot.status) {
                     var msg;
                     if (partybot.settings.motdEnabled) {
                         msg = partybot.settings.motd;
                     }
-                    else {
+                    partybot {
                         if (partybot.settings.intervalMessages.length === 0) return void (0);
                         var messageNumber = partybot.room.roomstats.songCount % partybot.settings.intervalMessages.length;
                         msg = partybot.settings.intervalMessages[messageNumber];
@@ -743,7 +743,7 @@
                     if (typeof partybot.settings.blacklists[bl] === 'function') {
                         partybot.room.blacklists[bl] = partybot.settings.blacklists();
                     }
-                    else if (typeof partybot.settings.blacklists[bl] === 'string') {
+                    partybot if (typeof partybot.settings.blacklists[bl] === 'string') {
                         if (partybot.settings.blacklists[bl] === '') {
                             continue;
                         }
@@ -775,7 +775,7 @@
                 if (typeof console.table !== 'undefined') {
                     console.table(partybot.room.newBlacklisted);
                 }
-                else {
+                partybot {
                     console.log(partybot.room.newBlacklisted);
                 }
             },
@@ -825,9 +825,9 @@
                 var jt = u.jointime;
                 var t = Date.now() - jt;
                 if (t < 10 * 1000) greet = false;
-                else welcomeback = true;
+                partybot welcomeback = true;
             }
-            else {
+            partybot {
                 partybot.room.users.push(new partybot.User(user.id, user.username));
                 welcomeback = false;
             }
@@ -863,7 +863,7 @@
                     if (obj.vote === 1) {
                         partybot.room.users[i].votes.woot++;
                     }
-                    else {
+                    partybot {
                         partybot.room.users[i].votes.meh++;
                     }
                 }
@@ -903,31 +903,31 @@
             
 			var lastplay = obj.lastPlay;
             if (typeof lastplay === 'undefined') return;
-            if (basicBot.settings.songstats) {
-                if (typeof basicBot.chat.songstatistics === "undefined") {
+            if (partybot.settings.songstats) {
+                if (typeof partybot.chat.songstatistics === "undefined") {
                     API.sendChat("/me " + lastplay.media.author + " - " + lastplay.media.title + ": " + lastplay.score.positive + "W/" + lastplay.score.grabs + "G/" + lastplay.score.negative + "M.")
                 }
-                else {
-                    API.sendChat(subChat(basicBot.chat.songstatistics, {artist: lastplay.media.author, title: lastplay.media.title, woots: lastplay.score.positive, grabs: lastplay.score.grabs, mehs: lastplay.score.negative}))
+                partybot {
+                    API.sendChat(subChat(partybot.chat.songstatistics, {artist: lastplay.media.author, title: lastplay.media.title, woots: lastplay.score.positive, grabs: lastplay.score.grabs, mehs: lastplay.score.negative}))
                 }
             }
-            basicBot.room.roomstats.totalWoots += lastplay.score.positive;
-            basicBot.room.roomstats.totalMehs += lastplay.score.negative;
-            basicBot.room.roomstats.totalCurates += lastplay.score.grabs;
-            basicBot.room.roomstats.songCount++;
-            basicBot.roomUtilities.intervalMessage();
-            basicBot.room.currentDJID = obj.dj.id;
+            partybot.room.roomstats.totalWoots += lastplay.score.positive;
+            partybot.room.roomstats.totalMehs += lastplay.score.negative;
+            partybot.room.roomstats.totalCurates += lastplay.score.grabs;
+            partybot.room.roomstats.songCount++;
+            partybot.roomUtilities.intervalMessage();
+            partybot.room.currentDJID = obj.dj.id;
 
             var blacklistSkip = setTimeout(function () {
                 var mid = obj.media.format + ':' + obj.media.cid;
-                for (var bl in basicBot.room.blacklists) {
-                    if (basicBot.settings.blacklistEnabled) {
-                        if (basicBot.room.blacklists[bl].indexOf(mid) > -1) {
-                            API.sendChat(subChat(basicBot.chat.isblacklisted, {blacklist: bl}));
-                            if (basicBot.settings.smartSkip){
-                                return basicBot.roomUtilities.smartSkip();
+                for (var bl in partybot.room.blacklists) {
+                    if (partybot.settings.blacklistEnabled) {
+                        if (partybot.room.blacklists[bl].indexOf(mid) > -1) {
+                            API.sendChat(subChat(partybot.chat.isblacklisted, {blacklist: bl}));
+                            if (partybot.settings.smartSkip){
+                                return partybot.roomUtilities.smartSkip();
                             }
-                            else {
+                            partybot {
                                 return API.moderateForceSkip();
                             }
                         }
@@ -936,13 +936,13 @@
             }, 2000);
             var newMedia = obj.media;
             var timeLimitSkip = setTimeout(function () {
-                if (basicBot.settings.timeGuard && newMedia.duration > basicBot.settings.maximumSongLength * 60 && !basicBot.room.roomevent) {
+                if (partybot.settings.timeGuard && newMedia.duration > partybot.settings.maximumSongLength * 60 && !partybot.room.roomevent) {
                     var name = obj.dj.username;
-                    API.sendChat(subChat(basicBot.chat.timelimit, {name: name, maxlength: basicBot.settings.maximumSongLength}));
-                    if (basicBot.settings.smartSkip){
-                        return basicBot.roomUtilities.smartSkip();
+                    API.sendChat(subChat(partybot.chat.timelimit, {name: name, maxlength: partybot.settings.maximumSongLength}));
+                    if (partybot.settings.smartSkip){
+                        return partybot.roomUtilities.smartSkip();
                     }
-                    else {
+                    partybot {
                         return API.moderateForceSkip();
                     }
                 }
@@ -954,25 +954,25 @@
                     $.getJSON('https://www.googleapis.com/youtube/v3/videos?id=' + cid + '&key=AIzaSyDcfWu9cGaDnTjPKhg_dy9mUh6H7i4ePZ0&part=snippet&callback=?', function (track){
                         if (typeof(track.items[0]) === 'undefined'){
                             var name = obj.dj.username;
-                            API.sendChat(subChat(basicBot.chat.notavailable, {name: name}));
-                            if (basicBot.settings.smartSkip){
-                                return basicBot.roomUtilities.smartSkip();
+                            API.sendChat(subChat(partybot.chat.notavailable, {name: name}));
+                            if (partybot.settings.smartSkip){
+                                return partybot.roomUtilities.smartSkip();
                             }
-                            else {
+                            partybot {
                                 return API.moderateForceSkip();
                             }
                         }
                     });
                 }
-            else {
+            partybot {
                     var checkSong = SC.get('/tracks/' + cid, function (track){
                         if (typeof track.title === 'undefined'){
                             var name = obj.dj.username;
-                            API.sendChat(subChat(basicBot.chat.notavailable, {name: name}));
-                            if (basicBot.settings.smartSkip){
-                                return basicBot.roomUtilities.smartSkip();
+                            API.sendChat(subChat(partybot.chat.notavailable, {name: name}));
+                            if (partybot.settings.smartSkip){
+                                return partybot.roomUtilities.smartSkip();
                             }
-                            else {
+                            partybot {
                                 return API.moderateForceSkip();
                             }
                         }
@@ -980,26 +980,26 @@
                 }
             }, 2000);
             clearTimeout(historySkip);
-            if (basicBot.settings.historySkip) {
+            if (partybot.settings.historySkip) {
                 var alreadyPlayed = false;
                 var apihistory = API.getHistory();
                 var name = obj.dj.username;
                 var historySkip = setTimeout(function () {
                     for (var i = 0; i < apihistory.length; i++) {
                         if (apihistory[i].media.cid === obj.media.cid) {
-                            basicBot.room.historyList[i].push(+new Date());
+                            partybot.room.historyList[i].push(+new Date());
                             alreadyPlayed = true;
-                            API.sendChat(subChat(basicBot.chat.songknown, {name: name}));
-                            if (basicBot.settings.smartSkip){
-                                return basicBot.roomUtilities.smartSkip();
+                            API.sendChat(subChat(partybot.chat.songknown, {name: name}));
+                            if (partybot.settings.smartSkip){
+                                return partybot.roomUtilities.smartSkip();
                             }
-                            else {
+                            partybot {
                                 return API.moderateForceSkip();
                             }
                         }
                     }
                     if (!alreadyPlayed) {
-                        basicBot.room.historyList.push([obj.media.cid, +new Date()]);
+                        partybot.room.historyList.push([obj.media.cid, +new Date()]);
                     }
                 }, 2000);
             }
@@ -1135,11 +1135,11 @@
 
                 var joinedroulette = rlJoinChat.split('%%NAME%%');
                 if (joinedroulette[1].length > joinedroulette[0].length) joinedroulette = joinedroulette[1];
-                else joinedroulette = joinedroulette[0];
+                partybot joinedroulette = joinedroulette[0];
 
                 var leftroulette = rlLeaveChat.split('%%NAME%%');
                 if (leftroulette[1].length > leftroulette[0].length) leftroulette = leftroulette[1];
-                else leftroulette = leftroulette[0];
+                partybot leftroulette = leftroulette[0];
 
                 if ((msg.indexOf(joinedroulette) > -1 || msg.indexOf(leftroulette) > -1) && chat.uid === partybot.loggedInID) {
                     setTimeout(function (id) {
@@ -1156,9 +1156,9 @@
                     if (space === -1) {
                         cmd = chat.message;
                     }
-                    else cmd = chat.message.substring(0, space);
+                    partybot cmd = chat.message.substring(0, space);
                 }
-                else return false;
+                partybot return false;
                 var userPerm = partybot.userUtilities.getPermission(chat.uid);
                 //console.log("name: " + chat.un + ", perm: " + userPerm);
                 if (chat.message !== "!join" && chat.message !== "!leave") {
@@ -1172,7 +1172,7 @@
                             API.moderateDeleteChat(chat.cid);
                             return void (0);
                         }
-                        else u.lastEta = Date.now();
+                        partybot u.lastEta = Date.now();
                     }
                 }
                 var executed = false;
@@ -1322,7 +1322,7 @@
                 if (known) {
                     partybot.room.users[ind].inRoom = true;
                 }
-                else {
+                partybot {
                     partybot.room.users.push(new partybot.User(userlist[i].id, userlist[i].username));
                     ind = partybot.room.users.length - 1;
                 }
@@ -1370,7 +1370,7 @@
                         if (partybot.settings.bouncerPlus) {
                             minPerm = 2;
                         }
-                        else {
+                        partybot {
                             minPerm = 3;
                         }
                         break;
@@ -1397,7 +1397,7 @@
                         functionality: function(chat, cmd){
                                 if(this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                                 if( !partybot.commands.executable(this.rank, chat) ) return void (0);
-                                else{
+                                partybot{
                                 
                                 }
                         }
@@ -1411,13 +1411,13 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         var msg = chat.message;
                         var now = Date.now();
                         var chatters = 0;
                         var time;
                         if (msg.length === cmd.length) time = 60;
-                        else {
+                        partybot {
                             time = msg.substring(cmd.length + 1);
                             if (isNaN(time)) return API.sendChat(subChat(partybot.chat.invalidtime, {name: chat.un}));
                         }
@@ -1439,7 +1439,7 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         var msg = chat.message;
                         if (msg.length === cmd.length) return API.sendChat(subChat(partybot.chat.nouserspecified, {name: chat.un}));
                         var name = msg.substr(cmd.length + 2);
@@ -1450,7 +1450,7 @@
                                     partybot.room.eventArtists.push(user.id);
                                 }
                                 API.moderateAddDJ(user.id);
-                            } else API.sendChat(subChat(partybot.chat.invaliduserspecified, {name: chat.un}));
+                            } partybot API.sendChat(subChat(partybot.chat.invaliduserspecified, {name: chat.un}));
                         }
                     }
                 }
@@ -1463,7 +1463,7 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         var msg = chat.message;
                         if (msg.length === cmd.length) return API.sendChat(subChat(partybot.chat.nolimitspecified, {name: chat.un}));
                         var limit = msg.substring(cmd.length + 1);
@@ -1471,7 +1471,7 @@
                             partybot.settings.maximumAfk = parseInt(limit, 10);
                             API.sendChat(subChat(partybot.chat.maximumafktimeset, {name: chat.un, time: partybot.settings.maximumAfk}));
                         }
-                        else API.sendChat(subChat(partybot.chat.invalidlimitspecified, {name: chat.un}));
+                        partybot API.sendChat(subChat(partybot.chat.invalidlimitspecified, {name: chat.un}));
                     }
                 }
             },
@@ -1483,13 +1483,13 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         if (partybot.settings.afkRemoval) {
                             partybot.settings.afkRemoval = !partybot.settings.afkRemoval;
                             clearInterval(partybot.room.afkInterval);
                             API.sendChat(subChat(partybot.chat.toggleoff, {name: chat.un, 'function': partybot.chat.afkremoval}));
                         }
-                        else {
+                        partybot {
                             partybot.settings.afkRemoval = !partybot.settings.afkRemoval;
                             partybot.room.afkInterval = setInterval(function () {
                                 partybot.roomUtilities.afkCheck()
@@ -1507,7 +1507,7 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         var msg = chat.message;
                         if (msg.length === cmd.length) return API.sendChat(subChat(partybot.chat.nouserspecified, {name: chat.un}));
                         var name = msg.substring(cmd.length + 2);
@@ -1526,7 +1526,7 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         var msg = chat.message;
                         if (msg.length === cmd.length) return API.sendChat(subChat(partybot.chat.nouserspecified, {name: chat.un}));
                         var name = msg.substring(cmd.length + 2);
@@ -1547,13 +1547,13 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         if (partybot.room.autoskip) {
                             partybot.room.autoskip = !partybot.room.autoskip;
                             clearTimeout(partybot.room.autoskipTimer);
                             return API.sendChat(subChat(partybot.chat.toggleoff, {name: chat.un, 'function': partybot.chat.autoskip}));
                         }
-                        else {
+                        partybot {
                             partybot.room.autoskip = !partybot.room.autoskip;
                             return API.sendChat(subChat(partybot.chat.toggleon, {name: chat.un, 'function': partybot.chat.autoskip}));
                         }
@@ -1568,7 +1568,7 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         API.sendChat(partybot.chat.autowoot);
                     }
                 }
@@ -1581,7 +1581,7 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         API.sendChat(partybot.chat.brandambassador);
                     }
                 }
@@ -1594,7 +1594,7 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         var msg = chat.message;
                         if (msg.length === cmd.length) return API.sendChat(subChat(partybot.chat.nouserspecified, {name: chat.un}));
                         var name = msg.substr(cmd.length + 2);
@@ -1612,12 +1612,12 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         var msg = chat.message;
                         if (msg.length === cmd.length) return API.sendChat(subChat(partybot.chat.nolistspecified, {name: chat.un}));
                         var list = msg.substr(cmd.length + 1);
                         if (typeof partybot.room.blacklists[list] === 'undefined') return API.sendChat(subChat(partybot.chat.invalidlistspecified, {name: chat.un}));
-                        else {
+                        partybot {
                             var media = API.getMedia();
                             var track = {
                                 list: list,
@@ -1644,7 +1644,7 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         var author = API.getMedia().author;
                         var title = API.getMedia().title;
                         var name = chat.un;
@@ -1664,13 +1664,13 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         var msg = chat.message;
                         if (partybot.settings.bouncerPlus) {
                             partybot.settings.bouncerPlus = false;
                             return API.sendChat(subChat(partybot.chat.toggleoff, {name: chat.un, 'function': 'Bouncer+'}));
                         }
-                        else {
+                        partybot {
                             if (!partybot.settings.bouncerPlus) {
                                 var id = chat.uid;
                                 var perm = partybot.userUtilities.getPermission(id);
@@ -1679,7 +1679,7 @@
                                     return API.sendChat(subChat(partybot.chat.toggleon, {name: chat.un, 'function': 'Bouncer+'}));
                                 }
                             }
-                            else return API.sendChat(subChat(partybot.chat.bouncerplusrank, {name: chat.un}));
+                            partybot return API.sendChat(subChat(partybot.chat.bouncerplusrank, {name: chat.un}));
                         }
                     }
                 }
@@ -1692,7 +1692,7 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         var currentchat = $('#chat-messages').children();
                         for (var i = 0; i < currentchat.length; i++) {
                             API.moderateDeleteChat(currentchat[i].getAttribute("data-cid"));
@@ -1709,7 +1709,7 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         API.sendChat(subChat(partybot.chat.commandslink, {botname: partybot.settings.botName, link: partybot.cmdLink}));
                     }
                 }
@@ -1731,23 +1731,23 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         var msg = chat.message;
 
                         var space = msg.indexOf(' ');
                         if (space === -1) {
                            return API.sendChat(subChat(partybot.chat.eatcookie, {namefrom: chat.un}));   
                         }
-                        else {
+                        partybot {
                             var name = msg.substring(space + 2);
                             var user = partybot.userUtilities.lookupUserName(name);
                             if (user === false || !user.inRoom) {
                                 return API.sendChat(subChat(partybot.chat.nousercookie, {name: name}));
                             }
-                            else if (user.username === chat.un) {
+                            partybot if (user.username === chat.un) {
                                 return API.sendChat(subChat(partybot.chat.selfcookie, {name: name}));
                             }
-                            else {
+                            partybot {
                                 return API.sendChat(subChat(partybot.chat.cookie, {nameto: user.username, namefrom: chat.un, cookie: this.getCookie()}));
                             }
                         }
@@ -1770,23 +1770,23 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         var msg = chat.message;
 
                         var space = msg.indexOf(' ');
                         if (space === -1) {
                             return API.sendChat(subChat(partybot.chat.eatpear, {namefrom: chat.un}));
                         }
-                        else {
+                        partybot {
                             var name = msg.substring(space + 2);
                             var user = partybot.userUtilities.lookupUserName(name);
                             if (user === false || !user.inRoom) {
                                 return API.sendChat(subChat(partybot.chat.nouserpear, {name: name}));
                             }
-                            else if (user.username === chat.un) {
+                            partybot if (user.username === chat.un) {
                                 return API.sendChat(subChat(partybot.chat.selfpear, {name: name}));
                             }
-                            else {
+                            partybot {
                                 return API.sendChat(subChat(partybot.chat.pear, {nameto: user.username, namefrom: chat.un, pear: this.getpear()}));
                             }
                         }
@@ -1801,7 +1801,7 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         partybot.roomUtilities.changeDJCycle();
                     }
                 }
@@ -1814,12 +1814,12 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         if (partybot.settings.cycleGuard) {
                             partybot.settings.cycleGuard = !partybot.settings.cycleGuard;
                             return API.sendChat(subChat(partybot.chat.toggleoff, {name: chat.un, 'function': partybot.chat.cycleguard}));
                         }
-                        else {
+                        partybot {
                             partybot.settings.cycleGuard = !partybot.settings.cycleGuard;
                             return API.sendChat(subChat(partybot.chat.toggleon, {name: chat.un, 'function': partybot.chat.cycleguard}));
                         }
@@ -1835,14 +1835,14 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         var msg = chat.message;
                         var cycleTime = msg.substring(cmd.length + 1);
                         if (!isNaN(cycleTime) && cycleTime !== "") {
                             partybot.settings.maximumCycletime = cycleTime;
                             return API.sendChat(subChat(partybot.chat.cycleguardtime, {name: chat.un, time: partybot.settings.maximumCycletime}));
                         }
-                        else return API.sendChat(subChat(partybot.chat.invalidtime, {name: chat.un}));
+                        partybot return API.sendChat(subChat(partybot.chat.invalidtime, {name: chat.un}));
 
                     }
                 }
@@ -1855,7 +1855,7 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         var msg = chat.message;
                         if (msg.length <= cmd.length + 1) return API.sendChat(subChat(partybot.chat.voteskiplimit, {name: chat.un, limit: partybot.settings.voteSkipLimit}));
                         var argument = msg.substring(cmd.length + 1);
@@ -1863,7 +1863,7 @@
                         if (isNaN(argument)) {
                             API.sendChat(subChat(partybot.chat.voteskipinvalidlimit, {name: chat.un}));
                         }
-                        else {
+                        partybot {
                             partybot.settings.voteSkipLimit = argument;
                             API.sendChat(subChat(partybot.chat.voteskipsetlimit, {name: chat.un, limit: partybot.settings.voteSkipLimit}));
                         }
@@ -1878,12 +1878,12 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         if (partybot.settings.voteSkip) {
                             partybot.settings.voteSkip = !partybot.settings.voteSkip;
                             API.sendChat(subChat(partybot.chat.toggleoff, {name: chat.un, 'function': partybot.chat.voteskip}));
                         }
-                        else {
+                        partybot {
                             partybot.settings.motdEnabled = !partybot.settings.motdEnabled;
                             API.sendChat(subChat(partybot.chat.toggleon, {name: chat.un, 'function': partybot.chat.voteskip}));
                         }
@@ -1898,11 +1898,11 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         var msg = chat.message;
                         var name;
                         if (msg.length === cmd.length) name = chat.un;
-                        else {
+                        partybot {
                             name = msg.substring(cmd.length + 2);
                             var perm = partybot.userUtilities.getPermission(chat.uid);
                             if (perm < 2) return API.sendChat(subChat(partybot.chat.dclookuprank, {name: chat.un}));
@@ -1922,7 +1922,7 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         var msg = chat.message;
                         if (msg.length === cmd.length) return API.sendChat(subChat(partybot.chat.nouserspecified, {name: chat.un}));
                         var name = msg.substring(cmd.length + 2);
@@ -1948,7 +1948,7 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         var link = 'http://www.emoji-cheat-sheet.com/';
                         API.sendChat(subChat(partybot.chat.emojilist, {link: link}));
                     }
@@ -1962,14 +1962,14 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         var perm = partybot.userUtilities.getPermission(chat.uid);
                         var msg = chat.message;
                         var name;
                         if (msg.length > cmd.length) {
                             if (perm < 2) return void (0);
                             name = msg.substring(cmd.length + 2);
-                        } else name = chat.un;
+                        } partybot name = chat.un;
                         var user = partybot.userUtilities.lookupUserName(name);
                         if (typeof user === 'boolean') return API.sendChat(subChat(partybot.chat.invaliduserspecified, {name: chat.un}));
                         var pos = API.getWaitListPosition(user.id);
@@ -1989,7 +1989,7 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         if (typeof partybot.settings.fbLink === "string")
                             API.sendChat(subChat(partybot.chat.facebook, {link: partybot.settings.fbLink}));
                     }
@@ -2003,12 +2003,12 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         if (partybot.settings.filterChat) {
                             partybot.settings.filterChat = !partybot.settings.filterChat;
                             return API.sendChat(subChat(partybot.chat.toggleoff, {name: chat.un, 'function': partybot.chat.chatfilter}));
                         }
-                        else {
+                        partybot {
                             partybot.settings.filterChat = !partybot.settings.filterChat;
                             return API.sendChat(subChat(partybot.chat.toggleon, {name: chat.un, 'function': partybot.chat.chatfilter}));
                         }
@@ -2023,7 +2023,7 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         var link = "http://i.imgur.com/6rznWwI.jpg";
                         API.sendChat(subChat(partybot.chat.starterhelp, {link: link}));
                     }
@@ -2036,12 +2036,12 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         if (partybot.settings.historySkip) {
                             partybot.settings.historySkip = !partybot.settings.historySkip;
                             API.sendChat(subChat(partybot.chat.toggleoff, {name: chat.un, 'function': partybot.chat.historyskip}));
                         }
-                        else {
+                        partybot {
                             partybot.settings.historySkip = !partybot.settings.historySkip;
                             API.sendChat(subChat(partybot.chat.toggleon, {name: chat.un, 'function': partybot.chat.historyskip}));
                         }
@@ -2055,7 +2055,7 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
 						var dj = API.getDJ().id;
                         if (partybot.room.roulette.rouletteStatus && partybot.room.roulette.participants.indexOf(chat.uid) < 0 && dj !== chat.uid ) {
                             partybot.room.roulette.participants.push(chat.uid);
@@ -2076,7 +2076,7 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         var msg = chat.message;
                         if (msg.length === cmd.length) return API.sendChat(subChat(partybot.chat.nouserspecified, {name: chat.un}));
                         var name = msg.substring(cmd.length + 2);
@@ -2097,7 +2097,7 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         var msg = chat.message;
                         var lastSpace = msg.lastIndexOf(' ');
                         var time;
@@ -2106,7 +2106,7 @@
                             time = 0.25;
                             name = msg.substring(cmd.length + 2);
                         }
-                        else {
+                        partybot {
                             time = msg.substring(lastSpace + 1);
                             name = msg.substring(cmd.length + 2, lastSpace);
                         }
@@ -2124,13 +2124,13 @@
                         if (!isNaN(time)) {
                             API.sendChat(subChat(partybot.chat.kick, {name: chat.un, username: name, time: time}));
                             if (time > 24 * 60 * 60) API.moderateBanUser(user.id, 1, API.BAN.PERMA);
-                            else API.moderateBanUser(user.id, 1, API.BAN.DAY);
+                            partybot API.moderateBanUser(user.id, 1, API.BAN.DAY);
                             setTimeout(function (id, name) {
                                 API.moderateUnbanUser(id);
                                 console.log('Unbanned @' + name + '. (' + id + ')');
                             }, time * 60 * 1000, user.id, name);
                         }
-                        else API.sendChat(subChat(partybot.chat.invalidtime, {name: chat.un}));
+                        partybot API.sendChat(subChat(partybot.chat.invalidtime, {name: chat.un}));
                     }
                 }
             },
@@ -2142,7 +2142,7 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         storeToStorage();
                         API.sendChat(partybot.chat.kill);
                         partybot.disconnectAPI();
@@ -2160,7 +2160,7 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         var ind = partybot.room.roulette.participants.indexOf(chat.uid);
                         if (ind > -1) {
                             partybot.room.roulette.participants.splice(ind, 1);
@@ -2177,7 +2177,7 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         var media = API.getMedia();
                         var from = chat.un;
                         var user = partybot.userUtilities.lookupUser(chat.uid);
@@ -2207,7 +2207,7 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         partybot.roomUtilities.booth.lockBooth();
                     }
                 }
@@ -2220,13 +2220,13 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         var temp = partybot.settings.lockdownEnabled;
                         partybot.settings.lockdownEnabled = !temp;
                         if (partybot.settings.lockdownEnabled) {
                             return API.sendChat(subChat(partybot.chat.toggleon, {name: chat.un, 'function': partybot.chat.lockdown}));
                         }
-                        else return API.sendChat(subChat(partybot.chat.toggleoff, {name: chat.un, 'function': partybot.chat.lockdown}));
+                        partybot return API.sendChat(subChat(partybot.chat.toggleoff, {name: chat.un, 'function': partybot.chat.lockdown}));
                     }
                 }
             },
@@ -2238,12 +2238,12 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         if (partybot.settings.lockGuard) {
                             partybot.settings.lockGuard = !partybot.settings.lockGuard;
                             return API.sendChat(subChat(partybot.chat.toggleoff, {name: chat.un, 'function': partybot.chat.lockdown}));
                         }
-                        else {
+                        partybot {
                             partybot.settings.lockGuard = !partybot.settings.lockGuard;
                             return API.sendChat(subChat(partybot.chat.toggleon, {name: chat.un, 'function': partybot.chat.lockguard}));
                         }
@@ -2258,7 +2258,7 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         if (partybot.room.skippable) {
                             var dj = API.getDJ();
                             var id = dj.id;
@@ -2327,14 +2327,14 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         var msg = chat.message;
                         var pos = msg.substring(cmd.length + 1);
                         if (!isNaN(pos)) {
                             partybot.settings.lockskipPosition = pos;
                             return API.sendChat(subChat(partybot.chat.lockskippos, {name: chat.un, position: partybot.settings.lockskipPosition}));
                         }
-                        else return API.sendChat(subChat(partybot.chat.invalidpositionspecified, {name: chat.un}));
+                        partybot return API.sendChat(subChat(partybot.chat.invalidpositionspecified, {name: chat.un}));
                     }
                 }
             },
@@ -2346,14 +2346,14 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         var msg = chat.message;
                         var lockTime = msg.substring(cmd.length + 1);
                         if (!isNaN(lockTime) && lockTime !== "") {
                             partybot.settings.maximumLocktime = lockTime;
                             return API.sendChat(subChat(partybot.chat.lockguardtime, {name: chat.un, time: partybot.settings.maximumLocktime}));
                         }
-                        else return API.sendChat(subChat(partybot.chat.invalidtime, {name: chat.un}));
+                        partybot return API.sendChat(subChat(partybot.chat.invalidtime, {name: chat.un}));
                     }
                 }
             },
@@ -2365,14 +2365,14 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         var msg = chat.message;
                         var maxTime = msg.substring(cmd.length + 1);
                         if (!isNaN(maxTime)) {
                             partybot.settings.maximumSongLength = maxTime;
                             return API.sendChat(subChat(partybot.chat.maxlengthtime, {name: chat.un, time: partybot.settings.maximumSongLength}));
                         }
-                        else return API.sendChat(subChat(partybot.chat.invalidtime, {name: chat.un}));
+                        partybot return API.sendChat(subChat(partybot.chat.invalidtime, {name: chat.un}));
                     }
                 }
             },
@@ -2384,7 +2384,7 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         var msg = chat.message;
                         if (msg.length <= cmd.length + 1) return API.sendChat( + partybot.settings.motd);
                         var argument = msg.substring(cmd.length + 1);
@@ -2393,7 +2393,7 @@
                             partybot.settings.motd = argument;
                             API.sendChat(subChat(partybot.chat.motdset, {msg: partybot.settings.motd}));
                         }
-                        else {
+                        partybot {
                             partybot.settings.motdInterval = argument;
                             API.sendChat(subChat(partybot.chat.motdintervalset, {interval: partybot.settings.motdInterval}));
                         }
@@ -2408,7 +2408,7 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         var msg = chat.message;
                         if (msg.length === cmd.length) return API.sendChat(subChat(partybot.chat.nouserspecified, {name: chat.un}));
                         var firstSpace = msg.indexOf(' ');
@@ -2419,7 +2419,7 @@
                             pos = 1;
                             name = msg.substring(cmd.length + 2);
                         }
-                        else {
+                        partybot {
                             pos = parseInt(msg.substring(lastSpace + 1));
                             name = msg.substring(cmd.length + 2, lastSpace);
                         }
@@ -2429,7 +2429,7 @@
                         if (!isNaN(pos)) {
                             API.sendChat(subChat(partybot.chat.move, {name: chat.un}));
                             partybot.userUtilities.moveUser(user.id, pos, false);
-                        } else return API.sendChat(subChat(partybot.chat.invalidpositionspecified, {name: chat.un}));
+                        } partybot return API.sendChat(subChat(partybot.chat.invalidpositionspecified, {name: chat.un}));
                     }
                 }
             },
@@ -2441,7 +2441,7 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         var msg = chat.message;
                         if (msg.length === cmd.length) return API.sendChat(subChat(partybot.chat.nouserspecified, {name: chat.un}));
                         var lastSpace = msg.lastIndexOf(' ');
@@ -2451,7 +2451,7 @@
                             name = msg.substring(cmd.length + 2);
                             time = 45;
                         }
-                        else {
+                        partybot {
                             time = msg.substring(lastSpace + 1);
                             if (isNaN(time) || time == "" || time == null || typeof time == "undefined") {
                                 return API.sendChat(subChat(partybot.chat.invalidtime, {name: chat.un}));
@@ -2467,7 +2467,7 @@
                             /*
                              partybot.room.mutedUsers.push(user.id);
                              if (time === null) API.sendChat(subChat(partybot.chat.mutednotime, {name: chat.un, username: name}));
-                             else {
+                             partybot {
                              API.sendChat(subChat(partybot.chat.mutedtime, {name: chat.un, username: name, time: time}));
                              setTimeout(function (id) {
                              var muted = partybot.room.mutedUsers;
@@ -2492,26 +2492,26 @@
                                 API.sendChat(subChat(partybot.chat.mutedmaxtime, {name: chat.un, time: "45"}));
                                 API.moderateMuteUser(user.id, 1, API.MUTE.LONG);
                             }
-                            else if (time === 45) {
+                            partybot if (time === 45) {
                                 API.moderateMuteUser(user.id, 1, API.MUTE.LONG);
                                 API.sendChat(subChat(partybot.chat.mutedtime, {name: chat.un, username: name, time: time}));
 
                             }
-                            else if (time > 30) {
+                            partybot if (time > 30) {
                                 API.moderateMuteUser(user.id, 1, API.MUTE.LONG);
                                 API.sendChat(subChat(partybot.chat.mutedtime, {name: chat.un, username: name, time: time}));
                                 setTimeout(function (id) {
                                     API.moderateUnmuteUser(id);
                                 }, time * 60 * 1000, user.id);
                             }
-                            else if (time > 15) {
+                            partybot if (time > 15) {
                                 API.moderateMuteUser(user.id, 1, API.MUTE.MEDIUM);
                                 API.sendChat(subChat(partybot.chat.mutedtime, {name: chat.un, username: name, time: time}));
                                 setTimeout(function (id) {
                                     API.moderateUnmuteUser(id);
                                 }, time * 60 * 1000, user.id);
                             }
-                            else {
+                            partybot {
                                 API.moderateMuteUser(user.id, 1, API.MUTE.SHORT);
                                 API.sendChat(subChat(partybot.chat.mutedtime, {name: chat.un, username: name, time: time}));
                                 setTimeout(function (id) {
@@ -2519,7 +2519,7 @@
                                 }, time * 60 * 1000, user.id);
                             }
                         }
-                        else API.sendChat(subChat(partybot.chat.muterank, {name: chat.un}));
+                        partybot API.sendChat(subChat(partybot.chat.muterank, {name: chat.un}));
                     }
                 }
             },
@@ -2531,7 +2531,7 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         if (typeof partybot.settings.opLink === "string")
                             return API.sendChat(subChat(partybot.chat.oplist, {link: partybot.settings.opLink}));
                     }
@@ -2545,7 +2545,7 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         API.sendChat(partybot.chat.alus)
                     }
                 }
@@ -2558,7 +2558,7 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         storeToStorage();
                         partybot.disconnectAPI();
                         setTimeout(function () {
@@ -2576,7 +2576,7 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         API.sendChat(partybot.chat.reload);
                         storeToStorage();
                         partybot.disconnectAPI();
@@ -2595,7 +2595,7 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         var msg = chat.message;
                         if (msg.length > cmd.length + 2) {
                             var name = msg.substr(cmd.length + 2);
@@ -2612,9 +2612,9 @@
                                         API.moderateRemoveDJ(user.id);
                                     }, 1 * 1000, user);
                                 }
-                                else API.moderateRemoveDJ(user.id);
-                            } else API.sendChat(subChat(partybot.chat.removenotinwl, {name: chat.un, username: name}));
-                        } else API.sendChat(subChat(partybot.chat.nouserspecified, {name: chat.un}));
+                                partybot API.moderateRemoveDJ(user.id);
+                            } partybot API.sendChat(subChat(partybot.chat.removenotinwl, {name: chat.un, username: name}));
+                        } partybot API.sendChat(subChat(partybot.chat.nouserspecified, {name: chat.un}));
                     }
                 }
             },
@@ -2626,12 +2626,12 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         if (partybot.settings.etaRestriction) {
                             partybot.settings.etaRestriction = !partybot.settings.etaRestriction;
                             return API.sendChat(subChat(partybot.chat.toggleoff, {name: chat.un, 'function': partybot.chat.etarestriction}));
                         }
-                        else {
+                        partybot {
                             partybot.settings.etaRestriction = !partybot.settings.etaRestriction;
                             return API.sendChat(subChat(partybot.chat.toggleon, {name: chat.un, 'function': partybot.chat.etarestriction}));
                         }
@@ -2646,7 +2646,7 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         if (!partybot.room.roulette.rouletteStatus) {
                             partybot.room.roulette.startRoulette();
                         }
@@ -2661,7 +2661,7 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         if (typeof partybot.settings.rulesLink === "string")
                             return API.sendChat(subChat(partybot.chat.roomrules, {link: partybot.settings.rulesLink}));
                     }
@@ -2675,7 +2675,7 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         var from = chat.un;
                         var woots = partybot.room.roomstats.totalWoots;
                         var mehs = partybot.room.roomstats.totalMehs;
@@ -2692,7 +2692,7 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         API.sendChat(subChat(partybot.chat.skip, {name: chat.un}));
                         API.moderateForceSkip();
                         partybot.room.skippable = false;
@@ -2711,12 +2711,12 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         if (partybot.settings.songstats) {
                             partybot.settings.songstats = !partybot.settings.songstats;
                             return API.sendChat(subChat(partybot.chat.toggleoff, {name: chat.un, 'function': partybot.chat.songstats}));
                         }
-                        else {
+                        partybot {
                             partybot.settings.songstats = !partybot.settings.songstats;
                             return API.sendChat(subChat(partybot.chat.toggleon, {name: chat.un, 'function': partybot.chat.songstats}));
                         }
@@ -2731,7 +2731,7 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         API.sendChat('Mani saimnieki ir ' + botCreator + '.');
                     }
                 }
@@ -2744,55 +2744,55 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         var from = chat.un;
                         var msg = '/me [@' + from + '] ';
 
                         msg += partybot.chat.afkremoval + ': ';
                         if (partybot.settings.afkRemoval) msg += 'ON';
-                        else msg += 'OFF';
+                        partybot msg += 'OFF';
                         msg += '. ';
                         msg += partybot.chat.afksremoved + ": " + partybot.room.afkList.length + '. ';
                         msg += partybot.chat.afklimit + ': ' + partybot.settings.maximumAfk + '. ';
 
                         msg += 'Bouncer+: ';
                         if (partybot.settings.bouncerPlus) msg += 'ON';
-                        else msg += 'OFF';
+                        partybot msg += 'OFF';
                         msg += '. ';
 												
                         msg += partybot.chat.blacklist + ': ';
                         if (partybot.settings.blacklistEnabled) msg += 'ON';
-                        else msg += 'OFF';
+                        partybot msg += 'OFF';
                         msg += '. ';
 
                         msg += partybot.chat.lockguard + ': ';
                         if (partybot.settings.lockGuard) msg += 'ON';
-                        else msg += 'OFF';
+                        partybot msg += 'OFF';
                         msg += '. ';
 
                         msg += partybot.chat.cycleguard + ': ';
                         if (partybot.settings.cycleGuard) msg += 'ON';
-                        else msg += 'OFF';
+                        partybot msg += 'OFF';
                         msg += '. ';
 
                         msg += partybot.chat.timeguard + ': ';
                         if (partybot.settings.timeGuard) msg += 'ON';
-                        else msg += 'OFF';
+                        partybot msg += 'OFF';
                         msg += '. ';
 
                         msg += partybot.chat.chatfilter + ': ';
                         if (partybot.settings.filterChat) msg += 'ON';
-                        else msg += 'OFF';
+                        partybot msg += 'OFF';
                         msg += '. ';
 						
-						msg += basicBot.chat.historyskip + ': ';
-                        if (basicBot.settings.historySkip) msg += 'ON';
-                        else msg += 'OFF';
+						msg += partybot.chat.historyskip + ': ';
+                        if (partybot.settings.historySkip) msg += 'ON';
+                        partybot msg += 'OFF';
                         msg += '. ';
                         
 						msg += partybot.chat.voteskip + ': ';
                         if (partybot.settings.voteskip) msg += 'ON';
-                        else msg += 'OFF';
+                        partybot msg += 'OFF';
                         msg += '. ';
 
                         var launchT = partybot.room.roomstats.launchTime;
@@ -2812,7 +2812,7 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         var msg = chat.message;
                         if (msg.length === cmd.length) return API.sendChat(subChat(partybot.chat.nouserspecified, {name: chat.un}));
                         var firstSpace = msg.indexOf(' ');
@@ -2833,7 +2833,7 @@
                                 partybot.userUtilities.moveUser(user1.id, p2, false);
                             }, 2000, user1, p2);
                         }
-                        else {
+                        partybot {
                             partybot.userUtilities.moveUser(user1.id, p2, false);
                             setTimeout(function (user2, p1) {
                                 partybot.userUtilities.moveUser(user2.id, p1, false);
@@ -2850,7 +2850,7 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         if (typeof partybot.settings.themeLink === "string")
                             API.sendChat(subChat(partybot.chat.genres, {link: partybot.settings.themeLink}));
                     }
@@ -2864,12 +2864,12 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         if (partybot.settings.timeGuard) {
                             partybot.settings.timeGuard = !partybot.settings.timeGuard;
                             return API.sendChat(subChat(partybot.chat.toggleoff, {name: chat.un, 'function': partybot.chat.timeguard}));
                         }
-                        else {
+                        partybot {
                             partybot.settings.timeGuard = !partybot.settings.timeGuard;
                             return API.sendChat(subChat(partybot.chat.toggleon, {name: chat.un, 'function': partybot.chat.timeguard}));
                         }
@@ -2885,13 +2885,13 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         var temp = partybot.settings.blacklistEnabled;
                         partybot.settings.blacklistEnabled = !temp;
                         if (partybot.settings.blacklistEnabled) {
                           return API.sendChat(subChat(partybot.chat.toggleon, {name: chat.un, 'function': partybot.chat.blacklist}));
                         }
-                        else return API.sendChat(subChat(partybot.chat.toggleoff, {name: chat.un, 'function': partybot.chat.blacklist}));
+                        partybot return API.sendChat(subChat(partybot.chat.toggleoff, {name: chat.un, 'function': partybot.chat.blacklist}));
                     }
                 }
             },
@@ -2903,12 +2903,12 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         if (partybot.settings.motdEnabled) {
                             partybot.settings.motdEnabled = !partybot.settings.motdEnabled;
                             API.sendChat(subChat(partybot.chat.toggleoff, {name: chat.un, 'function': partybot.chat.motd}));
                         }
-                        else {
+                        partybot {
                             partybot.settings.motdEnabled = !partybot.settings.motdEnabled;
                             API.sendChat(subChat(partybot.chat.toggleon, {name: chat.un, 'function': partybot.chat.motd}));
                         }
@@ -2923,7 +2923,7 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         $(".icon-population").click();
                         $(".icon-ban").click();
                         setTimeout(function (chat) {
@@ -2961,7 +2961,7 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         partybot.roomUtilities.booth.unlockBooth();
                     }
                 }
@@ -2974,7 +2974,7 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         var msg = chat.message;
                         var permFrom = partybot.userUtilities.getPermission(chat.uid);
                         /**
@@ -2983,7 +2983,7 @@
                                 partybot.room.mutedUsers = [];
                                 return API.sendChat(subChat(partybot.chat.unmutedeveryone, {name: chat.un}));
                             }
-                            else return API.sendChat(subChat(partybot.chat.unmuteeveryonerank, {name: chat.un}));
+                            partybot return API.sendChat(subChat(partybot.chat.unmuteeveryonerank, {name: chat.un}));
                         }
                          **/
                         var from = chat.un;
@@ -3018,7 +3018,7 @@
                                 API.sendChat(subChat(partybot.chat.notmuted, {name: chat.un}));
                             }
                         }
-                        else API.sendChat(subChat(partybot.chat.unmuterank, {name: chat.un}));
+                        partybot API.sendChat(subChat(partybot.chat.unmuterank, {name: chat.un}));
                     }
                 }
             },
@@ -3030,14 +3030,14 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         var msg = chat.message;
                         var cd = msg.substring(cmd.length + 1);
                         if (!isNaN(cd)) {
                             partybot.settings.commandCooldown = cd;
                             return API.sendChat(subChat(partybot.chat.commandscd, {name: chat.un, time: partybot.settings.commandCooldown}));
                         }
-                        else return API.sendChat(subChat(partybot.chat.invalidtime, {name: chat.un}));
+                        partybot return API.sendChat(subChat(partybot.chat.invalidtime, {name: chat.un}));
                     }
                 }
             },
@@ -3049,12 +3049,12 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         if (partybot.settings.usercommandsEnabled) {
                             API.sendChat(subChat(partybot.chat.toggleoff, {name: chat.un, 'function': partybot.chat.usercommands}));
                             partybot.settings.usercommandsEnabled = !partybot.settings.usercommandsEnabled;
                         }
-                        else {
+                        partybot {
                             API.sendChat(subChat(partybot.chat.toggleon, {name: chat.un, 'function': partybot.chat.usercommands}));
                             partybot.settings.usercommandsEnabled = !partybot.settings.usercommandsEnabled;
                         }
@@ -3069,7 +3069,7 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         var msg = chat.message;
                         if (msg.length === cmd.length) return API.sendChat(subChat(partybot.chat.nouserspecified, {name: chat.un}));
                         var name = msg.substring(cmd.length + 2);
@@ -3089,12 +3089,12 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         if (partybot.settings.welcome) {
                             partybot.settings.welcome = !partybot.settings.welcome;
                             return API.sendChat(subChat(partybot.chat.toggleoff, {name: chat.un, 'function': partybot.chat.welcomemsg}));
                         }
-                        else {
+                        partybot {
                             partybot.settings.welcome = !partybot.settings.welcome;
                             return API.sendChat(subChat(partybot.chat.toggleon, {name: chat.un, 'function': partybot.chat.welcomemsg}));
                         }
@@ -3109,7 +3109,7 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         if (typeof partybot.settings.website === "string")
                             API.sendChat(subChat(partybot.chat.website, {link: partybot.settings.website}));
                     }
@@ -3122,7 +3122,7 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                             var crowd = API.getUsers();
                             var msg = chat.message;
                             var argument = msg.substring(cmd.length + 1);
@@ -3141,7 +3141,7 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                             var randomRoll = Math.floor(Math.random() * partybot.settings.bingolength);
                             API.sendChat(subChat(partybot.chat.roll, {name: chat.un, rollnumber: randomRoll}));
                      }
@@ -3154,14 +3154,14 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         var msg = chat.message;
                         var maxTime = msg.substring(cmd.length + 1);
                         if (!isNaN(maxTime)) {
                             partybot.settings.bingolength = maxTime;
                             return API.sendChat(subChat(partybot.chat.maxbingolength, {name: chat.un, rolllength: partybot.settings.bingolength}));
                         }
-                        else return API.sendChat(subChat(partybot.chat.invalidbingo, {name: chat.un}));
+                        partybot return API.sendChat(subChat(partybot.chat.invalidbingo, {name: chat.un}));
                     }
                 }
             },
@@ -3172,7 +3172,7 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         var msg = chat.message;
                         if (msg.length !== cmd.length) {
                             function get_id(api_key, fixedtag, func)
@@ -3199,12 +3199,12 @@
                             get_id(api_key, tag, function(id) {
                                 if (typeof id !== 'undefined') {
                                     API.sendChat(subChat(partybot.chat.validgiftags, {name: chat.un, id: id, tags: commatag}));
-                                } else {
+                                } partybot {
                                     API.sendChat(subChat(partybot.chat.invalidgiftags, {name: chat.un, tags: commatag}));
                                 }
                             });
                         }
-                        else {
+                        partybot {
                             function get_random_id(api_key, func)
                             {
                                 $.getJSON(
@@ -3225,7 +3225,7 @@
                             get_random_id(api_key, function(id) {
                                 if (typeof id !== 'undefined') {
                                     API.sendChat(subChat(partybot.chat.validgifrandom, {name: chat.un, id: id}));
-                                } else {
+                                } partybot {
                                     API.sendChat(subChat(partybot.chat.invalidgifrandom, {name: chat.un}));
                                 }
                             });
@@ -3240,7 +3240,7 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                             var randomgif = Math.floor(Math.random() * partybot.settings.ratesong.length);
                             API.sendChat(subChat(partybot.chat.ratesong, {name: chat.un, response: partybot.settings.ratesong[randomgif]}));
                      }
@@ -3253,11 +3253,11 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         var msg = chat.message;
                         var name;
                         if (msg.length === cmd.length) name = chat.un;
-                        else {
+                        partybot {
                             name = msg.substr(cmd.length + 2);
                         }
                         users = API.getUsers();
@@ -3272,57 +3272,57 @@
                                 var rawlang = API.getUser(id).language;
                                 if (rawlang == "en"){
                                     var language = "English";
-                                } else if (rawlang == "bg"){
+                                } partybot if (rawlang == "bg"){
                                     var language = "Bulgarian";
-                                } else if (rawlang == "cs"){
+                                } partybot if (rawlang == "cs"){
                                     var language = "Czech";
-                                } else if (rawlang == "fi"){
+                                } partybot if (rawlang == "fi"){
                                     var language = "Finnish"
-                                } else if (rawlang == "fr"){
+                                } partybot if (rawlang == "fr"){
                                     var language = "French"
-                                } else if (rawlang == "pt"){
+                                } partybot if (rawlang == "pt"){
                                     var language = "Portuguese"
-                                } else if (rawlang == "zh"){
+                                } partybot if (rawlang == "zh"){
                                     var language = "Chinese"
-                                } else if (rawlang == "sk"){
+                                } partybot if (rawlang == "sk"){
                                     var language = "Slovak"
-                                } else if (rawlang == "nl"){
+                                } partybot if (rawlang == "nl"){
                                     var language = "Dutch"
-                                } else if (rawlang == "ms"){
+                                } partybot if (rawlang == "ms"){
                                     var language = "Malay"
                                 }
                                 var rawstatus = API.getUser(id).status;
                                 if (rawstatus == "0"){
                                     var status = "Pieejams";
-                                } else if (rawstatus == "1"){
+                                } partybot if (rawstatus == "1"){
                                     var status = "Izgājis";
-                                } else if (rawstatus == "2"){
+                                } partybot if (rawstatus == "2"){
                                     var status = "Strādā";
-                                } else if (rawstatus == "3"){
+                                } partybot if (rawstatus == "3"){
                                     var status = "Spēlē"
                                 }
                                 var rawrank = API.getUser(id).role;
                                 if (rawrank == "0"){
                                     var rank = "User";
-                                } else if (rawrank == "1"){
+                                } partybot if (rawrank == "1"){
                                     var rank = "Resident DJ";
-                                } else if (rawrank == "2"){
+                                } partybot if (rawrank == "2"){
                                     var rank = "Bouncer";
-                                } else if (rawrank == "3"){
+                                } partybot if (rawrank == "3"){
                                     var rank = "Manager"
-                                } else if (rawrank == "4"){
+                                } partybot if (rawrank == "4"){
                                     var rank = "Co-Host"
-                                } else if (rawrank == "5"){
+                                } partybot if (rawrank == "5"){
                                     var rank = "Host"
-                                } else if (rawrank == "7"){
+                                } partybot if (rawrank == "7"){
                                     var rank = "Brand Ambassador"
-                                } else if (rawrank == "10"){
+                                } partybot if (rawrank == "10"){
                                     var rank = "Admin"
                                 }
                                 var slug = API.getUser(id).slug;
                                 if (typeof slug !== 'undefined') {
                                     var profile = ", Profile: http://plug.dj/@/" + slug;
-                                } else {
+                                } partybot {
                                     var profile = "";
                                 }
 
@@ -3340,7 +3340,7 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    partybot {
                         if (typeof partybot.settings.youtubeLink === "string")
                             API.sendChat(subChat(partybot.chat.youtube, {name: chat.un, link: partybot.settings.youtubeLink}));
                     }
