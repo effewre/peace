@@ -230,7 +230,7 @@
             maximumCycletime: 10,
             voteSkip: true,
             voteSkipLimit: 10,
-			historySkip: false,
+			historySkip: true,
             timeGuard: true,
             maximumSongLength: 7,
 			bingolength: 100,
@@ -2195,8 +2195,8 @@
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
                     else {
 						var dj = API.getDJ().id;
-                        if (partybotroom.roulette.rouletteStatus && partybotroom.roulette.participants.indexOf(chat.uid) < 0 && dj !== chat.uid ) {
-                            partybotroom.roulette.participants.push(chat.uid);
+                        if (partybot.room.roulette.rouletteStatus && partybotroom.roulette.participants.indexOf(chat.uid) < 0 && dj !== chat.uid ) {
+                            partybot.room.roulette.participants.push(chat.uid);
                             API.sendChat(subChat(partybot.chat.roulettejoin, {name: chat.un}));
                         }
 					if (dj === chat.uid)
@@ -2220,7 +2220,7 @@
                         var name = msg.substring(cmd.length + 2);
                         var user = partybot.userUtilities.lookupUserName(name);
                         if (typeof user === 'boolean') return API.sendChat(subChat(partybot.chat.invaliduserspecified, {name: chat.un}));
-                        var join = partybot.user.Utilities.getJointime(user);
+                        var join = partybot.userUtilities.getJointime(user);
                         var time = Date.now() - join;
                         var timeString = partybot.roomUtilities.msToStr(time);
                         API.sendChat(subChat(partybot.chat.jointime, {namefrom: chat.un, username: name, time: timeString}));
@@ -2299,7 +2299,7 @@
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
                     else {
-                        var ind = partybotroom.roulette.participants.indexOf(chat.uid);
+                        var ind = partybot.room.roulette.participants.indexOf(chat.uid);
                         if (ind > -1) {
                             partybotroom.roulette.participants.splice(ind, 1);
                             API.sendChat(subChat(partybot.chat.rouletteleave, {name: chat.un}));
