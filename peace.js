@@ -1145,8 +1145,8 @@
                 }
             }
             for (var i = 0; i < users.length; i++) {
-                var user = partybot.user.Utilities.lookupUser(users[i].id);
-                partybot.user.Utilities.updatePosition(user, API.getWaitListPosition(users[i].id) + 1);
+                var user = partybot.userUtilities.lookupUser(users[i].id);
+                partybot.userUtilities.updatePosition(user, API.getWaitListPosition(users[i].id) + 1);
             }
         },
         chatcleaner: function (chat) {
@@ -2218,7 +2218,7 @@
                         var msg = chat.message;
                         if (msg.length === cmd.length) return API.sendChat(subChat(partybot.chat.nouserspecified, {name: chat.un}));
                         var name = msg.substring(cmd.length + 2);
-                        var user = partybot.user.Utilities.lookupUserName(name);
+                        var user = partybot.userUtilities.lookupUserName(name);
                         if (typeof user === 'boolean') return API.sendChat(subChat(partybot.chat.invaliduserspecified, {name: chat.un}));
                         var join = partybot.user.Utilities.getJointime(user);
                         var time = Date.now() - join;
@@ -2318,8 +2318,8 @@
                     else {
                         var media = API.getMedia();
                         var from = chat.un;
-                        var user = partybot.user.Utilities.lookupUser(chat.uid);
-                        var perm = partybot.user.Utilities.getPermission(chat.uid);
+                        var user = partybot.userUtilities.lookupUser(chat.uid);
+                        var perm = partybot.userUtilities.getPermission(chat.uid);
                         var dj = API.getDJ().id;
                         var isDj = false;
                         if (dj === chat.uid) isDj = true;
@@ -3177,7 +3177,7 @@
                         var msg = chat.message;
                         if (msg.length === cmd.length) return API.sendChat(subChat(partybot.chat.nouserspecified, {name: chat.un}));
                         var name = msg.substring(cmd.length + 2);
-                        var user = partybot.user.Utilities.lookupUserName(name);
+                        var user = partybot.userUtilities.lookupUserName(name);
                         if (user === false) return API.sendChat(subChat(partybot.chat.invaliduserspecified, {name: chat.un}));
                         var vratio = user.votes;
                         var ratio = vratio.woot / vratio.meh;
