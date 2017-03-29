@@ -3363,11 +3363,11 @@
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybotcommands.executable(this.rank, chat)) return void (0);
-                    partybot {
+                    else {
                         var msg = chat.message;
                         var name;
                         if (msg.length === cmd.length) name = chat.un;
-                        partybot {
+                        else {
                             name = msg.substr(cmd.length + 2);
                         }
                         users = API.getUsers();
