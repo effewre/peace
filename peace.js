@@ -1015,10 +1015,10 @@
             partybot.room.currentDJID = obj.dj.id;
 
             var mid = obj.media.format + ':' + obj.media.cid;
-            for (var bl in basicBot.room.blacklists) {
-                if (basicBot.settings.blacklistEnabled) {
-                    if (basicBot.room.blacklists[bl].indexOf(mid) > -1) {
-                        API.sendChat(subChat(basicBot.chat.isblacklisted, {blacklist: bl}));
+            for (var bl in partybot.room.blacklists) {
+                if (partybot.settings.blacklistEnabled) {
+                    if (partybot.room.blacklists[bl].indexOf(mid) > -1) {
+                        API.sendChat(subChat(partybot.chat.isblacklisted, {blacklist: bl}));
                         return API.moderateForceSkip();
                     }
                 }
