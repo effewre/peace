@@ -2771,7 +2771,7 @@
             },
 
 				skipCommand: {
-                command: ['skip', 'smartskip'],
+                command: ['skip'],
                 rank: 'bouncer',
                 type: 'startsWith',
                 functionality: function (chat, cmd) {
