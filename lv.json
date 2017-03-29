@@ -11,7 +11,7 @@
 	"welcome": "/me Yo! Prieks, ka ienāci šeit @%%NAME%% Relax and have fun!",
     "welcomeback": "/me Esi sveicināts/-ta atpakaļ @%%NAME%% Ja atslēdzies pēdējās stundas laikā, raksti !dc.",
 
-	"songknown": "/me Šī dziesma ir skanējusi pēdējo 3 stundu laikā, ievēro noteikumus!",
+	"songknown": "/me Šī dziesma atrodas DJ vēsturē, jeb ir spēlēta pēdējo 4 stundu laikā!",
 
     "timelimit": "/me @%%NAME%%, jūsu dziesma ir garāka par maksimāli pieļaujamajām %%MAXLENGTH%% minūtēm.",
     "permissionownsong": "/me :up: @%%NAME%% has permission to play their own production!",
