@@ -335,7 +335,7 @@
             welcome: true,
             opLink: null,
             rulesLink: "https://lvpr.co/forum/topic/16-partybot-komandas/",
-			blackLIst: "https://lvpr.co/forum/topic/14-blacklist-info/"
+			blackLIst: "https://lvpr.co/forum/topic/14-blacklist-info/",
             themeLink: null,
             fbLink: null,
             youtubeLink: null,
