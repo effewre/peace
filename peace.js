@@ -3459,5 +3459,5 @@
         }
     };
 
-    loadChat(partybotstartup);
+    loadChat(partybot.startup);
 }).call(this);
