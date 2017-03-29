@@ -47,7 +47,7 @@
         if (typeof chat === "undefined") {
             API.chatLog("There is a chat text missing.");
             console.log("There is a chat text missing.");
-            return "[Error] No text message found.";
+            return "Dziesmai nebija pieejams video, tādēļ tiek skipota!";
 
             // TODO: Get missing chat messages from source.
         }
@@ -1014,22 +1014,16 @@
             partybot.roomUtilities.intervalMessage();
             partybot.room.currentDJID = obj.dj.id;
 
-            var blacklistSkip = setTimeout(function () {
-                var mid = obj.media.format + ':' + obj.media.cid;
-                for (var bl in partybot.room.blacklists) {
-                    if (partybot.settings.blacklistEnabled) {
-                        if (partybot.room.blacklists[bl].indexOf(mid) > -1) {
-                            API.sendChat(subChat(partybot.chat.isblacklisted, {blacklist: bl}));
-                            if (partybot.settings.smartSkip){
-                                return partybot.roomUtilities.smartSkip();
-                            }
-                            else {
-                                return API.moderateForceSkip();
-                            }
-                        }
+            var mid = obj.media.format + ':' + obj.media.cid;
+            for (var bl in basicBot.room.blacklists) {
+                if (basicBot.settings.blacklistEnabled) {
+                    if (basicBot.room.blacklists[bl].indexOf(mid) > -1) {
+                        API.sendChat(subChat(basicBot.chat.isblacklisted, {blacklist: bl}));
+                        return API.moderateForceSkip();
                     }
                 }
-            }, 2000);
+            }
+			
             var newMedia = obj.media;
             var timeLimitSkip = setTimeout(function () {
                 if (partybot.settings.timeGuard && newMedia.duration > partybot.settings.maximumSongLength * 60 && !partybot.room.roomevent) {
@@ -2870,7 +2864,7 @@
                         if (partybot.settings.afkRemoval) msg += 'ON';
                         else msg += 'OFF';
                         msg += '. ';
-                        msg += partybot.chat.afksremoved + ": " + partybotroom.afkList.length + '. ';
+                        msg += partybot.chat.afksremoved + ": " + partybot.room.afkList.length + '. ';
                         msg += partybot.chat.afklimit + ': ' + partybot.settings.maximumAfk + '. ';
 
                         msg += 'Bouncer+: ';
