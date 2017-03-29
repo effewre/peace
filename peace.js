@@ -1021,15 +1021,11 @@
                     if (partybot.settings.blacklistEnabled) {
                         if (partybot.room.blacklists[bl].indexOf(mid) > -1) {
                             API.sendChat(subChat(partybot.chat.isblacklisted, {blacklist: bl}));
-                            if (partybot.settings.smartSkip){
-                                return partybot.roomUtilities.smartSkip();
-                            }
-                            partybot {
-                                return API.moderateForceSkip();
+							return API.moderateForceSkip();
                             }
                         }
                     }
-                }
+                
             }, 2000);
             var newMedia = obj.media;
             var timeLimitSkip = setTimeout(function () {
