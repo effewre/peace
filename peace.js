@@ -217,7 +217,7 @@
             startupVolume: 0,
             startupEmoji: false,
             maximumAfk: 60,
-			smartSkip: false,
+			smartSkip: true,
             cmdDeletion: true,
             afkRemoval: false,
             maximumDc: 60,
@@ -1317,7 +1317,7 @@
 
                     }
                 }
-                partybotroom.roomstats.chatmessages++;
+                partybot.room.roomstats.chatmessages++;
             },
             spam: [
                 'ble', 'bļe', 'loh', 'lox', 'bļed', 'bled', 'nahuj', 'suka', 
