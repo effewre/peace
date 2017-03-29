@@ -1144,11 +1144,6 @@
                 }
             }
             for (var i = 0; i < users.length; i++) {
-                var user = partybot.userUtilities.lookupUser(users[i].id);
-                partybot.userUtilities.updatePosition(user, API.getWaitListPosition(users[i].id) + 1);
-            }
-        },
-            for (var i = 0; i < users.length; i++) {
                 var user = partybotuserUtilities.lookupUser(users[i].id);
                 partybotuserUtilities.updatePosition(user, API.getWaitListPosition(users[i].id) + 1);
             }
