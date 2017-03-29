@@ -2178,15 +2178,15 @@
                 type: 'exact',
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-                    if (!partybotcommands.executable(this.rank, chat)) return void (0);
+                    if (!partybot.commands.executable(this.rank, chat)) return void (0);
                     else {
-                        if (partybotsettings.historySkip) {
-                            partybotsettings.historySkip = !partybotsettings.historySkip;
-                            API.sendChat(subChat(partybotchat.toggleoff, {name: chat.un, 'function': partybotchat.historyskip}));
+                        if (partybot.settings.historySkip) {
+                            partybot.settings.historySkip = !partybot.settings.historySkip;
+                            API.sendChat(subChat(partybotchat.toggleoff, {name: chat.un, 'function': partybot.chat.historyskip}));
                         }
                         else {
-                            partybotsettings.historySkip = !partybotsettings.historySkip;
-                            API.sendChat(subChat(partybotchat.toggleon, {name: chat.un, 'function': partybotchat.historyskip}));
+                            partybot.settings.historySkip = !partybot.settings.historySkip;
+                            API.sendChat(subChat(partybotchat.toggleon, {name: chat.un, 'function': partybot.chat.historyskip}));
                         }
                     }
                 }
