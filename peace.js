@@ -1014,16 +1014,23 @@
             partybot.roomUtilities.intervalMessage();
             partybot.room.currentDJID = obj.dj.id;
 
-            var mid = obj.media.format + ':' + obj.media.cid;
-            for (var bl in partybot.room.blacklists) {
-                if (partybot.settings.blacklistEnabled) {
-                    if (partybot.room.blacklists[bl].indexOf(mid) > -1) {
-                        API.sendChat(subChat(partybot.chat.isblacklisted, {blacklist: bl}));
-                        return API.moderateForceSkip();
+            
+			var blacklistSkip = setTimeout(function () {
+                var mid = obj.media.format + ':' + obj.media.cid;
+                for (var bl in partybot.room.blacklists) {
+                    if (partybot.settings.blacklistEnabled) {
+                        if (partybot.room.blacklists[bl].indexOf(mid) > -1) {
+                            API.sendChat(subChat(partybot.chat.isblacklisted, {blacklist: bl}));
+                            if (partybot.settings.smartSkip){
+                                return partybot.roomUtilities.smartSkip();
+                            }
+                            partybot {
+                                return API.moderateForceSkip();
+                            }
+                        }
                     }
                 }
-            }
-			
+            }, 2000);
             var newMedia = obj.media;
             var timeLimitSkip = setTimeout(function () {
                 if (partybot.settings.timeGuard && newMedia.duration > partybot.settings.maximumSongLength * 60 && !partybot.room.roomevent) {
@@ -2155,7 +2162,7 @@
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
                     else {
-                        var link = "http://i.imgur.com/6rznWwI.jpg";
+                        var link = "http://i.imgur.com/ZeRR07N.png";
                         API.sendChat(subChat(partybot.chat.starterhelp, {link: link}));
                     }
                 }
