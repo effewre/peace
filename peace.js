@@ -335,6 +335,7 @@
             welcome: true,
             opLink: null,
             rulesLink: "https://lvpr.co/forum/topic/16-partybot-komandas/",
+			blackLIst: "https://lvpr.co/forum/topic/14-blacklist-info/"
             themeLink: null,
             fbLink: null,
             youtubeLink: null,
@@ -1793,15 +1794,8 @@
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
                     else {
-                        var author = API.getMedia().author;
-                        var title = API.getMedia().title;
-                        var name = chat.un;
-                        var format = API.getMedia().format;
-                        var cid = API.getMedia().cid;
-                        var songid = format + ":" + cid;
-
-                        API.sendChat(subChat(partybot.chat.blinfo, {name: name, author: author, title: title, songid: songid}));
-                    }
+                        if (typeof partybot.settings.blackLIst === "string")
+                            return API.sendChat(subChat(partybot.chat.blinfo, {link: partybot.settings.blackLIst}));             }
                 }
             },
 
@@ -2738,8 +2732,8 @@
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
                     else {
-                        if (!partybotroom.roulette.rouletteStatus) {
-                            partybotroom.roulette.startRoulette();
+                        if (!partybot.room.roulette.rouletteStatus) {
+                            partybot.room.roulette.startRoulette();
                         }
                     }
                 }
@@ -2856,7 +2850,7 @@
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
                     else {
-                        API.sendChat('Mani saimnieki ir ' + botCreator + '.');
+                        API.sendChat('/me Mani saimnieki ir ' + botCreator + '.');
                     }
                 }
             },
