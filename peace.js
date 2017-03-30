@@ -1162,7 +1162,7 @@
             if (msg === '') {
                 return true;
             }
-            if (!containsLetters && (msg.length === 3 || msg.length > 5)) return true;
+            if (!containsLetters && (msg.length === 1 || msg.length > 3)) return true;
             msg = msg.replace(/[ ,;.:\/=~+%^*\-\\"'&@#]/g, '');
             var capitals = 0;
             var ch;
