@@ -2940,7 +2940,7 @@
                         var user1 = partybot.userUtilities.lookupUserName(name1);
                         var user2 = partybot.userUtilities.lookupUserName(name2);
                         if (typeof user1 === 'boolean' || typeof user2 === 'boolean') return API.sendChat(subChat(partybot.chat.swapinvalid, {name: chat.un}));
-                        if (user1.id === partybotloggedInID || user2.id === partybotloggedInID) return API.sendChat(subChat(partybot.chat.addbottowaitlist, {name: chat.un}));
+                        if (user1.id === partybot.loggedInID || user2.id === partybot.loggedInID) return API.sendChat(subChat(partybot.chat.addbottowaitlist, {name: chat.un}));
                         var p1 = API.getWaitListPosition(user1.id) + 1;
                         var p2 = API.getWaitListPosition(user2.id) + 1;
                         if (p1 < 0 || p2 < 0) return API.sendChat(subChat(partybot.chat.swapwlonly, {name: chat.un}));
