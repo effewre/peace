@@ -2564,7 +2564,7 @@
                         }
                         var user = partybot.userUtilities.lookupUserName(name);
                         if (typeof user === 'boolean') return API.sendChat(subChat(partybot.chat.invaliduserspecified, {name: chat.un}));
-                        if (user.id === partybotloggedInID) return API.sendChat(subChat(partybot.chat.addbotwaitlist, {name: chat.un}));
+                        if (user.id === partybot.loggedInID) return API.sendChat(subChat(partybot.chat.addbotwaitlist, {name: chat.un}));
                         if (!isNaN(pos)) {
                             API.sendChat(subChat(partybot.chat.move, {name: chat.un}));
                             partybot.user.Utilities.moveUser(user.id, pos, false);
