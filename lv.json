@@ -29,7 +29,7 @@
 	
 	"usernotfound": "/me Lietotājs nav atrasts.",
     "notdisconnected": "/me @%%NAME%% neatslēdzās šajā laikā.",
-	"notdisconnectedd": "/me @%%NAME%% atslēdzies no 1.vietas? Hey, @bouncers @managers!",
+	"notdisconnectedd": "/me @%%NAME%% atslēdzies no 1.vietas? Pasaki to @bouncers @managers!",
     "noposition": "/me Nav atrasta iepriekšējā pozīcija, jo neatradies waitlist pirms atslēgšanās.",
     "toolongago": "/me @%%NAME%%'s iepriekšējā atslēgšanās bija pārāk ilgu laiku atpakaļ: %%TIME%%.",
     "valid": "/me @%%NAME%% atslēdzās %%TIME%% atpakaļ, jābūt pozīcijā %%POSITION%%.",
