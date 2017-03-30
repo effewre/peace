@@ -2566,7 +2566,7 @@
                         if (typeof user === 'boolean') return API.sendChat(subChat(partybot.chat.invaliduserspecified, {name: chat.un}));
 						if (!isNaN(pos)) {
                             API.sendChat(subChat(partybot.chat.move, {name: chat.un}));
-                            partybot.user.Utilities.moveUser(user.id, pos, false);
+                            partybot.userUtilities.moveUser(user.id, pos, false);
                         } else return API.sendChat(subChat(partybot.chat.invalidpositionspecified, {name: chat.un}));
                     }
                 }
