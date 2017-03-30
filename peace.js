@@ -1034,11 +1034,11 @@
             
 			var newMedia = obj.media;
             var timeLimitSkip = setTimeout(function () {
-                if (basicBot.settings.timeGuard && newMedia.duration > basicBot.settings.maximumSongLength * 60 && !basicBot.room.roomevent) {
+                if (partybot.settings.timeGuard && newMedia.duration > partybot.settings.maximumSongLength * 60 && !partybot.room.roomevent) {
                     var name = obj.dj.username;
-                    API.sendChat(subChat(basicBot.chat.timelimit, {name: name, maxlength: basicBot.settings.maximumSongLength}));
-                    if (basicBot.settings.smartSkip){
-                        return basicBot.roomUtilities.smartSkip();
+                    API.sendChat(subChat(partybot.chat.timelimit, {name: name, maxlength: partybot.settings.maximumSongLength}));
+                    if (partybot.settings.smartSkip){
+                        return partybot.roomUtilities.smartSkip();
                     }
                     else {
                         return API.moderateForceSkip();
