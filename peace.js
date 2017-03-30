@@ -364,7 +364,7 @@
             autoskipTimer: null,
             autodisableInterval: null,
             autodisableFunc: function () {
-                if (partybotstatus && partybot.settings.autodisable) {
+                if (partybot.status && partybot.settings.autodisable) {
                     API.sendChat('!afkdisable');
                     API.sendChat('!joindisable');
                 }
@@ -1856,7 +1856,7 @@
                         }
                         else {
                             var name = msg.substring(space + 2);
-                            var user = partybot.user.Utilities.lookupUserName(name);
+                            var user = partybot.userUtilities.lookupUserName(name);
                             if (user === false || !user.inRoom) {
                                 return API.sendChat(subChat(partybot.chat.nousercookie, {name: name}));
                             }
@@ -1895,7 +1895,7 @@
                         }
                         else {
                             var name = msg.substring(space + 2);
-                            var user = partybot.user.Utilities.lookupUserName(name);
+                            var user = partybot.userUtilities.lookupUserName(name);
                             if (user === false || !user.inRoom) {
                                 return API.sendChat(subChat(partybot.hat.nouserpear, {name: name}));
                             }
@@ -2042,7 +2042,7 @@
                         var msg = chat.message;
                         if (msg.length === cmd.length) return API.sendChat(subChat(partybot.chat.nouserspecified, {name: chat.un}));
                         var name = msg.substring(cmd.length + 2);
-                        var user = partybot.user.Utilities.lookupUserName(name);
+                        var user = partybot.userUtilities.lookupUserName(name);
                         if (typeof user === 'boolean') return API.sendChat(subChat(partybot.chat.invaliduserspecified, {name: chat.un}));
                         var chats = $('.from');
                         for (var i = 0; i < chats.length; i++) {
@@ -2079,14 +2079,14 @@
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
                     else {
-                        var perm = partybot.user.Utilities.getPermission(chat.uid);
+                        var perm = partybot.userUtilities.getPermission(chat.uid);
                         var msg = chat.message;
                         var name;
                         if (msg.length > cmd.length) {
                             if (perm < 2) return void (0);
                             name = msg.substring(cmd.length + 2);
                         } else name = chat.un;
-                        var user = partybot.user.Utilities.lookupUserName(name);
+                        var user = partybot.userUtilities.lookupUserName(name);
                         if (typeof user === 'boolean') return API.sendChat(subChat(partybot.chat.invaliduserspecified, {name: chat.un}));
                         var pos = API.getWaitListPosition(user.id);
                         if (pos < 0) return API.sendChat(subChat(partybot.chat.notinwaitlist, {name: name}));
@@ -2250,12 +2250,12 @@
                             name = msg.substring(cmd.length + 2, lastSpace);
                         }
 
-                        var user = partybot.user.Utilities.lookupUserName(name);
+                        var user = partybot.userUtilities.lookupUserName(name);
                         var from = chat.un;
                         if (typeof user === 'boolean') return API.sendChat(subChat(partybot.chat.nouserspecified, {name: chat.un}));
 
-                        var permFrom = partybot.user.Utilities.getPermission(chat.uid);
-                        var permTokick = partybot.user.Utilities.getPermission(user.id);
+                        var permFrom = partybot.userUtilities.getPermission(chat.uid);
+                        var permTokick = partybot.userUtilities.getPermission(user.id);
 
                         if (permFrom <= permTokick)
                             return API.sendChat(subChat(partybot.chat.kickrank, {name: chat.un}));
@@ -2415,7 +2415,7 @@
                                         partybotroom.skippable = true
                                     }, 5 * 1000);
                                     setTimeout(function (id) {
-                                        partybot.user.Utilities.moveUser(id, partybot.settings.lockskipPosition, false);
+                                        partybot.userUtilities.moveUser(id, partybot.settings.lockskipPosition, false);
                                         partybotroom.queueable = true;
                                         setTimeout(function () {
                                             partybot.roomUtilities.booth.unlockBooth();
@@ -2445,7 +2445,7 @@
                                         partybotroom.skippable = true
                                     }, 5 * 1000);
                                     setTimeout(function (id) {
-                                        partybot.user.Utilities.moveUser(id, partybot.settings.lockskipPosition, false);
+                                        partybot.userUtilities.moveUser(id, partybot.settings.lockskipPosition, false);
                                         partybotroom.queueable = true;
                                         setTimeout(function () {
                                             partybot.roomUtilities.booth.unlockBooth();
@@ -2937,8 +2937,8 @@
                         var lastSpace = msg.lastIndexOf(' ');
                         var name1 = msg.substring(cmd.length + 2, lastSpace);
                         var name2 = msg.substring(lastSpace + 2);
-                        var user1 = partybot.user.Utilities.lookupUserName(name1);
-                        var user2 = partybot.user.Utilities.lookupUserName(name2);
+                        var user1 = partybot.userUtilities.lookupUserName(name1);
+                        var user2 = partybot.userUtilities.lookupUserName(name2);
                         if (typeof user1 === 'boolean' || typeof user2 === 'boolean') return API.sendChat(subChat(partybot.chat.swapinvalid, {name: chat.un}));
                         if (user1.id === partybotloggedInID || user2.id === partybotloggedInID) return API.sendChat(subChat(partybot.chat.addbottowaitlist, {name: chat.un}));
                         var p1 = API.getWaitListPosition(user1.id) + 1;
@@ -2946,15 +2946,15 @@
                         if (p1 < 0 || p2 < 0) return API.sendChat(subChat(partybot.chat.swapwlonly, {name: chat.un}));
                         API.sendChat(subChat(partybot.chat.swapping, {'name1': name1, 'name2': name2}));
                         if (p1 < p2) {
-                            partybot.user.Utilities.moveUser(user2.id, p1, false);
+                            partybot.userUtilities.moveUser(user2.id, p1, false);
                             setTimeout(function (user1, p2) {
-                                partybot.user.Utilities.moveUser(user1.id, p2, false);
+                                partybot.userUtilities.moveUser(user1.id, p2, false);
                             }, 2000, user1, p2);
                         }
                         else {
-                            partybot.user.Utilities.moveUser(user1.id, p2, false);
+                            partybot.userUtilities.moveUser(user1.id, p2, false);
                             setTimeout(function (user2, p1) {
-                                partybot.user.Utilities.moveUser(user2.id, p1, false);
+                                partybot.userUtilities.moveUser(user2.id, p1, false);
                             }, 2000, user2, p1);
                         }
                     }
