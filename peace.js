@@ -217,7 +217,7 @@
             startupVolume: 0,
             startupEmoji: false,
             maximumAfk: 60,
-			smartSkip: true,
+			smartSkip: false,
             cmdDeletion: true,
             afkRemoval: false,
             maximumDc: 60,
@@ -1031,12 +1031,20 @@
                     }
                 }
             }, 2000);
-              var newMedia = obj.media;
-            if (partybot.settings.timeGuard && newMedia.duration > partybot.settings.maximumSongLength * 60 && !partybot.room.roomevent) {
-                var name = obj.dj.username;
-                API.sendChat(subChat(partybot.chat.timelimit, {name: name, maxlength: partybot.settings.maximumSongLength}));
-                API.moderateForceSkip();
-            }
+            
+			var newMedia = obj.media;
+            var timeLimitSkip = setTimeout(function () {
+                if (basicBot.settings.timeGuard && newMedia.duration > basicBot.settings.maximumSongLength * 60 && !basicBot.room.roomevent) {
+                    var name = obj.dj.username;
+                    API.sendChat(subChat(basicBot.chat.timelimit, {name: name, maxlength: basicBot.settings.maximumSongLength}));
+                    if (basicBot.settings.smartSkip){
+                        return basicBot.roomUtilities.smartSkip();
+                    }
+                    else {
+                        return API.moderateForceSkip();
+                    }
+                }
+            }, 2000);
             var format = obj.media.format;
             var cid = obj.media.cid;
             var naSkip = setTimeout(function () {
