@@ -2562,7 +2562,7 @@
                             pos = parseInt(msg.substring(lastSpace + 1));
                             name = msg.substring(cmd.length + 2, lastSpace);
                         }
-                        var user = partybot.user.Utilities.lookupUserName(name);
+                        var user = partybot.userUtilities.lookupUserName(name);
                         if (typeof user === 'boolean') return API.sendChat(subChat(partybot.chat.invaliduserspecified, {name: chat.un}));
                         if (user.id === partybotloggedInID) return API.sendChat(subChat(partybot.chat.addbotwaitlist, {name: chat.un}));
                         if (!isNaN(pos)) {
