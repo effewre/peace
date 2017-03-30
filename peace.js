@@ -1077,7 +1077,7 @@
                 }
             }, 2000);
             
-			 clearTimeout(historySkip);
+			clearTimeout(historySkip);
             if (partybot.settings.historySkip) {
                 var alreadyPlayed = false;
                 var apihistory = API.getHistory();
@@ -1085,8 +1085,7 @@
                 var historySkip = setTimeout(function () {
                     for (var i = 0; i < apihistory.length; i++) {
                         if (apihistory[i].media.cid === obj.media.cid) {
-                            partybot.room.historyList[i].push(+new Date());
-                            alreadyPlayed = true;
+							alreadyPlayed = true;
                             API.sendChat(subChat(partybot.chat.songknown, {name: name}));
                             if (partybot.settings.smartSkip){
                                 return partybot.roomUtilities.smartSkip();
@@ -1096,7 +1095,9 @@
                             }
                         }
                     }
-                    
+                     if (!alreadyPlayed) {
+                        basicBot.room.historyList.push([obj.media.cid, +new Date()]);
+                    }
                 }, 2000);
             }
             if (user.ownSong) {
