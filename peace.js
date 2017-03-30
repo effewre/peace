@@ -1096,9 +1096,7 @@
                             }
                         }
                     }
-                    if (!alreadyPlayed) {
-                        partybot.room.historyList.push([obj.media.cid, +new Date()]);
-                    }
+                    
                 }, 2000);
             }
             if (user.ownSong) {
