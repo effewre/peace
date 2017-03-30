@@ -1096,7 +1096,7 @@
                         }
                     }
                      if (!alreadyPlayed) {
-                        basicBot.room.historyList.push([obj.media.cid, +new Date()]);
+                        partybot.room.historyList.push([obj.media.cid, +new Date()]);
                     }
                 }, 2000);
             }
