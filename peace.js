@@ -1031,19 +1031,12 @@
                     }
                 }
             }, 2000);
-            var newMedia = obj.media;
-            var timeLimitSkip = setTimeout(function () {
-                if (partybot.settings.timeGuard && newMedia.duration > partybot.settings.maximumSongLength * 60 && !partybot.room.roomevent) {
-                    var name = obj.dj.username;
-                    API.sendChat(subChat(partybot.chat.timelimit, {name: name, maxlength: partybot.settings.maximumSongLength}));
-                    if (partybot.settings.smartSkip){
-                        return partybot.roomUtilities.smartSkip();
-                    }
-                    else {
-                        return API.moderateForceSkip();
-                    }
-                }
-            }, 2000);
+              var newMedia = obj.media;
+            if (partybot.settings.timeGuard && newMedia.duration > partybot.settings.maximumSongLength * 60 && !partybot.room.roomevent) {
+                var name = obj.dj.username;
+                API.sendChat(subChat(partybot.chat.timelimit, {name: name, maxlength: partybot.settings.maximumSongLength}));
+                API.moderateForceSkip();
+            }
             var format = obj.media.format;
             var cid = obj.media.cid;
             var naSkip = setTimeout(function () {
