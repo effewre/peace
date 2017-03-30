@@ -29,6 +29,7 @@
 	
 	"usernotfound": "/me Lietotājs nav atrasts.",
     "notdisconnected": "/me @%%NAME%% neatslēdzās šajā laikā.",
+	"notdisconnectedd": "/me @%%NAME%% atslēdzies no 1. vai DJ vietas, pajautā @staff!"
     "noposition": "/me Nav atrasta iepriekšējā pozīcija, jo neatradies waitlist pirms atslēgšanās.",
     "toolongago": "/me @%%NAME%%'s iepriekšējā atslēgšanās bija pārāk ilgu laiku atpakaļ: %%TIME%%.",
     "valid": "/me @%%NAME%% atslēdzās %%TIME%% atpakaļ, jābūt pozīcijā %%POSITION%%.",
@@ -51,8 +52,8 @@
     "adfly": "/me @%%NAME%%, lūdzu nomaini savu autowoot programmu. Mēs iesakām OrigemWoot:(CHROME): http://origem-woot.com/Instalation/ (FIREFOX): https://addons.mozilla.org/en-US/firefox/addon/plugcubed/?src=search",
 	
 	"ballze": "/me %%NAME%% jautājums bija: \"%%QUESTION%%\" | Mana atbilde ir: \"%%RESPONSE%%\"",
-	"notghosting": "[%%NAME1%%] %%NAME2%% nespokojas.",
-    "ghosting": "[%%NAME1%%] %%NAME2%% spokojas vai neatrodas šeit.",
+	"notghosting": "/me [%%NAME1%%] %%NAME2%% nespokojas.",
+    "ghosting": "/me [%%NAME1%%] %%NAME2%% spokojas vai neatrodas šeit.",
 	"maxbingolength": "/me @%%NAME%% Maksimālais iespējamais bingo skaitlis ir %%ROLLLENGTH%%",
 	"invalidbingo": "/me @%%NAME%% Nepareizs skaitlis.",
 	"roll": "/me @%%NAME%% izlozētais skaitlis ir %%ROLLNUMBER%%",

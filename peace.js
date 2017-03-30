@@ -586,8 +586,8 @@
                     }
                 }
                 var newPosition = user.lastDC.position - songsPassed - afksRemoved;
-                if (newPosition <= -1) return subChat(partybot.chat.notdisconnected, {name: name});
-                var msg = subChat(partybot.chat.valid, {name: partybot.userUtilities.getUser(user).username, time: time, position: newPosition});
+                if (newPosition <= 0) return subChat(partybot.chat.notdisconnectedd, {name: name});
+				var msg = subChat(partybot.chat.valid, {name: partybot.userUtilities.getUser(user).username, time: time, position: newPosition});
                 partybot.userUtilities.moveUser(user.id, newPosition, true);
                 return msg;
             }
