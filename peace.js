@@ -2195,7 +2195,7 @@
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
                     else {
 						var dj = API.getDJ().id;
-                        if (partybot.room.roulette.rouletteStatus && partybotroom.roulette.participants.indexOf(chat.uid) < 0 && dj !== chat.uid ) {
+                        if (partybot.room.roulette.rouletteStatus && partybot.room.roulette.participants.indexOf(chat.uid) < 0 && dj !== chat.uid ) {
                             partybot.room.roulette.participants.push(chat.uid);
                             API.sendChat(subChat(partybot.chat.roulettejoin, {name: chat.un}));
                         }
