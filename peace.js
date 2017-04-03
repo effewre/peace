@@ -1171,20 +1171,19 @@
             }
            
 			msg = msg.toLowerCase();
-            if (msg === 'skip') {
-				if (partybot.userUtilities.getPermission(chat.uid) > 1) return false;
+            if (partybot.userUtilities.getPermission(chat.uid) > 1) {
+				if (msg === 'skip') {
 				API.sendChat(subChat(partybot.chat.askskip, {name: chat.un}));
                 return true;
 				
             }
             for (var j = 0; j < partybot.chatUtilities.spam.length; j++) {
                 if (msg === partybot.chatUtilities.spam[j]) {
-					if (partybot.userUtilities.getPermission(chat.uid) > 1) return false;
-					API.sendChat(subChat(partybot.chat.spam, {name: chat.un}));
+				PI.sendChat(subChat(partybot.chat.spam, {name: chat.un}));
                     return true;
                 
             }		
-			
+			}
 			}
             return false;
         },
