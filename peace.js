@@ -1149,9 +1149,10 @@
                 partybot.userUtilities.updatePosition(user, API.getWaitListPosition(users[i].id) + 1);
             }
         },
-        chatcleaner: function (chat) {
+         chatcleaner: function (chat) {
             if (!partybot.settings.filterChat) return false;
-			var msg = chat.message;
+            if (partybot.userUtilities.getPermission(chat.uid) < 0) return false;
+            var msg = chat.message;
             var containsLetters = false;
             for (var i = 0; i < msg.length; i++) {
                 ch = msg.charAt(i);
@@ -1160,29 +1161,29 @@
             if (msg === '') {
                 return true;
             }
-			
-			if (!containsLetters && (msg.length === 3 || msg.length > 5) return true;
-			msg = msg.replace(/[ ,;.:\/=~+%^*\-\\"'&@#]/g, '');
+            if (!containsLetters && (msg.length === 3 || msg.length > 5)) return true;
+            msg = msg.replace(/[ ,;.:\/=~+%^*\-\\"'&@#]/g, '');
             var capitals = 0;
             var ch;
             for (var i = 0; i < msg.length; i++) {
                 ch = msg.charAt(i);
                 if (ch >= 'A' && ch <= 'Z') capitals++;
             }
-			msg = msg.toLowerCase();
-            if (msg === 'skip') {
-				API.sendChat(subChat(partybot.chat.askskip, {name: chat.un}));
+            if (capitals >= 20) {
+                API.sendChat(subChat(partybot.chat.caps, {name: chat.un}));
                 return true;
-				
+            }
+            msg = msg.toLowerCase();
+            if (msg === 'skip') {
+                API.sendChat(subChat(partybot.chat.askskip, {name: chat.un}));
+                return true;
             }
             for (var j = 0; j < partybot.chatUtilities.spam.length; j++) {
                 if (msg === partybot.chatUtilities.spam[j]) {
-					API.sendChat(subChat(partybot.chat.spam, {name: chat.un}));
+                    API.sendChat(subChat(partybot.chat.spam, {name: chat.un}));
                     return true;
-					}
-				}
-                
-            
+                }
+            }
             return false;
         },
          chatUtilities: {
