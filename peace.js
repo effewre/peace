@@ -1531,6 +1531,10 @@
                     case 'user':
                         minPerm = 0;
                         break;
+					case 'suncis'
+					API.getUser(25880164)
+						minperm = 2;
+						break;
                     default:
                         API.chatLog('error assigning minimum permission');
                 }
