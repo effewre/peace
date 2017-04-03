@@ -1169,15 +1169,7 @@
                 ch = msg.charAt(i);
                 if (ch >= 'A' && ch <= 'Z') capitals++;
             }
-           
-			msg = msg.toLowerCase();
-			if (msg === 'skip') {
-				API.sendChat(subChat(partybot.chat.askskip, {name: chat.un}));
-                return false;
-				
-            }
-            
-            return false;
+           return false;
         },
          chatUtilities: {
             chatFilter: function (chat) {
@@ -1215,9 +1207,15 @@
 					}
 				for (var j = 0; j < partybot.chatUtilities.spam.length; j++) {
 				if (msg === partybot.chatUtilities.spam[j]) {
+					API.moderateDeleteChat(chat.cid);
 					API.sendChat(subChat(partybot.chat.spam, {name: chat.un}));
                     return true;
 				}
+				}
+				if (msg === 'skip') {
+				API.sendChat(subChat(partybot.chat.askskip, {name: chat.un}));
+				API.moderateDeleteChat(chat.cid);
+                return false;
 				}
                 if (msg.indexOf('http://adf.ly/') > -1) {
                     API.moderateDeleteChat(chat.cid);
