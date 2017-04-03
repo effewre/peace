@@ -394,7 +394,7 @@
                 position: []
             },
             blacklists: {
-
+			NSFW: "https://rawgit.com/effewre/peace/master/blacklist.json"
             },
             newBlacklisted: [],
             newBlacklistedSongFunction: null,
