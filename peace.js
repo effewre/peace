@@ -1172,17 +1172,17 @@
            
 			msg = msg.toLowerCase();
             if (msg === 'skip') {
-				if (perm === 4) {
-                API.sendChat(subChat(partybot.chat.askskip, {name: chat.un}));
+				if (partybot.userUtilities.getPermission(chat.uid) > 1) return false;
+				API.sendChat(subChat(partybot.chat.askskip, {name: chat.un}));
                 return true;
-				}
+				
             }
             for (var j = 0; j < partybot.chatUtilities.spam.length; j++) {
                 if (msg === partybot.chatUtilities.spam[j]) {
-					if (perm === 4) {
-                    API.sendChat(subChat(partybot.chat.spam, {name: chat.un}));
+					if (partybot.userUtilities.getPermission(chat.uid) > 1) return false;
+					API.sendChat(subChat(partybot.chat.spam, {name: chat.un}));
                     return true;
-                }
+                
             }		
 			
 			}
