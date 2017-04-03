@@ -241,11 +241,11 @@
             skipReasons: [
                 ["theme", "This song does not fit the room theme. "],
                 ["op", "This song is on the OP list. "],
-                ["history", "This song is in the history. "],
+                ["history", "Šī dziesma atrodas atskaņoto dziesmu vēturē. "],
                 ["mix", "You played a mix, which is against the rules. "],
                 ["sound", "The song you played had bad sound quality or no sound. "],
                 ["nsfw", "The song you contained was NSFW (image or sound). "],
-                ["unavailable", "The song you played was not available for some users. "]
+                ["unavailable", "Šī dziesma dažiem lietotājiem nebija pieejama. "]
             ],
 			  ballze: [
 			"Tu labi zini, ka gribi dzirdēt atbildi?",
@@ -334,7 +334,7 @@
             etaRestriction: false,
             welcome: true,
             opLink: null,
-            rulesLink: "https://lvpr.co/forum/topic/16-partybot-komandas/",
+            rulesLink: "https://lvpr.co/forum/topic/3-noteikumi-plugdj/",
 			blackLIst: "https://lvpr.co/forum/topic/14-blacklist-info/",
             themeLink: null,
             fbLink: null,
@@ -575,7 +575,6 @@
                 }
                 var time = partybot.roomUtilities.msToStr(timeDc);
                 if (!validDC) return (subChat(partybot.chat.toolongago, {name: partybot.userUtilities.getUser(user).username, time: time}));
-                var songsPassed = partybot.room.roomstats.songCount - user.lastDC.songCount;
                 var afksRemoved = 0;
                 var afkList = partybot.room.afkList;
                 for (var i = 0; i < afkList.length; i++) {
@@ -585,8 +584,8 @@
                         afksRemoved++;
                     }
                 }
-                var newPosition = user.lastDC.position - songsPassed - afksRemoved;
-                if (newPosition <= 0) return subChat(partybot.chat.notdisconnectedd, {name: name});
+                var newPosition = user.lastDC.position - afksRemoved;
+                if (newPosition <= 0) return subChat(partybot.chat.notdisconnectedd, {name: partybot.userUtilities.getUser(user).username, time: time});
 				var msg = subChat(partybot.chat.valid, {name: partybot.userUtilities.getUser(user).username, time: time, position: newPosition});
                 partybot.userUtilities.moveUser(user.id, newPosition, true);
                 return msg;
@@ -2574,7 +2573,7 @@
 
                 muteCommand: {
                 command: 'mute',
-                rank: 'manager',
+                rank: 'bouncer',
                 type: 'startsWith',
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
