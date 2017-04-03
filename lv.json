@@ -20,6 +20,7 @@
 	
 	
 	"isopen": "/me Rulete ir sākusies. Raksti !join lai piedalītos!",
+	"isopen2": "/me Loterija ir sākusies. Raksti !play lai piedalītos, uzvarētājs tiks iemests random vietā!",
     "winnerpicked": "/me Uzvarētājs ir izvēlēts! @%%NAME%% tiek pārvietots uz %%POSITION%% pozīciju.",
 	
 	
@@ -128,13 +129,16 @@
     "eta": "/me @%%NAME%% jūs varēsiet likt dziesmu pēc %%TIME%%.",
     "facebook": "/me Like us on facebook: %%LINK%%",
     "starterhelp": "/me Šī bilde palīdzēs tev uzsākt savas gaitas @plug : %%LINK%%",
-    "roulettejoin": "/me @%%NAME%% pievienojās ruletei! (!leave ja tu to nožēlo.)",
+    "roulettejoin": "/me @%%NAME%% pievienojās ruletei! (!leave ja vēlies to pamest.)",
+	"lotteryjoin": "/me @%%NAME%% pievienojās loterijai! (!quit ja vēlies to pamest.)",
+	"lotteryjoin1" "/me @%%NAME%% nevari pievienoties loterijai, jo esi DJ!",
 	"roulettejoin1": "/me @%%NAME%% nevari pievienoties ruletei, jo esi DJ!",
 	"jointime": "/me [@%%NAMEFROM%%] @%%USERNAME%% ir bijis šeit %%TIME%%.",
     "kickrank": "/me [@%%NAME%%] jūs nevarat izkikot memberus, kuriem ir augstāka pakāpe!",
     "kick": "/me [@%%NAME%%], @%%USERNAME%% jūs tiekat izkikots no istabas uz %%TIME%% minūtēm.",
     "kill": "/me Peace!",
     "rouletteleave": "/me @%%NAME%% pameta ruleti.",
+	"lotteryleave": "/me @%%NAME%% pameta loteriju.",
     "songlink": "/me [@%%NAME%%] Saite uz šo dziesmu: %%LINK%%",
     "usedlockskip": "/me [%%NAME%% izmantoja lockskip.]",
     "lockskippos": "/me [@%%NAME%%] Lockskip will now move the dj to position %%POSITION%%.",
