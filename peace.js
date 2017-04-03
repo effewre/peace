@@ -426,9 +426,8 @@
                         partybot.userUtilities.moveUser(winner, pos, false);
                     }, 1 * 1000, winner, pos);
                 }
-            }
-        },
-		 lottery: {
+            },
+				lottery: {
                 lotteryStatus: false,
                 participants: [],
                 countdown: null,
