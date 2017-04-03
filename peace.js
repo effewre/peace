@@ -1160,8 +1160,8 @@
             if (msg === '') {
                 return true;
             }
-			}
-            if (!containsLetters && (msg.length === 3 || msg.length > 5) return true;
+			
+			if (!containsLetters && (msg.length === 3 || msg.length > 5) return true;
 			msg = msg.replace(/[ ,;.:\/=~+%^*\-\\"'&@#]/g, '');
             var capitals = 0;
             var ch;
@@ -1173,7 +1173,7 @@
             if (msg === 'skip') {
 				API.sendChat(subChat(partybot.chat.askskip, {name: chat.un}));
                 return true;
-				}
+				
             }
             for (var j = 0; j < partybot.chatUtilities.spam.length; j++) {
                 if (msg === partybot.chatUtilities.spam[j]) {
@@ -1181,8 +1181,8 @@
                     return true;
 					}
 				}
-                }
-            }
+                
+            
             return false;
         },
          chatUtilities: {
