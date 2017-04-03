@@ -1283,8 +1283,8 @@
                     return true;
                 }
                 return false;
-            },
-			var joinedlottery = rlPlayChat.split('%%NAME%%');
+            
+				var joinedlottery = rlPlayChat.split('%%NAME%%');
                 if (joinedlottery[1].length > joinedlottery[0].length) joinedlottery = joinedlottery[1];
                 else joinedlottery = joinedlottery[0];
 
