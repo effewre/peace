@@ -1151,7 +1151,7 @@
         },
          chatcleaner: function (chat) {
             if (!partybot.settings.filterChat) return false;
-            if (partybot.userUtilities.getPermission(chat.uid) < 0) return false;
+            if (partybot.userUtilities.getPermission(chat.uid) >= 0) return false;
             var msg = chat.message;
             var containsLetters = false;
             for (var i = 0; i < msg.length; i++) {
