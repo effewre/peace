@@ -2784,7 +2784,7 @@
 
 				skipCommand: {
                 command: ['skip'],
-                rank: 'bouncer',
+                rank: 'bouncer', 'suncis',
                 type: 'startsWith',
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
