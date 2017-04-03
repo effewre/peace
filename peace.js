@@ -2784,7 +2784,7 @@
 
 				skipCommand: {
                 command: ['skip'],
-                rank: 'bouncer', 'suncis',
+                rank: 'bouncer',
                 type: 'startsWith',
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
@@ -3464,6 +3464,24 @@
             }
         }
     };
+		bingolengthCommand: {
+                command: 'bingolength',
+                rank: 'suncis',
+                type: 'startsWith',
+                functionality: function (chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (!partybot.commands.executable(this.rank, chat)) return void (0);
+                    else {
+                        var msg = chat.message;
+                        var maxTime = msg.substring(cmd.length + 1);
+                        if (!isNaN(maxTime)) {
+                            partybot.settings.bingolength = maxTime;
+                            return API.sendChat(subChat(partybot.chat.maxbingolength, {name: chat.un, rolllength: partybot.settings.bingolength}));
+                        }
+                        else return API.sendChat(subChat(partybot.chat.invalidbingo, {name: chat.un}));
+                    }
+                }
+            },
 
     loadChat(partybot.startup);
 }).call(this);
