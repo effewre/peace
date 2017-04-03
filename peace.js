@@ -1169,11 +1169,8 @@
                 ch = msg.charAt(i);
                 if (ch >= 'A' && ch <= 'Z') capitals++;
             }
-            if (capitals >= 20) {
-                API.sendChat(subChat(partybot.chat.caps, {name: chat.un}));
-                return true;
-            }
-            msg = msg.toLowerCase();
+           
+			msg = msg.toLowerCase();
             if (msg === 'skip') {
                 API.sendChat(subChat(partybot.chat.askskip, {name: chat.un}));
                 return true;
@@ -1223,6 +1220,11 @@
                 if (msg.indexOf('http://adf.ly/') > -1) {
                     API.moderateDeleteChat(chat.cid);
                     API.sendChat(subChat(partybot.chat.adfly, {name: chat.un}));
+                    return true;
+                }
+				if (msg.indexOf('plug.dj/') > -1) {
+                    API.moderateDeleteChat(chat.cid);
+                    API.sendChat(subChat(partybot.chat.roomadvertising, {name: chat.un}));
                     return true;
                 }
                 if (msg.indexOf('autojoin was not enabled') > 0 || msg.indexOf('AFK message was not enabled') > 0 || msg.indexOf('!afkdisable') > 0 || msg.indexOf('!joindisable') > 0 || msg.indexOf('autojoin disabled') > 0 || msg.indexOf('AFK message disabled') > 0) {
