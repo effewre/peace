@@ -1217,7 +1217,7 @@
                     API.sendChat(subChat(partybot.chat.roomadvertising, {name: chat.un}));
                         API.moderateDeleteChat(chat.cid);
                         return true;
-                    }
+                    
                 }
                 if (msg.indexOf('http://adf.ly/') > -1) {
                     API.moderateDeleteChat(chat.cid);
