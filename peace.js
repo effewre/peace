@@ -1210,7 +1210,7 @@
 				for (var j = 0; j < partybot.chatUtilities.randomtext.length; j++) {
 				if (msg === partybot.chatUtilities.randomtext[j]) {
 					API.moderateDeleteChat(chat.cid);
-					API.sendChat(subChat(partybot.chat.spam, {name: chat.un}));
+					API.sendChat(subChat(partybot.chat.randomtext, {name: chat.un}));
                     return true;
 				}
 				}
