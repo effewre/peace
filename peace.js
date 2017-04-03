@@ -1213,9 +1213,11 @@
                         return true;
 					 }
 					}
+				for (var j = 0; j < partybot.chatUtilities.spam.length; j++) {
 				if (msg === partybot.chatUtilities.spam[j]) {
 				PI.sendChat(subChat(partybot.chat.spam, {name: chat.un}));
                     return true;
+				}
 				}
                 if (msg.indexOf('http://adf.ly/') > -1) {
                     API.moderateDeleteChat(chat.cid);
