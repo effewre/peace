@@ -1171,19 +1171,18 @@
             }
            
 			msg = msg.toLowerCase();
-            if (partybot.userUtilities.getPermission(chat.uid) > 1) {
-				if (msg === 'skip') {
+			if (msg === 'skip') {
 				API.sendChat(subChat(partybot.chat.askskip, {name: chat.un}));
-                return true;
+                return false;
 				
             }
             for (var j = 0; j < partybot.chatUtilities.spam.length; j++) {
                 if (msg === partybot.chatUtilities.spam[j]) {
 				PI.sendChat(subChat(partybot.chat.spam, {name: chat.un}));
-                    return true;
+                    return false;
                 
             }		
-			}
+			
 			}
             return false;
         },
