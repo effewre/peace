@@ -8,7 +8,7 @@
     "online": "/me %%BOTNAME%% v%%VERSION%% ir tiešsaistē!",
 	
 	
-	"welcome": "/me Yo! Prieks, ka ienāci šeit @%%NAME%% Relax and have fun!",
+	"welcome": "/me Čau! Prieks, ka ienāci šeit @%%NAME%%, mūsu mājaslapa: https://lvpr.co/forum/",
     "welcomeback": "/me Esi sveicināts/-ta atpakaļ @%%NAME%% Ja atslēdzies pēdējās stundas laikā, raksti !dc.",
 
 	"songknown": "/me Šī dziesma atrodas DJ vēsturē, jeb ir spēlēta pēdējo 4 stundu laikā!",
