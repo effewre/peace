@@ -426,35 +426,6 @@
                         partybot.userUtilities.moveUser(winner, pos, false);
                     }, 1 * 1000, winner, pos);
                 }
-            },
-				lottery: {
-                lotteryStatus: false,
-                participants: [],
-                countdown: null,
-                startLottery: function () {
-                  partybot.room.lottery.lotteryStatus = true;
-                   partybot.room.lottery.countdown = setTimeout(function () {
-                   partybot.room.lottery.endLottery();
-                    }, 60 * 1000);
-                    API.sendChat(partybot.chat.isopen2);
-                },
-                endlottery: function () {
-                    partybot.room.lottery.lotteryStatus = false;
-					var ind = undefined;
-                    ind = Math.floor((Math.random() * partybot.room.lottery.participants.length)+ 0);
-					var winner = undefined;
-                    winner = partybot.room.lottery.participants[ind];
-                    partybot.room.lottery.participants = [];
-                    var pos = Math.floor((Math.random() * API.getWaitList().length) + 1);
-					var user = undefined;
-                    user = partybot.userUtilities.lookupUser(winner);
-					var name = undefined;
-                    name = user.username;
-                    API.sendChat(subChat(partybot.chat.winnerpicked, {name: name, position: pos}));
-                    setTimeout(function (winner, pos) {
-                        partybot.userUtilities.moveUser(winner, pos, false);
-                    }, 1 * 1000, winner, pos);
-                }
             }
         },
        User: function (id, name) {
@@ -1262,10 +1233,7 @@
                     API.moderateDeleteChat(chat.cid);
                     return true;
                 }
-				var rlPlayChat = partybot.chat.lotteryjoin;
-                var rlQuitChat = partybot.chat.lotteryleave;
-				
-				var rlJoinChat = partybot.chat.roulettejoin;
+               var rlJoinChat = partybot.chat.roulettejoin;
                 var rlLeaveChat = partybot.chat.rouletteleave;
 
                 var joinedroulette = rlJoinChat.split('%%NAME%%');
@@ -1277,22 +1245,6 @@
                 else leftroulette = leftroulette[0];
 
                 if ((msg.indexOf(joinedroulette) > -1 || msg.indexOf(leftroulette) > -1) && chat.uid === partybot.loggedInID) {
-                    setTimeout(function (id) {
-                        API.moderateDeleteChat(id);
-                    }, 5 * 1000, chat.cid);
-                    return true;
-                }
-                return false;
-            
-				var joinedlottery = rlPlayChat.split('%%NAME%%');
-                if (joinedlottery[1].length > joinedlottery[0].length) joinedlottery = joinedlottery[1];
-                else joinedlottery = joinedlottery[0];
-
-                var leftlottery = rlQuitChat.split('%%NAME%%');
-                if (leftlottery[1].length > leftlottery[0].length) leftlottery = leftlottery[1];
-                else leftlottery = leftlottery[0];
-
-                if ((msg.indexOf(joinedlottery) > -1 || msg.indexOf(leftlottery) > -1) && chat.uid === partybot.loggedInID) {
                     setTimeout(function (id) {
                         API.moderateDeleteChat(id);
                     }, 5 * 1000, chat.cid);
@@ -2262,26 +2214,6 @@
                     }
                 }
             },
-			playCommand: {
-                command: 'play',
-                rank: 'user',
-                type: 'exact',
-                functionality: function (chat, cmd) {
-                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-                    if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
-						var dj = API.getDJ().id;
-                        if (partybot.room.lottery.lotteryStatus && partybot.room.lottery.participants.indexOf(chat.uid) < 0 && dj !== chat.uid ) {
-                            partybot.room.lottery.participants.push(chat.uid);
-                            API.sendChat(subChat(partybot.chat.lotteryjoin, {name: chat.un}));
-                        }
-					if (dj === chat.uid)
-					{
-					API.sendChat(subChat(partybot.chat.lotteryjoin1, {name: chat.un}));	
-					}
-                    }
-                }
-            },
 
             jointimeCommand: {
                 command: 'jointime',
@@ -2383,24 +2315,6 @@
                     }
                 }
             },
-			
-				quitCommand: {
-                command: 'quit',
-                rank: 'user',
-                type: 'exact',
-                functionality: function (chat, cmd) {
-                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-                    if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
-                        var ind = partybot.room.lottery.participants.indexOf(chat.uid);
-                        if (ind > -1) {
-                            partybotroom.lottery.participants.splice(ind, 1);
-                            API.sendChat(subChat(partybot.chat.lotteryleave, {name: chat.un}));
-                        }
-                    }
-                }
-            },
-
 
             linkCommand: {
                 command: 'link',
@@ -2827,21 +2741,6 @@
                     else {
                         if (!partybot.room.roulette.rouletteStatus) {
                             partybot.room.roulette.startRoulette();
-                        }
-                    }
-                }
-            },
-			
-			lotteryCommand: {
-                command: 'lottery',
-                rank: 'manager',
-                type: 'exact',
-                functionality: function (chat, cmd) {
-                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-                    if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else {
-                        if (!partybot.room.lottery.lotteryStatus) {
-                            partybot.room.lottery.startlottery();
                         }
                     }
                 }
