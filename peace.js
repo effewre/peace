@@ -1015,15 +1015,20 @@
 
             
 			var blacklistSkip = setTimeout(function () {
-            var mid = obj.media.format + ':' + obj.media.cid;
-            for (var bl in partybot.room.blacklists) {
-                if (partybot.settings.blacklistEnabled) {
-                    if (partybot.room.blacklists[bl].indexOf(mid) > -1) {
-                        API.sendChat(subChat(partybot.chat.isblacklisted, {blacklist: bl}));
-                        return API.moderateForceSkip();
+                var mid = obj.media.format + ':' + obj.media.cid;
+                for (var bl in partybot.room.blacklists) {
+                    if (partybot.settings.blacklistEnabled) {
+                        if (partybot.room.blacklists[bl].indexOf(mid) > -1) {
+                            API.sendChat(subChat(partybot.chat.isblacklisted, {blacklist: bl}));
+                            if (partybot.settings.smartSkip){
+                                return partybot.roomUtilities.smartSkip();
+                            }
+                            else {
+                                return API.moderateForceSkip();
+                            }
+                        }
                     }
                 }
-			}
             }, 2000);
             
 			var newMedia = obj.media;
