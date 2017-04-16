@@ -1302,7 +1302,7 @@
                 else joinedlottery = joinedlottery[0];
 
                 var leftlottery = rlQuitChat.split('%%NAME%%');
-                if (leftlottery[1].length > leftlottery[0].length) leftroulette = leftlottery[1];
+                if (leftlottery[1].length > leftlottery[0].length) leftlottery = leftlottery[1];
                 else leftlottery = leftlottery[0];
 
                 if ((msg.indexOf(joinedlottery) > -1 || msg.indexOf(leftlottery) > -1) && chat.uid === partybot.loggedInID) {
