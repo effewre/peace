@@ -1235,6 +1235,9 @@
                     API.sendChat(subChat(partybot.chat.roomadvertising, {name: chat.un}));
                     return true;
                 }
+				if (msg.indexOf('plug.dj/terms') > -1) {
+                   return true;
+                }
                 if (msg.indexOf('autojoin was not enabled') > 0 || msg.indexOf('AFK message was not enabled') > 0 || msg.indexOf('!afkdisable') > 0 || msg.indexOf('!joindisable') > 0 || msg.indexOf('autojoin disabled') > 0 || msg.indexOf('AFK message disabled') > 0) {
                     API.moderateDeleteChat(chat.cid);
                     return true;

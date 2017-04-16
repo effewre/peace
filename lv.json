@@ -170,6 +170,7 @@
     "commandscd": "/me [@%%NAME%%] Komandas nevarēs atkārtoti rakstīt %%TIME%% sekundes.",
     "voteratio": "/me [@%%NAME%%] @%%USERNAME%% ~ woots: %%WOOT%%, mehs: %%MEHS%%, ratio (w/m): %%RATIO%%.",
     "website": "/me Apmeklē mūsu mājaslapu: %%LINK%%",
+	"twitter": "/me Twitter lapa: %%LINK%%",
     "youtube": "/me [%%NAME%%] Subscribe to us on youtube: %%LINK%%",
     "songstatistics": "/me %%ARTIST%% - %%TITLE%%: %%WOOTS%%W/%%GRABS%%G/%%MEHS%%M."
 }
