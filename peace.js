@@ -433,14 +433,14 @@
                 lotteryStatus: false,
                 participants: [],
                 countdown: null,
-                startlottery: function () {
+                startLottery: function () {
                    partybot.room.lottery.lotteryStatus = true;
                     partybot.room.lottery.countdown = setTimeout(function () {
-                        partybot.room.lottery.endlottery();
+                        partybot.room.lottery.endLottery();
                     }, 60 * 1000);
                     API.sendChat(partybot.chat.isopen2);
                 },
-                endlottery: function () {
+                endLottery: function () {
                     partybot.room.lottery.lotteryStatus = false;
 					var ind = undefined;
                     ind = Math.floor((Math.random() * partybot.room.lottery.participants.length)+ 0);
