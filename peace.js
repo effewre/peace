@@ -1296,7 +1296,7 @@
                 }
 				
 				var rlPlayChat = partybot.chat.lotteryjoin;
-				var rlQuitChat = partybot.chat.lotterleave;
+				var rlQuitChat = partybot.chat.lotteryleave;
 
                 var playedlottery = rlPlayChat.split('%%NAME%%');
                 if (playedlottery[1].length > playedlottery[0].length) playedlottery = playedlottery[1];
