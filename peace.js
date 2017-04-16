@@ -1159,7 +1159,7 @@
                 ch = msg.charAt(i);
                 if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z') || (ch >= '0' && ch <= '9') || ch === ':' || ch === '^') containsLetters = true;
             }
-            if (msg === '') {
+            if (msg === 'plug.dj/terms') {
                 return true;
             }
             if (!containsLetters && (msg.length === 3 || msg.length > 5)) return true;
@@ -1234,10 +1234,7 @@
                     API.moderateDeleteChat(chat.cid);
                     API.sendChat(subChat(partybot.chat.roomadvertising, {name: chat.un}));
                     return true;
-                }
-				if (msg.indexOf('plug.dj/terms') > -1) {
-                   return true;
-                }
+				}
                 if (msg.indexOf('autojoin was not enabled') > 0 || msg.indexOf('AFK message was not enabled') > 0 || msg.indexOf('!afkdisable') > 0 || msg.indexOf('!joindisable') > 0 || msg.indexOf('autojoin disabled') > 0 || msg.indexOf('AFK message disabled') > 0) {
                     API.moderateDeleteChat(chat.cid);
                     return true;
