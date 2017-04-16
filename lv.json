@@ -123,7 +123,7 @@
 	
     "cycleguardtime": "/me [@%%NAME%%] The cycleguard is set to %%TIME%% minute(s).",
     "dclookuprank": "/me [@%%NAME%%] Tikai managers var izmantot dc citiem",
-    "emojilist": "/me Emoji list: %%LINK%%",
+    "emojilist": "/me Emoji list: %%LINK%% , RCS emoji atrodami šeit: https://rcs.radiant.dj/emotes",
     "notinwaitlist": "/me @%%NAME%%, jūs neesat waitlistā.",
     "eta": "/me @%%NAME%% jūs varēsiet likt dziesmu pēc %%TIME%%.",
     "facebook": "/me Like us on facebook: %%LINK%%",

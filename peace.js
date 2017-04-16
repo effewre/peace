@@ -340,6 +340,7 @@
             fbLink: null,
             youtubeLink: null,
             website: "https://lvpr.co/forum/",
+			twitter: "https://twitter.com/lvpartyroom",
             intervalMessages: null,
 			messageInterval: 25,
             songstats: false,
@@ -3228,6 +3229,19 @@
                     else {
                         if (typeof partybot.settings.website === "string")
                             API.sendChat(subChat(partybot.chat.website, {link: partybot.settings.website}));
+                    }
+                }
+            },
+			twitterCommand: {
+                command: 'twitter',
+                rank: 'user',
+                type: 'exact',
+                functionality: function (chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (!partybot.commands.executable(this.rank, chat)) return void (0);
+                    else {
+                        if (typeof partybot.settings.twitter === "string")
+                            API.sendChat(subChat(partybot.chat.twitter, {link: partybot.settings.twitter}));
                     }
                 }
             },
