@@ -1294,18 +1294,18 @@
                     }, 5 * 1000, chat.cid);
                     return true;
                 }
-				var rlPlayChat = partybot.chat.lotteryjoin;
-               var rlQuitChat = partybot.chat.lotteryleave;
+				var rlPlayChat = partybot.chat.lotteryplay;
+               var rlQuitChat = partybot.chat.lotteryquit;
 
-                var joinedlottery = rlPlayChat.split('%%NAME%%');
-                if (joinedlottery[1].length > joinedlottery[0].length) joinedlottery = joinedlottery[1];
-                else joinedlottery = joinedlottery[0];
+                var playedlottery = rlPlayChat.split('%%NAME%%');
+                if (playedlottery[1].length > playedlottery[0].length) playedlottery = playedlottery[1];
+                else playedlottery = playedlottery[0];
 
-                var leftlottery = rlQuitChat.split('%%NAME%%');
-                if (leftlottery[1].length > leftlottery[0].length) leftlottery = leftlottery[1];
-                else leftlottery = leftlottery[0];
+                var quittedlottery = rlQuitChat.split('%%NAME%%');
+                if (quittedlottery[1].length > quittedlottery[0].length) quittedlottery = quittedlottery[1];
+                else quittedlottery = quittedlottery[0];
 
-                if ((msg.indexOf(joinedlottery) > -1 || msg.indexOf(leftlottery) > -1) && chat.uid === partybot.loggedInID) {
+                if ((msg.indexOf(playedlottery) > -1 || msg.indexOf(quittedlottery) > -1) && chat.uid === partybot.loggedInID) {
                     setTimeout(function (id) {
                         API.moderateDeleteChat(id);
                     }, 5 * 1000, chat.cid);
