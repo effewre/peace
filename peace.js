@@ -2408,9 +2408,9 @@
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!partybot.commands.executable(this.rank, chat)) return void (0);
                     else {
-                        var ind = partybot.room.roulette.participants.indexOf(chat.uid);
+                        var ind = partybot.room.lottery.participants.indexOf(chat.uid);
                         if (ind > -1) {
-                            partybotroom.roulette.participants.splice(ind, 1);
+                            partybotroom.lottery.participants.splice(ind, 1);
                             API.sendChat(subChat(partybot.chat.lotteryleave, {name: chat.un}));
                         }
                     }
