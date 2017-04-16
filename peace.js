@@ -1294,8 +1294,9 @@
                     }, 5 * 1000, chat.cid);
                     return true;
                 }
-				var rlPlayChat = partybot.chat.lotteryplay;
-               var rlQuitChat = partybot.chat.lotteryquit;
+				
+				var rlPlayChat = partybot.chat.lotteryjoin;
+				var rlQuitChat = partybot.chat.lotterleave;
 
                 var playedlottery = rlPlayChat.split('%%NAME%%');
                 if (playedlottery[1].length > playedlottery[0].length) playedlottery = playedlottery[1];
