@@ -1389,7 +1389,7 @@
             },
             spam: [
                 'ble', 'bļe', 'loh', 'lox', 'bļed', 'bled', 'nahuj', 'suka', 
-                'hitler',  'huehue', 'hue', 'huehuehue',
+                'hitler',  'cyka' 
             ],
 			randomtext: [
 					'mauka','pimpis','lohs','pizģets','bļeģ','šmara','kuce',
