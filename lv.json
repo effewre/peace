@@ -84,7 +84,7 @@
     "afklimit": "AFK limit",
     "autoskip": "autoskip",
     "newblacklisted": "/me [@%%NAME%%] Šī dziesma tiek pārvietota uz %%BLACKLIST%% blacklistu! [ %%AUTHOR%% - %%TITLE%% - %%MID%% ]",
-    "blinfo": "/me Blacklist info skaties šeit https://lvpr.co/forum/topic/14-blacklist-info/",
+    "blinfo": "/me Blacklist info skaties šeit http://lvpr.co/blacklist",
     "blacklist": "blacklist",
     "cycleguard": "cycleguard",
     "timeguard": "timeguard",
