@@ -334,7 +334,7 @@
             etaRestriction: false,
             welcome: true,
             opLink: null,
-            rulesLink: "https://pastebin.com/1a9fhrLG",
+            rulesLink: "https://lvpr.co/rules/",
 			blackLIst: "https://pastebin.com/UqP6wKbv",
             themeLink: null,
             fbLink: null,
