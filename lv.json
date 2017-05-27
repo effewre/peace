@@ -161,7 +161,7 @@
     "alus": "/me Pa velti te neviens :beers: :beers: :beers:  nedod!",
     "reload": "/me Ša būšu bekā, varbūt",
     "removenotinwl": "/me [@%%NAME%%] Lietotājs @%%USERNAME%% neatrodas waitlistā.",
-    "roomrules": "/me Mūsu rooma noteikumi ir atrodami šeit: %%LINK%%",
+    "roomrules": "/me Mūsu rooma noteikumi ir atrodami šeit: https://lvpr.co/rules/",
     "sessionstats": "/me [@%%NAME%%] WOOTS: %%WOOTS%%, MEHS: %%MEHS%%, GRABS: %%GRABS%%.",
     "usedskip": "/me [%%NAME%% izmantoja skip.]",
     "madeby": "/me This bot was made by %%NAME%%.",
