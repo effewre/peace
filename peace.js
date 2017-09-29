@@ -1268,6 +1268,9 @@
 				if (msg.indexOf('plug.dj/@/') > -1) {
                     return true;
 				}
+				if (msg.indexOf('plug.dj/plot') > -1) {
+                    return true;
+				}
 				if (msg.indexOf('plug.dj/') > -1) {
                     API.moderateDeleteChat(chat.cid);
                     API.sendChat(subChat(partybot.chat.roomadvertising, {name: chat.un}));
