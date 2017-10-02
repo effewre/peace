@@ -2108,24 +2108,29 @@
                 command: 'deletechat',
                 rank: 'manager',
                 type: 'startsWith',
-                functionality: function (chat, cmd) {
-                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-                    if (!partybot.commands.executable(this.rank, chat)) return void (0);
-                    else{
+                functionality: function(chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
+                    if (!partybot.commands.executable(this.rank, chat)) return void(0);
+                    else {
                         var msg = chat.message;
-                        if (msg.length === cmd.length) return API.sendChat(subChat(partybot.chat.nouserspecified, {name: chat.un}));
+                        if (msg.length === cmd.length) return API.sendChat(subChat(partybot.chat.nouserspecified, {
+                            name: chat.un
+                        }));
                         var name = msg.substring(cmd.length + 2);
                         var user = partybot.userUtilities.lookupUserName(name);
-                        if (typeof user === 'boolean') return API.sendChat(subChat(partybot.chat.invaliduserspecified, {name: chat.un}));
-                        var chats = $('.from');
-                        for (var i = 0; i < chats.length; i++) {
-                            var n = chats[i].textContent;
-                            if (name.trim() === n.trim()) {
-                                var cid = $(chats[i]).parent()[0].getAttribute('data-cid');
-                                API.moderateDeleteChat(cid);
+                        if (typeof user === 'boolean') return API.sendChat(subChat(partybot.chat.invaliduserspecified, {
+                            name: chat.un
+                        }));
+                        for (var i = 1; i < partybot.room.chatMessages.length; i++) {
+                            if (partybot.room.chatMessages[i].indexOf(user.id) > -1) {
+                                API.moderateDeleteChat(partybot.room.chatMessages[i][0]);
+                                partybot.room.chatMessages[i].splice(0);
                             }
                         }
-                        API.sendChat(subChat(partybot.chat.deletechat, {name: chat.un, username: name}));
+                        API.sendChat(subChat(partybot.chat.deletechat, {
+                            name: chat.un,
+                            username: name
+                        }));
                     }
                 }
             },
