@@ -160,7 +160,6 @@
     "muterank": "/me [@%%NAME%%] Tu nevari mutot personas ar augstāku vai tādu pašu ranku kā Tev.",
     "oplist": "/me OP list: %%LINK%%",
     "alus": "/me Pa velti te neviens :beers: :beers: :beers:  nedod!",
-    "reload": "/me Ša būšu bekā, varbūt",
     "removenotinwl": "/me [@%%NAME%%] Lietotājs @%%USERNAME%% neatrodas waitlistā.",
     "roomrules": "/me Mūsu rooma noteikumi ir atrodami šeit: https://lvpr.co/rules/",
     "sessionstats": "/me [@%%NAME%%] WOOTS: %%WOOTS%%, MEHS: %%MEHS%%, GRABS: %%GRABS%%.",
