@@ -8,7 +8,7 @@
     "online": "/me %%BOTNAME%% v%%VERSION%% ir tiešsaistē!",
 	
 	
-	"welcome": "/me Čau! Prieks, ka ienāci šeit @%%NAME%% , mūsu mājaslapa: https://lvpr.co/home/ ",
+	"welcome": "/me Čau! Prieks, ka ienāci šeit @%%NAME%%, izmanto discord? Pievienojies mums - https://discord.gg/5cBdrwf",
     "welcomeback": "/me Esi sveicināts/-ta atpakaļ @%%NAME%% Ja atslēdzies pēdējās stundas laikā, raksti !dc.",
 
 	"songknown": "/me Šī dziesma atrodas DJ vēsturē, jeb ir spēlēta pēdējo 4 stundu laikā!",
@@ -84,7 +84,7 @@
     "afklimit": "AFK limit",
     "autoskip": "autoskip",
     "newblacklisted": "/me [@%%NAME%%] Šī dziesma tiek pārvietota uz %%BLACKLIST%% blacklistu! [ %%AUTHOR%% - %%TITLE%% - %%MID%% ]",
-    "blinfo": "/me Blacklist info skaties šeit http://lvpr.co/blacklist",
+    "blinfo": "/me Blacklist info skaties šeit http://sor.lv/blacklist",
     "blacklist": "blacklist",
     "cycleguard": "cycleguard",
     "timeguard": "timeguard",
@@ -162,7 +162,7 @@
     "alus": "/me Pa velti te neviens :beers: :beers: :beers:  nedod!",
     "reload": "/me Klāra, ej bekot",
     "removenotinwl": "/me [@%%NAME%%] Lietotājs @%%USERNAME%% neatrodas waitlistā.",
-    "roomrules": "/me Mūsu rooma noteikumi ir atrodami šeit: https://lvpr.co/rules/",
+    "roomrules": "/me Mūsu rooma noteikumi ir atrodami šeit: https://sor.lv/rules/",
     "sessionstats": "/me [@%%NAME%%] WOOTS: %%WOOTS%%, MEHS: %%MEHS%%, GRABS: %%GRABS%%.",
     "usedskip": "/me [%%NAME%% izmantoja skip.]",
     "madeby": "/me This bot was made by %%NAME%%.",
