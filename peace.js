@@ -61,7 +61,7 @@
     var loadChat = function (cb) {
         if (!cb) cb = function () {
         };
-        $.get("https://rawgit.com/effewre/peace/master/langIndex.json", function (json) {
+        $.get("https://cdn.jsdelivr.net/gh/effewre/peace/langIndex.json", function (json) {
              var link = partybot.chatLink;
             if (json !== null && typeof json !== "undefined") {
                 langIndex = json;
@@ -204,7 +204,7 @@
         loggedInID: null,
         scriptLink: "https://rawgit.com/effewre/peace/master/partybot.js",
         cmdLink: "https://sor.lv/commands/",
-        chatLink: "https://rawgit.com/effewre/peace/master/lv.json",
+        chatLink: "https://cdn.jsdelivr.net/gh/effewre/peace/lv.json",
         chat: null,
         loadChat: loadChat,
         retrieveSettings: retrieveSettings,
@@ -212,7 +212,7 @@
         settings: {
             botName: "PartyBot",
             language: "latvian",
-            chatLink: "https://rawgit.com/effewre/peace/master/lv.json",
+            chatLink: "https://cdn.jsdelivr.net/gh/effewre/peace/lv.json",
 			startupCap: 1,
             startupVolume: 0,
             startupEmoji: false,
@@ -346,7 +346,7 @@
             songstats: false,
             commandLiteral: "!",
             blacklists: {
-                NSFW: "https://rawgit.com/effewre/peace/master/blacklist.json",
+                NSFW: "https://cdn.jsdelivr.net/gh/effewre/peace/blacklist.json",
                 OP: ""
             }
         },
@@ -395,7 +395,7 @@
                 position: []
             },
             blacklists: {
-			NSFW: "https://rawgit.com/effewre/peace/master/blacklist.json"
+			NSFW: "https://cdn.jsdelivr.net/gh/effewre/peace/blacklist.json"
             },
             newBlacklisted: [],
             newBlacklistedSongFunction: null,
